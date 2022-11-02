@@ -56,8 +56,16 @@ public class BattleController : MonoBehaviour
         }
         else if(gm.monster.israge)
         {
-            shieldOn = true;
-            gm.monster.AttackAnimation();
+            if(gm.timer.limitTime <= gm.timer.maxRageTime * 0.5 && LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.COW)
+            {
+                gm.monster.AttackDelay();
+                gm.gaugeTest.gameObject.SetActive(true);
+            }
+            else 
+            {
+                shieldOn = true;
+                gm.monster.AttackAnimation();
+            }
         }
         else if(gm.skill.isSkillGaugeFull)
         {

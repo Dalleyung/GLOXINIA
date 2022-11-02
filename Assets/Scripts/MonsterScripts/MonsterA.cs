@@ -26,5 +26,6 @@ public class MonsterA : Monster
     {
         UpdateHPBar();
         ChangeImage();
+        TestRageAttack();
     }
 }

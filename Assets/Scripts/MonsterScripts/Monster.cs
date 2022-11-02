@@ -456,7 +456,7 @@ public class Monster : MonoBehaviour
                 "Stage\nClear";
         }
         gm.soundManager.PlayBGMSound(gm.soundManager.victoryBGM);
-        gm.monster.AttackDelay();
+        AttackDelay();
         anim.speed = 0;
     }
 
@@ -468,7 +468,7 @@ public class Monster : MonoBehaviour
             "Stage\nFail";
         gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
         gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
-        gm.monster.AttackDelay();
+        AttackDelay();
     }
 
     public void CowAttackEffectOn()
@@ -505,6 +505,17 @@ public class Monster : MonoBehaviour
                     bossDieEffect_2.gameObject.SetActive(true);
                     break;
             }
+        }
+    }
+
+    public void TestRageAttack()
+    {
+        if(gm.gaugeTest.isGaugeFull)
+        {
+            gm.gaugeTest.isGaugeFull = false;
+            gm.gaugeTest.gameObject.SetActive(false);
+            gm.battleController.shieldOn = true;
+            AttackAnimation();
         }
     }
 }
