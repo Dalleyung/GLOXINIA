@@ -13,16 +13,26 @@ public class PlayerAttAnimation : MonoBehaviour
     GameManager gm;
 
     GameObject attObj;
+    /// <summary>
+    /// 숫자가 작을수록 빨라짐
+    /// </summary>
+    public float animSpeed = 0.15f;
     public Image attImage;
+    RectTransform imgrt;
+    
 
+    
     public IEnumerator AttAnimation(int num)
     {
         int curruntNum = 0;
         attImage.color = new Color(1, 1, 1, 1);
-
+        
         switch (num)
         {
             case 0:
+                imgrt.sizeDelta = new Vector2(700, 700);
+                imgrt.localPosition = new Vector3(0, 320, 0);
+                //attImage.rectTransform.sizeDelta = new Vector2(700, 400);
                 while (true)
                 {
                     attImage.sprite = hattSpritelist[curruntNum];
@@ -33,9 +43,12 @@ public class PlayerAttAnimation : MonoBehaviour
                         attImage.color = Color.clear;
                         yield break;
                     }
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(animSpeed);
                 }
             case 1:
+                imgrt.localPosition = new Vector3(0, 380, 0);
+                imgrt.sizeDelta = new Vector2(700, 400);
+                //attImage.rectTransform.sizeDelta = new Vector2(700, 400);
                 while (true)
                 {
                     attImage.sprite = mattSpritelist[curruntNum];
@@ -46,9 +59,12 @@ public class PlayerAttAnimation : MonoBehaviour
                         attImage.color = Color.clear;
                         yield break;
                     }
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(animSpeed);
                 }
             case 2:
+                imgrt.localPosition = new Vector3(0, 380, 0);
+                imgrt.sizeDelta = new Vector2(700, 400);
+                //attImage.rectTransform.sizeDelta = new Vector2(700, 600);
                 while (true)
                 {
                     attImage.sprite = lattSpritelist[curruntNum];
@@ -59,12 +75,19 @@ public class PlayerAttAnimation : MonoBehaviour
                         attImage.color = Color.clear;
                         yield break;
                     }
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(animSpeed);
                 }
         }
         yield break;
     }
 
+    /// <summary>
+    /// 플레이어 공격애니매이션 함수
+    /// </summary>
+    /// <param name="num">
+    /// 0번 강공, 1번 중간, 2번 약공
+    /// </param>
+    /// <returns></returns>
     public void attanicorutin(int num)
     {
         StartCoroutine(AttAnimation(num));
@@ -101,6 +124,8 @@ public class PlayerAttAnimation : MonoBehaviour
     {
         SetSpriteList();
         attImage.color = Color.clear;
+        animSpeed = 0.15f;
+        imgrt = attImage.rectTransform;
     }
     // Update is called once per frame
     void Update()
