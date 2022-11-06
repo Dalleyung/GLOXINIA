@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using TMPro;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -13,33 +15,38 @@ public class LoadingSceneManager : MonoBehaviour
     [SerializeField] Slider progressBar;
 
     public TextMeshProUGUI loadingText;
+    public TextMeshProUGUI loadingText2;
+    public Slider loadingSlider;
 
     private float alpha = -1f;
     private float value;
-    private bool isActive = false;
+    private bool isTouchMsgActive = false;
+    private bool isLoadingMsgActive = true;
+
+    private List<string> loadingTextList = new List<string>();
+    private int count = 0;
+    public float curTime = 0;
+    public float speed = 5f;
+
+    public float curFadeTime = 0;
+    public GameObject fadeBG;
+
+    AsyncOperation op;
 
     public static int currentStage = (int)STAGE.MAIN;
 
     private void Start()
     {
         StartCoroutine(LoadScene());
+        loadingTextList.Add("Loading.");
+        loadingTextList.Add("Loading..");
+        loadingTextList.Add("Loading...");
     }
 
     private void Update()
     {
-        if (isActive)
-        {
-            if (loadingText.color.a == 0)
-            {
-                alpha *= -1;
-            }
-            else if (loadingText.color.a == 1)
-            {
-                alpha *= -1;
-            }
-            value += alpha * Time.deltaTime;
-            loadingText.color = Color.Lerp(new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), value);
-        }
+        LoadingMsgAnim();
+        TouchMsgAnim();
     }
 
     public static void LoadScene(string sceneName)
@@ -70,7 +77,7 @@ public class LoadingSceneManager : MonoBehaviour
     IEnumerator LoadScene()
     {
         yield return null;
-        AsyncOperation op = SceneManager.LoadSceneAsync(nextScene);
+        op = SceneManager.LoadSceneAsync(nextScene);
         op.allowSceneActivation = false;
         float timer = 0.0f;
         while (!op.isDone)
@@ -90,17 +97,97 @@ public class LoadingSceneManager : MonoBehaviour
                 progressBar.value = Mathf.Lerp(progressBar.value, 1f, timer);
                 if (progressBar.value == 1.0f)
                 {
-                    isActive = true;
-                    loadingText.gameObject.SetActive(isActive);
+                    isTouchMsgActive = true;
+                    isLoadingMsgActive = false;
+                    loadingText2.gameObject.SetActive(isLoadingMsgActive);
+                    loadingSlider.gameObject.SetActive(false);
+                    loadingText.gameObject.SetActive(isTouchMsgActive);
                     foreach (Touch touch in Input.touches)
                     {
                         if (touch.phase == TouchPhase.Began)
                         {
-                            op.allowSceneActivation = true;
-                            yield break;
+                            if (nextScene == "BossScene_Beta")
+                            {
+                                fadeBG.gameObject.SetActive(true);
+                                StartCoroutine(FadeInCoroutine());
+                                yield break;
+                            }
+                            else
+                            {
+                                op.allowSceneActivation = true;
+                                yield break;
+                            }
                         }
                     }
                 }
+            }
+        }
+    }
+
+    void TouchMsgAnim()
+    {
+        if (isTouchMsgActive)
+        {
+            if (loadingText.color.a == 0)
+            {
+                alpha *= -1;
+            }
+            else if (loadingText.color.a == 1)
+            {
+                alpha *= -1;
+            }
+            value += alpha * Time.deltaTime;
+            loadingText.color = Color.Lerp(new Color(1f, 1f, 1f, 0f), new Color(1f, 1f, 1f, 1f), value);
+        }
+    }
+
+    void LoadingMsgAnim()
+    {
+        if (isLoadingMsgActive)
+        {
+            curTime += Time.deltaTime * speed;
+            if (curTime >= 1f)
+            {
+                Debug.Log(count);
+                loadingText2.text = loadingTextList[count++];
+                if (count >= loadingTextList.Count)
+                {
+                    count = 0;
+                }
+                curTime = 0;
+            }
+        }
+    }
+
+    IEnumerator FadeInCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.05f);
+            curFadeTime += Time.deltaTime * 10;
+            fadeBG.GetComponent<SpriteRenderer>().color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), curFadeTime);
+            if (curFadeTime >= 1)
+            {
+                curFadeTime = 0;
+                op.allowSceneActivation = true;
+                yield break;
+            }
+        }
+    }
+
+    public IEnumerator FadeOutCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.05f);
+            curFadeTime -= Time.deltaTime * 10;
+            fadeBG.GetComponent<SpriteRenderer>().color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), curFadeTime);
+            if (curFadeTime <= 0)
+            {
+                fadeBG.gameObject.SetActive(false);
+                curFadeTime = 0;
+                op.allowSceneActivation = true;
+                yield break;
             }
         }
     }
