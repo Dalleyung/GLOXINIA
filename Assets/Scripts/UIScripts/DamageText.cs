@@ -37,11 +37,33 @@ public class DamageText : MonoBehaviour
         switch(typeValue)
         {
             case 1:
+                //폰트 사이즈 증가
+                if((Player.ATK + gm.player_move.moveStack) <10)
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 150;
+                }
+                else
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 100;
+                }
+
+
                 gameObject.transform.GetComponent<TextMeshProUGUI>().text =
             (Player.ATK + gm.player_move.moveStack).ToString();
                 break;
             case 2:
                 //분노상태일 때 추가 데미지도 계산하여 넣어줘야 함(현재 변수 없음)
+
+                //폰트 사이즈 증가
+                if ((gm.monster.ATK) < 10)
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 150;
+                }
+                else
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 100;
+                }
+
                 gameObject.transform.GetComponent<TextMeshProUGUI>().text =
             (gm.monster.ATK).ToString();
                 break;
@@ -84,7 +106,7 @@ public class DamageText : MonoBehaviour
 
             cpyText.color -= new Color(0, 0, 0, easeInExpo());
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
             if (cpyText.color.a <= 0)
             {
                 currentTime = 0;
