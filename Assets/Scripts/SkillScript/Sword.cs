@@ -83,10 +83,22 @@ public class Sword : MonoBehaviour
                         break;
                     }
             }
-            
-            if(speed >= 1)
+            // ÀÜ»ó ÀÌÆåÆ®
+            GameObject cpyEffect = Instantiate(Resources.Load("Prefabs/" + "Boss_Rage_Sword_VFX") as GameObject);
+            cpyEffect.transform.position = transform.position;
+            Destroy(cpyEffect, 0.5f);
+
+            if (speed >= 1)
             {
                 Destroy(gameObject, 1.0f);
+                gm.soundManager.PlayEffectSound(gm.soundManager.stuck);
+                // Áøµ¿
+                Handheld.Vibrate();
+                // »ç¿îµå
+                GameObject cpyEffect2 = Instantiate(Resources.Load("Prefabs/" + "Rage_Small_VFX") as GameObject);
+                cpyEffect2.transform.position = transform.position;
+                Destroy(cpyEffect2, 1f);
+
                 yield break;
             }
         }
@@ -117,7 +129,14 @@ public class Sword : MonoBehaviour
         GameObject cpyEffect = Instantiate(Resources.Load("Prefabs/" + "Rage_Attack_VFX") as GameObject);
         cpyEffect.transform.position = transform.position;
         Destroy(cpyEffect, 1f);
+
+        if(gm.battleController.shieldOn)
+        {
+            gm.soundManager.PlayEffectSound(gm.soundManager.parrying);
+        }
+        else
+        {
+            gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
+        }
     }
-
-
 }
