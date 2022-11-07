@@ -16,7 +16,7 @@ public class Sword : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public IEnumerator BezierSword(int p_num)
@@ -25,7 +25,7 @@ public class Sword : MonoBehaviour
         {
             yield return null;
             speed += accelerator * Time.deltaTime;
-            switch(p_num)
+            switch (p_num)
             {
                 case 0:
                     {
@@ -130,7 +130,7 @@ public class Sword : MonoBehaviour
         cpyEffect.transform.position = transform.position;
         Destroy(cpyEffect, 1f);
 
-        if(gm.battleController.shieldOn)
+        if (gm.battleController.shieldOn)
         {
             gm.soundManager.PlayEffectSound(gm.soundManager.parrying);
         }

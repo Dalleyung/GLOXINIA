@@ -32,7 +32,7 @@ public class Tile : MonoBehaviour
     public float textGravity;
     // ·£´ý ÁÂ¿ì ÃÖ´ë°ª
     public float randMax;
-    
+
 
     void Start()
     {
@@ -40,7 +40,7 @@ public class Tile : MonoBehaviour
     }
 
     private void Awake()
-    { 
+    {
         camera = Camera.main;
     }
 
@@ -98,7 +98,7 @@ public class Tile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Circle"))
+        if (collision.gameObject.CompareTag("Circle"))
         {
             tileValue = 6;
         }

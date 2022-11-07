@@ -1068,6 +1068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   curFadeTime: 0
   fadeBG: {fileID: 1035983704}
+  speed: 1
 --- !u!114 &1035983704
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class FadeOut : MonoBehaviour
     public Image fadeBG;
     GameManager gm;
 
+    public float speed;
+
     void Start()
     {
         gm = GameManager.GetInstance();
@@ -20,7 +22,7 @@ public class FadeOut : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.05f);
-            curFadeTime += Time.deltaTime * 10;
+            curFadeTime += Time.deltaTime * speed;
             fadeBG.GetComponent<Image>().color = Color.Lerp(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0), curFadeTime);
             if (curFadeTime >= 1)
             {

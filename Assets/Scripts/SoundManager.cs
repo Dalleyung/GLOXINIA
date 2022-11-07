@@ -105,7 +105,7 @@ public class SoundManager : MonoBehaviour
     public void MuteVolume()
     {
         AllMute = AllMute ? false : true;
-        if(AllMute)
+        if (AllMute)
         {
             BGM_audioSource.mute = true;
             Effect_audioSource.mute = true;

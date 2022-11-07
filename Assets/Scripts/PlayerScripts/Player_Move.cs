@@ -33,12 +33,12 @@ public class Player_Move : MonoBehaviour
 
     public void Move(float p_x, float p_y)   // 확인할 좌표 넣기
     {
-        if(freeze)
+        if (freeze)
         {
             return;
         }
         Vector2 temppos = transform.position;
-        
+
         // 타일 체크
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(temppos.x + p_x, temppos.y + p_y), Vector2.left, 0.5f);
         Tile tile = null;
@@ -91,7 +91,7 @@ public class Player_Move : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Tile tile = collision.GetComponent<Tile>();
-        
+
         if (isStart)
         {
             if (tile.tileValue == (int)SetTile.E_TileValue.Bomb_Tile)
@@ -101,14 +101,14 @@ public class Player_Move : MonoBehaviour
                 tile.tileValue = (int)SetTile.E_TileValue.Disable_Bomb_Tile;
                 moveStack++;
             }
-            else if(tile.tileValue == (int)SetTile.E_TileValue.Tile)
+            else if (tile.tileValue == (int)SetTile.E_TileValue.Tile)
             {
                 //gm.GetComponent<SetTile>().BlockCountDown();
 
                 tile.tileValue = (int)SetTile.E_TileValue.Disable_Tile;
                 moveStack++;
             }
-            else if(tile.tileValue == (int)SetTile.E_TileValue.Start_Tile)
+            else if (tile.tileValue == (int)SetTile.E_TileValue.Start_Tile)
             {
                 tile.tileValue = (int)SetTile.E_TileValue.Disable_Start_Tile;
                 moveStack++;

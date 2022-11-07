@@ -12,19 +12,19 @@ public class Swipe : MonoBehaviour
 	private Vector2 fingerUpPos;
 
 	public bool detectSwipeAfterRelease = false;
-    
-    public float SWIPE_THRESHOLD = 20f;
 
-    [SerializeField]
-    private LayerMask tileMask;     // 타일 마스크 받아오기
+	public float SWIPE_THRESHOLD = 20f;
 
-    private void Start()
-    {
-        gm = GameManager.GetInstance();
-    }
+	[SerializeField]
+	private LayerMask tileMask;     // 타일 마스크 받아오기
 
-    // Update is called once per frame
-    void Update()
+	private void Start()
+	{
+		gm = GameManager.GetInstance();
+	}
+
+	// Update is called once per frame
+	void Update()
 	{
 		foreach (Touch touch in Input.touches)
 		{
@@ -33,16 +33,16 @@ public class Swipe : MonoBehaviour
 				Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
 				Ray2D ray = new Ray2D(pos, Vector2.zero);
 				RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 1, tileMask);
-                Tile tile = null;
-                if (hit.collider != null)
-                {
-                    if (hit.collider.tag == "Tile")
-                    {
-                        tile = hit.collider.GetComponent<Tile>();
-                        tile.Touch();
-                    }
-                }
-                fingerUpPos = touch.position;
+				Tile tile = null;
+				if (hit.collider != null)
+				{
+					if (hit.collider.tag == "Tile")
+					{
+						tile = hit.collider.GetComponent<Tile>();
+						tile.Touch();
+					}
+				}
+				fingerUpPos = touch.position;
 				fingerDownPos = touch.position;
 			}
 

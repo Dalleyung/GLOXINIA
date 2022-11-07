@@ -14,7 +14,7 @@ public class Monster : MonoBehaviour
     public float MaxHP;
     public bool isDie;  // 몬스터 Die 추가 (종훈)
     public Scrollbar monsterHPBar;
-    
+
     /// <summary>
     /// 분노스택 (유제상)
     /// </summary>
@@ -48,7 +48,7 @@ public class Monster : MonoBehaviour
     {
         Boss = 0,
         MonsterA,
-        MonsterB 
+        MonsterB
     };
     public int type;
     void Start()
@@ -57,10 +57,10 @@ public class Monster : MonoBehaviour
         player = GameManager.GetInstance().player;
         if (monsterHPBar != null)
         {
-            monsterHPBar.size = HP/ MaxHP;
+            monsterHPBar.size = HP / MaxHP;
         }
         ATK = 10;
-        rage = MIN_RAGE;    
+        rage = MIN_RAGE;
         israge = false;
 
     }
@@ -69,7 +69,7 @@ public class Monster : MonoBehaviour
     {
         if (monsterHPBar != null && HP >= -1)
         {
-            monsterHPBar.size = HP/MaxHP;
+            monsterHPBar.size = HP / MaxHP;
             monsterHPBar.transform.GetChild(2).GetComponent<Image>().color
                 = Color.Lerp(Color.white, new Color32(255, 64, 64, 255), monsterHPBar.size);
         }
@@ -263,7 +263,7 @@ public class Monster : MonoBehaviour
 
     public void MonsterRageAttackEvent(int p_num)
     {
-        switch(p_num)
+        switch (p_num)
         {
             case 0:
                 for (int i = 0; i < maxSwordCnt; i++)
@@ -312,7 +312,7 @@ public class Monster : MonoBehaviour
 
                 break;
         }
-        
+
     }
 
     IEnumerator SpawningSwordAnim()
@@ -391,7 +391,7 @@ public class Monster : MonoBehaviour
         {
             //israge가 false일 때는 rage를 감소시키고 0이 되는 동시에 israge가 true가 되게 함
             rage++;
-            if(rage >= MAX_RAGE)
+            if (rage >= MAX_RAGE)
             {
                 israge = true;
             }
@@ -439,7 +439,7 @@ public class Monster : MonoBehaviour
 
     public void HitAnimation()
     {
-        if(!gm.skill.isSkillGaugeFull)
+        if (!gm.skill.isSkillGaugeFull)
             AttackDelay();
         gm.monster.anim.SetTrigger("IsHit");
 
@@ -461,7 +461,7 @@ public class Monster : MonoBehaviour
 
     public void Victory()
     {
-        if(LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
+        if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
         {
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
@@ -470,7 +470,7 @@ public class Monster : MonoBehaviour
             gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
         }
-        else 
+        else
         {
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
@@ -515,7 +515,7 @@ public class Monster : MonoBehaviour
     {
         if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
         {
-            switch(p_num)
+            switch (p_num)
             {
                 case 0:
                     bossDieEffect_1.gameObject.SetActive(true);
