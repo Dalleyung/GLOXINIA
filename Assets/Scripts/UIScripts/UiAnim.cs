@@ -1,17 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiAnim : MonoBehaviour
 {
     public List<GameObject> stagePoint;
     
     GameManager gm;
-  
+
     void Start()
     {
         gm = GameManager.GetInstance();
-
         gm.monsterController.SpawnMonster();
     }
 

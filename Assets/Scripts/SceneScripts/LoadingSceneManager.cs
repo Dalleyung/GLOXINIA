@@ -106,17 +106,9 @@ public class LoadingSceneManager : MonoBehaviour
                     {
                         if (touch.phase == TouchPhase.Began)
                         {
-                            if (nextScene == "BossScene_Beta")
-                            {
-                                fadeBG.gameObject.SetActive(true);
-                                StartCoroutine(FadeInCoroutine());
-                                yield break;
-                            }
-                            else
-                            {
-                                op.allowSceneActivation = true;
-                                yield break;
-                            }
+                            fadeBG.gameObject.SetActive(true);
+                            StartCoroutine(FadeInCoroutine());
+                            yield break;
                         }
                     }
                 }
@@ -168,23 +160,6 @@ public class LoadingSceneManager : MonoBehaviour
             fadeBG.GetComponent<SpriteRenderer>().color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), curFadeTime);
             if (curFadeTime >= 1)
             {
-                curFadeTime = 0;
-                op.allowSceneActivation = true;
-                yield break;
-            }
-        }
-    }
-
-    public IEnumerator FadeOutCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(0.05f);
-            curFadeTime -= Time.deltaTime * 10;
-            fadeBG.GetComponent<SpriteRenderer>().color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), curFadeTime);
-            if (curFadeTime <= 0)
-            {
-                fadeBG.gameObject.SetActive(false);
                 curFadeTime = 0;
                 op.allowSceneActivation = true;
                 yield break;

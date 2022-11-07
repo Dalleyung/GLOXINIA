@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     public BezierCurve bezierCurve;
     public CameraShake cameraShake;
     public PlayerAttAnimation playerAttAnimation;
+    public GameObject stage;
 
     static GameManager instance;
     public static GameManager GetInstance() { Init(); return instance; }
