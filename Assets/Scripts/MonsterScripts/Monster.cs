@@ -117,6 +117,16 @@ public class Monster : MonoBehaviour
                 gm.damageTextSpawn.MakeMonsterDmgText();
 
                 gm.player_move.FallingTileAnim();
+
+                // 타일 깨짐화
+                for (int i = 0; i < gm.setTile.TileList.Count; i++)
+                {
+                    gm.setTile.TileList[i].tileValue = 6;
+                }
+
+                // 체력 검사
+                HPCheck();
+
                 break;
             case 2:
                 HandleRageStack();
@@ -129,7 +139,6 @@ public class Monster : MonoBehaviour
                 }
                 StartCoroutine(FallingAnimDelay());
                 Destroy(bigSword, 1f);
-
                 break;
             case 3:
                 GameObject cpyEffect = Instantiate(Resources.Load("Prefabs/" + "Normal_Attack_VFX") as GameObject);
@@ -151,6 +160,7 @@ public class Monster : MonoBehaviour
             gm.cameraShake.shakePower = 0.5f;
             gm.cameraShake.Shake(true);
             gm.battleController.shieldOn = false;
+            gm.soundManager.PlayEffectSound(gm.soundManager.parrying);
 
             if (gm.skill.isSkillGaugeFull)
             {
@@ -197,6 +207,12 @@ public class Monster : MonoBehaviour
                     gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
                     break;
             }
+
+            // 타일 깨짐화
+            for (int i = 0; i < gm.setTile.TileList.Count; i++)
+            {
+                gm.setTile.TileList[i].tileValue = 6;
+            }
         }
 
         gm.monster.swordList.Clear();
@@ -236,10 +252,12 @@ public class Monster : MonoBehaviour
         if (Player.HP / Player.MaxHP > 0.3f)
         {
             gm.player.HPDanger.SetActive(false);
+            Debug.Log("경고 미표시");
         }
         else
         {
             gm.player.HPDanger.SetActive(true);
+            Debug.Log("경고 표시");
         }
     }
 
@@ -291,7 +309,6 @@ public class Monster : MonoBehaviour
                 {
                     StartCoroutine(FallingAnimDelay());
                 }
-                gm.player_move.freeze = false;
 
                 break;
         }
@@ -306,7 +323,8 @@ public class Monster : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnDelay);
             swordList[count++].gameObject.SetActive(true);
-            if(count >= maxSwordCnt)
+            gm.soundManager.PlayEffectSound(gm.soundManager.createSword);
+            if (count >= maxSwordCnt)
             {
                 yield break;
             }
@@ -320,6 +338,7 @@ public class Monster : MonoBehaviour
         {
             yield return new WaitForSeconds(shootDelay);
             StartCoroutine(swordList[count].GetComponent<Sword>().BezierSword(count++));
+            gm.soundManager.PlayEffectSound(gm.soundManager.shotSword);
             if (count >= maxSwordCnt)
             {
                 yield break;
@@ -352,7 +371,6 @@ public class Monster : MonoBehaviour
 
         //무지성으로 건듦
         gm.setTile.Init();
-        gm.player_move.freeze = false;
         //
 
         CowAttackEffectOff();
@@ -433,6 +451,11 @@ public class Monster : MonoBehaviour
         {
             AttackDelay();
             gm.monster.anim.SetTrigger("IsDie");
+            // 타일 깨짐화
+            for (int i = 0; i < gm.setTile.TileList.Count; i++)
+            {
+                gm.setTile.TileList[i].tileValue = 6;
+            }
         }
     }
 

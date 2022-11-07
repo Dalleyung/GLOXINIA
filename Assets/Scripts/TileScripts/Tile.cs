@@ -95,4 +95,12 @@ public class Tile : MonoBehaviour
         cpyobj.transform.position = transform.position;
         Destroy(cpyobj, 1.3f);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Circle"))
+        {
+            tileValue = 6;
+        }
+    }
 }
