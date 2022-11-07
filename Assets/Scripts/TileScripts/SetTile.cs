@@ -83,6 +83,9 @@ public class SetTile : MonoBehaviour
 
     public void Init()
     {
+        // 프리즈는 새 타일 깔릴 떄만 풀리게하기
+        gm.player_move.freeze = false;
+
         int count = 0;
         if (gm.skill.isSkillGaugeFull)
         {
