@@ -84,7 +84,6 @@ public class MonsterRage : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Awake()
     {
         GameManager.GetInstance().Rage = this;
@@ -100,7 +99,6 @@ public class MonsterRage : MonoBehaviour
         InstantiateRage(prefabRage);
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateRage();

@@ -158,7 +158,6 @@ public class BattleController : MonoBehaviour
             {
                 gm.monster.HP = 0;
                 gm.monster.isDie = true;
-                //Victory();
             }
         }
 

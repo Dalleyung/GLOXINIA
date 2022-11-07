@@ -57,7 +57,7 @@ public class LoadingSceneManager : MonoBehaviour
 
     public static void NowStage(int num)
     {
-        switch(num)
+        switch (num)
         {
             case (int)STAGE.MAIN:
                 currentStage = num;
