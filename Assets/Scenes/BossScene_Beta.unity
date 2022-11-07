@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 89664343}
   - component: {fileID: 89664345}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -947,7 +947,7 @@ PrefabInstance:
     - target: {fileID: 4140301950278084788, guid: 67390060663c2554eaf028d69144b2fe,
         type: 3}
       propertyPath: m_Color.a
-      value: 0.8392157
+      value: 0.61960787
       objectReference: {fileID: 0}
     - target: {fileID: 4140301950278084788, guid: 67390060663c2554eaf028d69144b2fe,
         type: 3}
@@ -1550,7 +1550,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 106
-  m_Sprite: {fileID: 21300000, guid: 292042fe0a4c0aa4daf38d705fcb9afe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 97133fe102a07ee4c9f430b9a0164ff4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1718,7 +1718,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 102
-  m_Sprite: {fileID: 21300000, guid: 6189c72b7684ab5478ba7c4b2b15b327, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4d6da9b3997d898459bf007d984cb18c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5296,7 +5296,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 103
-  m_Sprite: {fileID: 21300000, guid: 0a1e11ca5b02faf43934d97bd47622d2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8b29bce4fd4cba841b9ab1f87f702e64, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

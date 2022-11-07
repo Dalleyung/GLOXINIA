@@ -12,6 +12,7 @@ public class NameSpawn : MonoBehaviour
 
     public Image creditBG;
     public bool flag = false;
+    private bool isCreditBGOn = false;
     GameManager gm;
     public int count = 0;
     private void Start()
@@ -90,7 +91,8 @@ public class NameSpawn : MonoBehaviour
     public void StartCredit()
     {
         gm.soundManager.PlayBGMSound(gm.soundManager.credit);
-        creditBG.gameObject.SetActive(true);
+        isCreditBGOn = true;
+        creditBG.gameObject.SetActive(isCreditBGOn);
         StartCoroutine(FadeInCoroutine());
     }
 
@@ -118,7 +120,8 @@ public class NameSpawn : MonoBehaviour
             creditBG.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), currentTime);
             if (currentTime <= 0)
             {
-                creditBG.gameObject.SetActive(false);
+                isCreditBGOn = false;
+                creditBG.gameObject.SetActive(isCreditBGOn);
                 gm.soundManager.PlayBGMSound(gm.soundManager.titleBGM);
                 currentTime = 0;
                 yield break;
@@ -128,17 +131,20 @@ public class NameSpawn : MonoBehaviour
 
     public void SkipCredit()
     {
-        foreach (Touch touch in Input.touches)
+        if (isCreditBGOn)
         {
-            if (touch.phase == TouchPhase.Began)
+            foreach (Touch touch in Input.touches)
             {
-                Time.timeScale = 4;
-            }
+                if (touch.phase == TouchPhase.Began)
+                {
+                    Time.timeScale = 4;
+                }
 
-            //Detects swipe after finger is released from screen
-            if (touch.phase == TouchPhase.Ended)
-            {
-                Time.timeScale = 1;
+                //Detects swipe after finger is released from screen
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    Time.timeScale = 1;
+                }
             }
         }
     }
