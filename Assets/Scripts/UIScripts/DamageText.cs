@@ -16,6 +16,7 @@ public class DamageText : MonoBehaviour
     public int typeValue = 0;
 
     public float RandDMG;
+    int TotalDMG;
     // 화산효과 변수
     //// 위로 향하는 힘 값
     //public float textPower;
@@ -45,13 +46,15 @@ public class DamageText : MonoBehaviour
 
                 gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
 
+                TotalDMG = ((int)(9500 * ((float)gm.player_move.moveStack / 15) * RandDMG));
 
-                gameObject.transform.GetComponent<TextMeshProUGUI>().text = ((int)(9500 * ((float)gm.player_move.moveStack/15) * RandDMG)).ToString();
-
-                if (((int)(9500 * ((float)gm.player_move.moveStack / 15) >= 9999)
+                if (TotalDMG >= 9999)
                     gameObject.transform.GetComponent<TextMeshProUGUI>().text = (9999).ToString();
+                else
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().text = TotalDMG.ToString();
 
-            //(Player.ATK + gm.player_move.moveStack).ToString();
+
+                //(Player.ATK + gm.player_move.moveStack).ToString();
                 break;
             case 2:
                 //분노상태일 때 추가 데미지도 계산하여 넣어줘야 함(현재 변수 없음)
@@ -60,7 +63,7 @@ public class DamageText : MonoBehaviour
                 gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
 
                 gameObject.transform.GetComponent<TextMeshProUGUI>().text =
-            (gm.monster.ATK).ToString();
+                (gm.monster.ATK).ToString();
                 break;
         }
         
