@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
+using static UnityEditor.PlayerSettings;
 //using static UnityEditor.Timeline.TimelinePlaybackControls;
 using Text = UnityEngine.UI.Text;
 
@@ -32,7 +33,6 @@ public class Tile : MonoBehaviour
     public float textGravity;
     // 랜덤 좌우 최대값
     public float randMax;
-
 
     void Start()
     {
@@ -68,7 +68,7 @@ public class Tile : MonoBehaviour
     //    button.GetComponent<Button>().onClick.AddListener(Touch);
     //}
 
-    public void Touch()
+    public void StartTouch()
     {
         if (!gm.player_move.isStart && !gm.player_move.freeze && tileValue == (int)SetTile.E_TileValue.Start_Tile)
         {
@@ -77,6 +77,12 @@ public class Tile : MonoBehaviour
             gm.player_move.transform.position = startTile.transform.position;
             gm.player_move.SelectTile();
         }
+    }
+
+    public void SwipeTouch(Vector2 p_pos)
+    {
+        Debug.Log("스와이프");
+        gm.player_move.Move(p_pos);
     }
 
     public void FallingTileAnim()

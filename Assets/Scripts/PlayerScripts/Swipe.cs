@@ -39,7 +39,7 @@ public class Swipe : MonoBehaviour
 					if (hit.collider.tag == "Tile")
 					{
 						tile = hit.collider.GetComponent<Tile>();
-						tile.Touch();
+						tile.StartTouch();
 					}
 				}
 				fingerUpPos = touch.position;
@@ -51,7 +51,20 @@ public class Swipe : MonoBehaviour
 			{
 				if (!detectSwipeAfterRelease)
 				{
-					fingerDownPos = touch.position;
+                    Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
+                    Ray2D ray = new Ray2D(pos, Vector2.zero);
+                    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 1, tileMask);
+                    Tile tile = null;
+                    if (hit.collider != null)
+                    {
+						if (hit.collider.tag == "Tile")
+						{
+							tile = hit.collider.GetComponent<Tile>();
+							tile.SwipeTouch(tile.transform.position);
+						}
+                    }
+
+                    fingerDownPos = touch.position;
 					DetectSwipe();
 				}
 			}
@@ -120,24 +133,24 @@ public class Swipe : MonoBehaviour
 	// 위쪽
 	void OnSwipeUp()
 	{
-		gm.player_move.Move(0, 3);
+		//gm.player_move.Move(0, 3);
 	}
 
 	// 아래쪽
 	void OnSwipeDown()
 	{
-		gm.player_move.Move(0, -3);
+		//gm.player_move.Move(0, -3);
 	}
 
 	// 왼쪽
 	void OnSwipeLeft()
 	{
-		gm.player_move.Move(-3, 0);
+		//gm.player_move.Move(-3, 0);
 	}
 
 	// 오른쪽
 	void OnSwipeRight()
 	{
-		gm.player_move.Move(3, 0);
+		//gm.player_move.Move(3, 0);
 	}
 }

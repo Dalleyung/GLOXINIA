@@ -158,7 +158,6 @@ MonoBehaviour:
   loadingSlider: {fileID: 1624410251}
   curTime: 0
   speed: 5
-  fadeSpeed: 1
   curFadeTime: 0
   fadeBG: {fileID: 355702708}
 --- !u!4 &114153537

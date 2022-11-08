@@ -24,6 +24,9 @@ public class Player_Move : MonoBehaviour
     // 랜덤 좌우 최대값
     public float randMax;
 
+    // 타일 이동 최대 거리
+    public float range;
+
     void Start()
     {
         gm = GameManager.GetInstance();
@@ -41,6 +44,70 @@ public class Player_Move : MonoBehaviour
 
         // 타일 체크
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(temppos.x + p_x, temppos.y + p_y), Vector2.left, 0.5f);
+        Tile tile = null;
+        if (hit.collider != null)
+        {
+            if (hit.collider.tag == "Tile")
+            {
+                tile = hit.collider.GetComponent<Tile>();
+            }
+        }
+        // 지나갈 타일 체크
+        if (isStart)
+        {
+            if (hit.collider != null)
+            {
+                if (tile.tileValue == (int)SetTile.E_TileValue.Bomb_Tile
+                    && tile.blockCount > 0)
+                {
+                    return;
+                }
+                else if (tile.tileValue == (int)SetTile.E_TileValue.Disable_Bomb_Tile
+                || tile.tileValue == (int)SetTile.E_TileValue.Disable_Tile
+                || tile.tileValue == (int)SetTile.E_TileValue.Disable_Start_Tile
+                || tile.tileValue == (int)SetTile.E_TileValue.Fever_Disable_Tile
+                || hit.collider.tag != "Tile")
+                {
+                    return;
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (hit.collider == null)
+            {
+                return;
+            }
+        }
+        gm.soundManager.Tile_audioSource.pitch += RasePitch;
+        temppos = tile.transform.position;
+        transform.position = temppos;
+        // 이동 사운드 재생
+        gm.soundManager.PlayTileSound(gm.soundManager.tileMove);
+    }
+
+    // 새로운 무브 함수
+    public void Move(Vector2 p_pos)   // 확인할 위치 넣기
+    {
+        // 너무 먼 타일을 이동하는 건 불가능하게 막기
+        if (Vector2.Distance(p_pos, gm.player_move.transform.position) >= range)
+        {
+            return;
+        }
+
+        // 가만히 있기
+        if (freeze)
+        {
+            return;
+        }
+        Vector2 temppos = transform.position;
+
+        // 타일 체크
+        RaycastHit2D hit = Physics2D.Raycast(p_pos, Vector2.left, 0.1f);
         Tile tile = null;
         if (hit.collider != null)
         {

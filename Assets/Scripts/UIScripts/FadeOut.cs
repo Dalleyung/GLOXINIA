@@ -9,13 +9,11 @@ public class FadeOut : MonoBehaviour
     public Image fadeBG;
     GameManager gm;
 
-    public float speed;
 
     void Start()
     {
         gm = GameManager.GetInstance();
         StartCoroutine(FadeOutCoroutine());
-        speed = 1f;
     }
 
     public IEnumerator FadeOutCoroutine()
@@ -23,7 +21,7 @@ public class FadeOut : MonoBehaviour
         while (true)
         {
             yield return null;
-            curFadeTime += Time.deltaTime * speed;
+            curFadeTime += Time.deltaTime;
             fadeBG.GetComponent<Image>().color = Color.Lerp(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0), curFadeTime);
             if (curFadeTime >= 1)
             {

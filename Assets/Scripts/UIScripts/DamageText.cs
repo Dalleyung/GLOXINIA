@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-//using static UnityEditor.Timeline.TimelinePlaybackControls;
 
 public class DamageText : MonoBehaviour
 {
@@ -14,9 +13,6 @@ public class DamageText : MonoBehaviour
 
     public float currentTime = 0;
     public int typeValue = 0;
-
-    public float RandDMG;
-    int TotalDMG;
     // 화산효과 변수
     //// 위로 향하는 힘 값
     //public float textPower;
@@ -34,7 +30,6 @@ public class DamageText : MonoBehaviour
 
     public void DmgTextAnim()
     {
-        RandDMG = Random.Range(1.00f, 1.07f);
         // 천천히 사라지기
         StartCoroutine(AlphaDown(gameObject.transform.GetComponent<TextMeshProUGUI>()));
 
@@ -43,27 +38,34 @@ public class DamageText : MonoBehaviour
         {
             case 1:
                 //폰트 사이즈 증가
-
-                gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
-
-                TotalDMG = ((int)(9500 * ((float)gm.player_move.moveStack / 15) * RandDMG));
-
-                if (TotalDMG >= 9999)
-                    gameObject.transform.GetComponent<TextMeshProUGUI>().text = (9999).ToString();
+                if((Player.ATK + gm.player_move.moveStack) <10)
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 150;
+                }
                 else
-                    gameObject.transform.GetComponent<TextMeshProUGUI>().text = TotalDMG.ToString();
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 100;
+                }
 
 
-                //(Player.ATK + gm.player_move.moveStack).ToString();
+                gameObject.transform.GetComponent<TextMeshProUGUI>().text =
+            (Player.ATK + gm.player_move.moveStack).ToString();
                 break;
             case 2:
                 //분노상태일 때 추가 데미지도 계산하여 넣어줘야 함(현재 변수 없음)
 
                 //폰트 사이즈 증가
-                gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
+                if ((gm.monster.ATK) < 10)
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 150;
+                }
+                else
+                {
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 100;
+                }
 
                 gameObject.transform.GetComponent<TextMeshProUGUI>().text =
-                (gm.monster.ATK).ToString();
+            (gm.monster.ATK).ToString();
                 break;
         }
         
@@ -114,12 +116,8 @@ public class DamageText : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (GetComponent<TextMeshProUGUI>().fontSize >= 100)
-            GetComponent<TextMeshProUGUI>().fontSize -= 10;
-    }
-
+    
+    
 
     float easeInExpo()
     {
