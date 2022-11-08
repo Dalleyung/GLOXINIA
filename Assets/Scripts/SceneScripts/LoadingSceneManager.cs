@@ -28,7 +28,7 @@ public class LoadingSceneManager : MonoBehaviour
     public float curTime = 0;
     public float speed = 5f;
 
-    public float fadeSpeed = 1;
+    public float fadeSpeed = 1f;
     public float curFadeTime = 0;
     public GameObject fadeBG;
 
@@ -156,7 +156,7 @@ public class LoadingSceneManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return null;
             curFadeTime += Time.deltaTime * fadeSpeed;
             fadeBG.GetComponent<SpriteRenderer>().color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), curFadeTime);
             if (curFadeTime >= 1)

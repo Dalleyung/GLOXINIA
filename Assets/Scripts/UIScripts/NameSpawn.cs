@@ -100,8 +100,8 @@ public class NameSpawn : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
-            currentTime += Time.deltaTime * 10;
+            yield return null;
+            currentTime += Time.deltaTime;
             creditBG.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), currentTime);
             if (currentTime >= 1)
             {
@@ -115,8 +115,8 @@ public class NameSpawn : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
-            currentTime -= Time.deltaTime * 10;
+            yield return null;
+            currentTime -= Time.deltaTime;
             creditBG.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), currentTime);
             if (currentTime <= 0)
             {

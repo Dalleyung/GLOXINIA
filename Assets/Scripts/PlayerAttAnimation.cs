@@ -16,7 +16,7 @@ public class PlayerAttAnimation : MonoBehaviour
     /// <summary>
     /// 숫자가 작을수록 빨라짐
     /// </summary>
-    public float animSpeed = 0.15f;
+    public float animSpeed = 0.1f;
     public Image attImage;
     RectTransform imgrt;
     
@@ -124,7 +124,7 @@ public class PlayerAttAnimation : MonoBehaviour
     {
         SetSpriteList();
         attImage.color = Color.clear;
-        animSpeed = 0.15f;
+        animSpeed = 0.1f;
         imgrt = attImage.rectTransform;
     }
     // Update is called once per frame

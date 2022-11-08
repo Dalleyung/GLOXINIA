@@ -15,13 +15,14 @@ public class FadeOut : MonoBehaviour
     {
         gm = GameManager.GetInstance();
         StartCoroutine(FadeOutCoroutine());
+        speed = 1f;
     }
 
     public IEnumerator FadeOutCoroutine()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return null;
             curFadeTime += Time.deltaTime * speed;
             fadeBG.GetComponent<Image>().color = Color.Lerp(new Color(0, 0, 0, 1), new Color(0, 0, 0, 0), curFadeTime);
             if (curFadeTime >= 1)
