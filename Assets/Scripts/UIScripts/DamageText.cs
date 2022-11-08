@@ -46,7 +46,7 @@ public class DamageText : MonoBehaviour
                 gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
 
 
-                gameObject.transform.GetComponent<TextMeshProUGUI>().text = ((int)(950 * gm.player_move.moveStack * RandDMG)).ToString();
+                gameObject.transform.GetComponent<TextMeshProUGUI>().text = ((int)(9500 * ((float)gm.player_move.moveStack/15) * RandDMG)).ToString();
 
                 if ((950 * (15 / gm.player_move.moveStack) * RandDMG) >= 9999)
                     gameObject.transform.GetComponent<TextMeshProUGUI>().text = (9999).ToString();
