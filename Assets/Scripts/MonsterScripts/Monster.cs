@@ -488,15 +488,8 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            if (gm.Rage.ragecount == 1 && gm.Rage.rageclear == 1)
-            {
-                gm.battleController.TileHandler();
-            }
-            else
-            {
-                HandleRageStack();
-                gm.battleController.TileHandler();
-            }
+            HandleRageStack();
+            gm.battleController.TileHandler();
         }
     }
 

@@ -74,7 +74,12 @@ public class Skill : MonoBehaviour
         if (skillGauge >= maxSkillGauge && !gm.player.isDie && Player.HP >= 0)
         {
             skillGauge = maxSkillGauge;
-            isSkillGaugeFull = true;
+
+            if (gm.monster.israge == false)
+            {
+                isSkillGaugeFull = true;
+            }
+
             if (!gm.monster.isDie && !gm.monster.israge && gm.Rage.ragecount == 0)
             {
                 gm.soundManager.PlayBGMSound(gm.soundManager.feverBGM);
@@ -88,8 +93,13 @@ public class Skill : MonoBehaviour
                 if (gm.Rage.rageclear >= 4)
                 {
                     gm.battleController.shieldOn = true;
+                    gm.monster.AttackAnimation();
                 }
-                gm.monster.AttackAnimation();
+                else if(gm.Rage.ragecount == 0)
+                {
+                    gm.monster.AttackAnimation();
+                }
+                
             }
         }
     }

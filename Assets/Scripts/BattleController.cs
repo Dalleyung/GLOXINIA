@@ -72,6 +72,10 @@ public class BattleController : MonoBehaviour
         {
             gm.soundManager.PlayEffectSound(gm.soundManager.feverAttack);
             gm.monster.HitAnimation();
+            if (feverOn == false)
+            {
+                feverOn = true;
+            }
             if (feverOn)
             {
                 Player.HP += 5;
@@ -173,15 +177,6 @@ public class BattleController : MonoBehaviour
         {
             gm.Rage.rageclear++;
             gm.Rage.ragecount++;
-            /*if (gm.Rage.ragecount >= 3)
-            {
-                gm.Rage.ragecount++;
-            }
-            else
-            {
-                gm.Rage.rageclear++;
-                gm.Rage.ragecount++;
-            }*/
         }
 
         if (!gm.skill.isSkillGaugeFull)
