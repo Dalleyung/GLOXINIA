@@ -11,6 +11,12 @@ public class MonsterRage : MonoBehaviour
     public GameObject prefabRage;
     public GameObject rageUI;
     public GameObject rageCase;
+
+    //분노패턴 반복횟수
+    public int ragecount;
+    //분노패턴 성공횟수
+    public int rageclear;
+
     public void RagePreset()
     {
         SetTile setTile = GameManager.GetInstance().setTile;
@@ -99,6 +105,8 @@ public class MonsterRage : MonoBehaviour
         prefabRage = Resources.Load("Prefabs/" + "RageImage") as GameObject;
 
         InstantiateRage(prefabRage);
+        ragecount = 0;
+        rageclear = 0;
     }
 
     void Update()
@@ -142,6 +150,7 @@ public class MonsterRage : MonoBehaviour
                     }
                 }
             }
+
             //반대로 현재라이프가 리스트보다 적다면 remove하여 라이프 감소
             else if (monsterRageList.Count > gm.monster.rage)
             {

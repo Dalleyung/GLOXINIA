@@ -110,6 +110,7 @@ public class Sword : MonoBehaviour
         //copyObj.transform.position = transform.position + Vector3.up * 0.1f;
         //copyObj.GetComponent<Rigidbody2D>().AddForce(Vector2.up * power, ForceMode2D.Impulse);
         //Destroy(copyObj, 0.2f);
+        //shieldOn = false 老锭 鸥老 气迫 局聪概捞记
         if (!gm.battleController.shieldOn)
         {
             GameObject copyObj2 = Instantiate(obj);

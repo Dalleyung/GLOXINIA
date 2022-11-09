@@ -87,7 +87,7 @@ public class SetTile : MonoBehaviour
         gm.player_move.freeze = false;
 
         int count = 0;
-        if (gm.skill.isSkillGaugeFull)
+        if (gm.battleController.feverOn)
         {
             gm.skill.SkillPreset();
         }

@@ -173,7 +173,8 @@ public class Monster : MonoBehaviour
         {
             AllTileFallingAnim();
             Debug.Log("공격 맞음");
-            if (rage < MAX_RAGE || gm.timer.timeover == true)
+            
+            if (rage < MAX_RAGE && gm.timer.timeover == true)
             {
                 Player.HP -= gm.monster.ATK;
                 gm.cameraShake.shakePower = 1;
@@ -184,14 +185,50 @@ public class Monster : MonoBehaviour
             }
             else if (rage >= MAX_RAGE && gm.timer.timeover == true)
             {
-                if (Skill.skillGauge != 0)
+                if (gm.Rage.ragecount >= 3)
                 {
-                    gm.cameraShake.shakePower = 2;
-                    gm.cameraShake.Shake(true);
-                    rage = MIN_RAGE;
-                    israge = false;
+                    if (Skill.skillGauge != 0)
+                    {
+                        Player.HP -= gm.monster.ATK;
+                        gm.cameraShake.shakePower = 2;
+                        gm.cameraShake.Shake(true);
+                        gm.damageTextSpawn.MakeMonsterDmgText();
+                        CowAttackEffectOn();
+                        rage = MIN_RAGE;
+                        israge = false;
+                        gm.Rage.ragecount = 0;
+                        gm.Rage.rageclear = 0;
+                    }
                 }
             }
+            else if (rage >= MAX_RAGE && gm.timer.timeover == false)
+            {
+                if (gm.Rage.ragecount >= 3)
+                {
+                    if (Skill.skillGauge != 0)
+                    {
+                        Player.HP -= gm.monster.ATK;
+                        gm.cameraShake.shakePower = 2;
+                        gm.cameraShake.Shake(true);
+                        gm.damageTextSpawn.MakeMonsterDmgText();
+                        CowAttackEffectOn();
+                        rage = MIN_RAGE;
+                        israge = false;
+                        gm.Rage.ragecount = 0;
+                        gm.Rage.rageclear = 0;
+                    }
+                }
+            }
+            else if (rage < MAX_RAGE || gm.timer.timeover == true)
+            {
+                Player.HP -= gm.monster.ATK;
+                gm.cameraShake.shakePower = 1;
+                gm.cameraShake.Shake(true);
+                gm.damageTextSpawn.MakeMonsterDmgText();
+                HandleRageStack();
+                CowAttackEffectOn();
+            }
+
             if (Player.HP <= 0)
             {
                 Player.HP = 0;
@@ -236,11 +273,14 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            Player.HP -= gm.monster.ATK * 0.2f;
-            gm.cameraShake.shakePower = 2;
-            gm.cameraShake.Shake(true);
-            gm.damageTextSpawn.MakeMonsterDmgText();
-            gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
+            if (gm.Rage.ragecount >= 3)
+            {
+                Player.HP -= gm.monster.ATK * 0.2f;
+                gm.cameraShake.shakePower = 2;
+                gm.cameraShake.Shake(true);
+                gm.damageTextSpawn.MakeMonsterDmgText();
+                gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
+            }
         }
 
         // 체력 검사
@@ -263,6 +303,8 @@ public class Monster : MonoBehaviour
 
     public void MonsterRageAttackEvent(int p_num)
     {
+        gm.Rage.ragecount = 0;
+        gm.Rage.rageclear = 0;
         switch (p_num)
         {
             case 0:
@@ -381,11 +423,17 @@ public class Monster : MonoBehaviour
     /// </summary>
     public void HandleRageStack()
     {
-        if (israge == true)
+        if (israge == true && gm.Rage.ragecount >= 3)
         {
             //israge가 true일 때는 false가 되는 동시에 rage가 3이 되게 함
             israge = false;
             rage = MIN_RAGE;
+            gm.Rage.ragecount = 0;
+            gm.Rage.rageclear = 0;
+        }
+        else if (israge == true && gm.Rage.ragecount < 3)
+        {
+            gm.Rage.ragecount++;
         }
         else if (israge == false)
         {
@@ -419,20 +467,35 @@ public class Monster : MonoBehaviour
 
     public void AttackAnimation()
     {
-        if (gm.battleController.feverOn)
+        if (gm.Rage.ragecount >= 3 || israge == false)
         {
-            return;
-        }
-        if (!gm.monster.isDie && !gm.battleController.feverOn)
-        {
-            AttackDelay();
-            if (israge && LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
+            if (gm.battleController.feverOn)
             {
-                gm.monster.anim.SetTrigger("IsRageAttack");
+                return;
+            }
+            if (!gm.monster.isDie && !gm.battleController.feverOn)
+            {
+                AttackDelay();
+                if (israge && LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
+                {
+                    gm.monster.anim.SetTrigger("IsRageAttack");
+                }
+                else
+                {
+                    gm.monster.anim.SetTrigger("IsAttack");
+                }
+            }
+        }
+        else
+        {
+            if (gm.Rage.ragecount == 1 && gm.Rage.rageclear == 1)
+            {
+                gm.battleController.TileHandler();
             }
             else
             {
-                gm.monster.anim.SetTrigger("IsAttack");
+                HandleRageStack();
+                gm.battleController.TileHandler();
             }
         }
     }

@@ -30,7 +30,6 @@ public class BattleController : MonoBehaviour
     {
         if (!gm.player.isDie && !gm.monster.isDie)
         {
-
             TileHandler();
             gm.timer.timeover = false;
             gm.player_move.freeze = false;
@@ -56,8 +55,18 @@ public class BattleController : MonoBehaviour
         }
         else if(gm.monster.israge)
         {
-            shieldOn = true;
-            gm.monster.AttackAnimation();
+            if(gm.Rage.ragecount >= 4)
+            {
+                if (gm.Rage.rageclear >= 4)
+                {
+                    shieldOn = true;
+                }
+                gm.monster.AttackAnimation();
+            }
+            else
+            {
+                TileHandler();
+            }
         }
         else if(gm.skill.isSkillGaugeFull)
         {
@@ -160,6 +169,20 @@ public class BattleController : MonoBehaviour
                 gm.monster.isDie = true;
             }
         }
+        else
+        {
+            gm.Rage.rageclear++;
+            gm.Rage.ragecount++;
+            /*if (gm.Rage.ragecount >= 3)
+            {
+                gm.Rage.ragecount++;
+            }
+            else
+            {
+                gm.Rage.rageclear++;
+                gm.Rage.ragecount++;
+            }*/
+        }
 
         if (!gm.skill.isSkillGaugeFull)
         {
@@ -173,6 +196,10 @@ public class BattleController : MonoBehaviour
         if (gm.monster.israge)
         {
             gm.timer.limitTime = gm.timer.maxRageTime;
+            if(gm.timer.timeover == true)
+            {
+                gm.timer.timeover = false;
+            }
 
         }
         else if (!gm.skill.isSkillGaugeFull)
