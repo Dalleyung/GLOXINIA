@@ -72,10 +72,7 @@ public class BattleController : MonoBehaviour
         {
             gm.soundManager.PlayEffectSound(gm.soundManager.feverAttack);
             gm.monster.HitAnimation();
-            if (feverOn == false)
-            {
-                feverOn = true;
-            }
+            
             if (feverOn)
             {
                 Player.HP += 5;
