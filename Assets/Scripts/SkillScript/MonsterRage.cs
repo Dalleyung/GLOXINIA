@@ -15,15 +15,17 @@ public class MonsterRage : MonoBehaviour
     {
         SetTile setTile = GameManager.GetInstance().setTile;
         //중복 처리 작업
-        int rn = Random.Range(0, 2);
+
+        int rn = Random.Range(0, 9);
         while (true)
         {
-            rn = Random.Range(0, 2);
+            rn = Random.Range(0, 9);
             if (rn != setTile.nowpreset)
             {
                 break;
             }
         }
+        Debug.Log("test" + rn);
         //현재 프리셋 넘버에 random값 넣기
         setTile.nowpreset = rn;
 
@@ -49,12 +51,12 @@ public class MonsterRage : MonoBehaviour
                 for (int x = 0; x < 6; x++)
                 {
                     string[] values = source.Split(' ');  // 쉼표로 구분한다. 저장시에 공백으로 구분하여 저장하였다.
-                    setTile.m_stagepreset[x, 0] = int.Parse(values[0]);
-                    setTile.m_stagepreset[x, 1] = int.Parse(values[1]);
-                    setTile.m_stagepreset[x, 2] = int.Parse(values[2]);
-                    setTile.m_stagepreset[x, 3] = int.Parse(values[3]);
-                    setTile.m_stagepreset[x, 4] = int.Parse(values[4]);
-                    setTile.m_stagepreset[x, 5] = int.Parse(values[5]);
+                    setTile.m_stagepreset[ 0, x] = int.Parse(values[0]);
+                    setTile.m_stagepreset[ 1, x] = int.Parse(values[1]);
+                    setTile.m_stagepreset[ 2, x] = int.Parse(values[2]);
+                    setTile.m_stagepreset[ 3, x] = int.Parse(values[3]);
+                    setTile.m_stagepreset[ 4, x] = int.Parse(values[4]);
+                    setTile.m_stagepreset[ 5,x] = int.Parse(values[5]);
                     source = sr.ReadLine();
                 }
                 source = null;
