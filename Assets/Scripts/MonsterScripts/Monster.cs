@@ -421,7 +421,8 @@ public class Monster : MonoBehaviour
         gm.setTile.Init();
 
         //분노 상태 돌입 시 컷신 연출동안 플레이어 freeze에 타일을 빈타일로 만들기 위함
-        if(israge)
+        // 분노 후 피버로 들어갈 시에 위와 같은 이유로 피버도 추가
+        if(israge || gm.battleController.feverOn)
         {
             //컷씬 연출이 끝나고 freeze 해제 및 TileHandler호출로 타일 재배치
             AttackDelay();

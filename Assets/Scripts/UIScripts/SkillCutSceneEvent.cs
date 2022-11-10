@@ -42,7 +42,6 @@ public class SkillCutSceneEvent : MonoBehaviour
                 gm.timer.limitTime = gm.timer.maxTime;
                 gameObject.SetActive(false);
                 gm.timer.gameObject.SetActive(true);
-                gm.GetComponent<Option>().obj[1].gameObject.SetActive(true);
                 gm.battleController.TileHandler();
                 break;
             case 2:
