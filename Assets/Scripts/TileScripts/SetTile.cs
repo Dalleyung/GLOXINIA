@@ -55,6 +55,7 @@ public class SetTile : MonoBehaviour
 
                 TileList.Add(Instantiate(prefabTile.GetComponent<Tile>()));
 
+                
                 TileList[count].transform.parent = GameObject.Find("Tiles").transform;
                 TileList[count].name = prefabTile.name + $"({count})";
                 TileList[count].transform.position = vector3;
