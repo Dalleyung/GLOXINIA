@@ -282,6 +282,7 @@ public class Monster : MonoBehaviour
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
                 gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
+                
             }
         }
 
@@ -305,8 +306,7 @@ public class Monster : MonoBehaviour
 
     public void MonsterRageAttackEvent(int p_num)
     {
-        gm.Rage.ragecount = 0;
-        gm.Rage.rageclear = 0;
+        
         switch (p_num)
         {
             case 0:
@@ -325,8 +325,11 @@ public class Monster : MonoBehaviour
                 StartCoroutine(ShootingSwordAnim());
                 break;
             case 2:
-                HandleRageStack();
-
+                if (israge)
+                {
+                    HandleRageStack();
+                }
+                
                 gm.battleController.shieldOn = false;
                 if (Skill.skillGauge != 0)
                 {
@@ -349,11 +352,12 @@ public class Monster : MonoBehaviour
                     gm.skill.cutScene.gameObject.SetActive(true);
                     gm.battleController.feverOn = true;
                 }
-                if (!gm.battleController.feverOn)
+
+                /*if (!gm.battleController.feverOn)
                 {
                     StartCoroutine(FallingAnimDelay());
-                }
-
+                }*/
+                StartCoroutine(FallingAnimDelay());
                 break;
         }
 
@@ -437,6 +441,7 @@ public class Monster : MonoBehaviour
             rage = MIN_RAGE;
             gm.Rage.ragecount = 0;
             gm.Rage.rageclear = 0;
+            gm.skill.RaiseSkillGauge(0);
         }
         else if (israge == true && gm.Rage.ragecount < 3)
         {
