@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static System.Net.Mime.MediaTypeNames;
-using static UnityEditor.PlayerSettings;
+//using static UnityEditor.PlayerSettings;
 //using static UnityEditor.Timeline.TimelinePlaybackControls;
 using Text = UnityEngine.UI.Text;
 

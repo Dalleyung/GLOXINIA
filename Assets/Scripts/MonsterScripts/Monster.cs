@@ -44,6 +44,8 @@ public class Monster : MonoBehaviour
 
     public GameObject obj;
 
+    public GameObject rageCutScene;
+
     enum MonsterType
     {
         Boss = 0,
@@ -413,8 +415,13 @@ public class Monster : MonoBehaviour
 
         //무지성으로 건듦
         gm.setTile.Init();
-        //
 
+        //분노 상태 돌입 시 컷신 연출동안 플레이어 freeze에 타일을 빈타일로 만들기 위함
+        if(israge)
+        {
+            //컷씬 연출이 끝나고 freeze 해제 및 TileHandler호출로 타일 재배치
+            AttackDelay();
+        }
         CowAttackEffectOff();
     }
 
@@ -442,6 +449,8 @@ public class Monster : MonoBehaviour
             if (rage >= MAX_RAGE)
             {
                 israge = true;
+                rageCutScene.gameObject.SetActive(true);
+                gm.timer.gameObject.SetActive(false);
             }
         }
     }

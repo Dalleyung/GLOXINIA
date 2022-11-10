@@ -33,12 +33,11 @@ public class Swipe : MonoBehaviour
 				Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
 				Ray2D ray = new Ray2D(pos, Vector2.zero);
 				RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 1, tileMask);
-				Tile tile = null;
 				if (hit.collider != null)
 				{
 					if (hit.collider.tag == "Tile")
 					{
-						tile = hit.collider.GetComponent<Tile>();
+						Tile tile = hit.collider.GetComponent<Tile>();
 						tile.StartTouch();
 					}
 				}
@@ -51,20 +50,25 @@ public class Swipe : MonoBehaviour
 			{
 				if (!detectSwipeAfterRelease)
 				{
-                    Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
-                    Ray2D ray = new Ray2D(pos, Vector2.zero);
-                    RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 1, tileMask);
-                    Tile tile = null;
+					Vector2 pos = Camera.main.ScreenToWorldPoint(touch.position);
+					Ray2D ray = new Ray2D(pos, Vector2.zero);
+					RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, 1, tileMask);
+					Tile tile = null;
+
                     if (hit.collider != null)
-                    {
+					{
 						if (hit.collider.tag == "Tile")
 						{
 							tile = hit.collider.GetComponent<Tile>();
-							tile.SwipeTouch(tile.transform.position);
+							if (gm.player_move.transform.position != tile.transform.position)
+							{
+								Debug.Log(tile.transform.position);
+								tile.SwipeTouch(tile.transform.position);
+							}
 						}
-                    }
+					}
 
-                    fingerDownPos = touch.position;
+					fingerDownPos = touch.position;
 					DetectSwipe();
 				}
 			}
