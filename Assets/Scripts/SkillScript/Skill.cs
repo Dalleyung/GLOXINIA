@@ -69,7 +69,11 @@ public class Skill : MonoBehaviour
     public void RaiseSkillGauge(float value)
     {
         //스킬게이지에 매개변수 value값 * 추가값 더하기
-        skillGauge += value * plusSkillGauge;
+        if(!gm.monster.israge)
+        {
+            skillGauge += value * plusSkillGauge;
+        }
+        
         //스킬게이지 전부 채워졌을때 처리
         if (skillGauge >= maxSkillGauge && !gm.player.isDie && Player.HP >= 0)
         {
