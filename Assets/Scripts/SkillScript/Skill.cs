@@ -84,7 +84,6 @@ public class Skill : MonoBehaviour
             {
                 gm.soundManager.PlayBGMSound(gm.soundManager.feverBGM);
                 gm.timer.gameObject.SetActive(false);
-                gm.GetComponent<Option>().obj[1].gameObject.SetActive(false);
                 cutScene.gameObject.SetActive(true);
                 gm.battleController.feverOn = true;
             }
