@@ -46,6 +46,8 @@ public class Monster : MonoBehaviour
 
     public GameObject rageCutScene;
 
+    public int spawnSwordCnt = 0;
+
     enum MonsterType
     {
         Boss = 0,
@@ -304,18 +306,15 @@ public class Monster : MonoBehaviour
         }
     }
 
-    public void MonsterRageAttackEvent(int p_num)
+    public void BossRageAttackEvent(int p_num)
     {
         
         switch (p_num)
         {
             case 0:
-                for (int i = 0; i < maxSwordCnt; i++)
-                {
-                    swordList.Add(Instantiate(Resources.Load("Prefabs/" + "Cross") as GameObject));
-                    swordList[i].transform.position = gm.bezierCurve.vecFirstList[i];
-                }
-                StartCoroutine(SpawningSwordAnim());
+                gm.monster.swordList[gm.monster.spawnSwordCnt].gameObject.SetActive(true);
+                gm.soundManager.PlayEffectSound(gm.soundManager.createSword);
+                spawnSwordCnt = 0;
                 break;
             case 1:
                 for (int i = 0; i < gm.setTile.TileList.Count; i++)
@@ -361,22 +360,6 @@ public class Monster : MonoBehaviour
                 break;
         }
 
-    }
-
-    IEnumerator SpawningSwordAnim()
-    {
-        int count = 0;
-
-        while (true)
-        {
-            yield return new WaitForSeconds(spawnDelay);
-            swordList[count++].gameObject.SetActive(true);
-            gm.soundManager.PlayEffectSound(gm.soundManager.createSword);
-            if (count >= maxSwordCnt)
-            {
-                yield break;
-            }
-        }
     }
 
     IEnumerator ShootingSwordAnim()

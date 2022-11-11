@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
     public Credit credit;
     public GameObject resultBtn;
     public MonsterRage Rage;
-    public GameObject turnText;
     public GameOver gameOver;
     public MonsterController monsterController;
     public BezierCurve bezierCurve;

@@ -29,7 +29,6 @@ public class UiAnim : MonoBehaviour
         gm.skill.skillGaugeBar.gameObject.SetActive(true);
         gm.Rage.rageUI.gameObject.SetActive(true);
         gm.Rage.rageCase.gameObject.SetActive(true);
-        gm.turnText.gameObject.SetActive(true);
         for (int i = 0; i < gm.setTile.TileList.Count; i++)
         {
             gm.setTile.TileList[i].gameObject.SetActive(true);

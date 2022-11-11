@@ -17,17 +17,25 @@ public class RageCutSceneEvent : MonoBehaviour
 
     public float currentTime = 0;
 
+    public List<Sprite> sprites;
+
     private void Awake()
     {
         originPos = gameChar.transform.position;
         originPos2 = new Vector3(0, originPos.y, 0);
         originTextPos = gameText.transform.position;
+        CutSceneSetting();
     }
 
     private void Start()
     {
         gm = GameManager.GetInstance();
 
+    }
+
+    public void CutSceneSetting()
+    {
+        gameChar.GetComponent<SpriteRenderer>().sprite = sprites[LoadingSceneManager.currentStage];
     }
 
     public void ActiveEvent(int p_num)
@@ -45,7 +53,22 @@ public class RageCutSceneEvent : MonoBehaviour
                 //gm.GetComponent<Option>().obj[1].gameObject.SetActive(true);
                 gm.battleController.TileHandler();
 
-                gm.monster.anim.SetTrigger("IsRageWait");
+                switch (LoadingSceneManager.currentStage)
+                {
+                    case (int)LoadingSceneManager.STAGE.COW:
+                        gm.monster.anim.SetTrigger("IsRageWait");
+                        break;
+                    case (int)LoadingSceneManager.STAGE.DEMON:
+                        for (int i = 0; i < gm.monster.maxSwordCnt; i++)
+                        {
+                            gm.monster.swordList.Add(Instantiate(Resources.Load("Prefabs/" + "Cross") as GameObject));
+                            gm.monster.swordList[i].transform.position = gm.bezierCurve.vecFirstList[i];
+                        }
+                        gm.monster.swordList[gm.monster.spawnSwordCnt++].gameObject.SetActive(true);
+                        gm.soundManager.PlayEffectSound(gm.soundManager.createSword);
+                        break;
+                }
+
                 break;
             case 2:
                 StartCoroutine(CoroutineCutScene());

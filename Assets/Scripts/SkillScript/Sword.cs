@@ -12,11 +12,19 @@ public class Sword : MonoBehaviour
     void Start()
     {
         gm = GameManager.GetInstance();
+        CreateEffect();
     }
 
     void Update()
     {
 
+    }
+
+    public void CreateEffect()
+    {
+        GameObject cpyEffect2 = Instantiate(Resources.Load("Prefabs/" + "Normal_Attack_VFX") as GameObject);
+        cpyEffect2.transform.position = transform.GetChild(0).position;
+        Destroy(cpyEffect2, 1f);
     }
 
     public IEnumerator BezierSword(int p_num)

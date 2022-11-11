@@ -194,6 +194,14 @@ public class BattleController : MonoBehaviour
                 gm.timer.timeover = false;
             }
 
+            if (gm.monster.swordList.Count >= 1)
+            {
+                if (gm.monster.spawnSwordCnt <= gm.monster.maxSwordCnt)
+                {
+                    gm.monster.swordList?[gm.monster.spawnSwordCnt++].gameObject.SetActive(true);
+                    gm.soundManager.PlayEffectSound(gm.soundManager.createSword);
+                }
+            }
         }
         else if (!gm.skill.isSkillGaugeFull)
         {
@@ -201,7 +209,6 @@ public class BattleController : MonoBehaviour
         }
 
         gm.player_move.gameObject.transform.position = new Vector3(1000, 0, 0);
-        gm.turnText.transform.GetChild(0).GetComponent<TurnText>().MakeString();
         gm.setTile.Init();
 
         // ±âº»
