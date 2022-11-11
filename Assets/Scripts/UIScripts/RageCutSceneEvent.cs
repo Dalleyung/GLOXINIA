@@ -44,6 +44,8 @@ public class RageCutSceneEvent : MonoBehaviour
                 gm.player_move.freeze = false;
                 //gm.GetComponent<Option>().obj[1].gameObject.SetActive(true);
                 gm.battleController.TileHandler();
+
+                gm.monster.anim.SetTrigger("IsRageWait");
                 break;
             case 2:
                 StartCoroutine(CoroutineCutScene());
