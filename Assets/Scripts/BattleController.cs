@@ -146,6 +146,7 @@ public class BattleController : MonoBehaviour
         {
             Debug.Log("공격 성공");
             gm.monster.HP -= Player.ATK + gm.player_move.moveStack;
+            gm.player_move.m_MoveStackbuff = gm.player_move.moveStack;
 
             if (gm.player_move.moveStack > 10 || gm.skill.isSkillGaugeFull)
             {

@@ -45,7 +45,8 @@ public class DamageText : MonoBehaviour
                 //폰트 사이즈 증가
                 gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
 
-                TotalDMG = ((int)(9500 * ((float)gm.player_move.moveStack / 15) * RandDMG));
+
+                TotalDMG = ((int)(9500 * ((float)gm.player_move.m_MoveStackbuff / 15) * RandDMG));
 
 
                 if (TotalDMG >= 9999)

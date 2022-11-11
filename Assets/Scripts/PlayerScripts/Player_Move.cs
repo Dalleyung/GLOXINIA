@@ -6,6 +6,8 @@ using UnityEngine;
 public class Player_Move : MonoBehaviour
 {
     public int moveStack = -1;  // 이동 횟수
+    public int m_MoveStackbuff; //공격 변수 임시저장
+
     public bool isStart = false;   // 한붓 시작했는지
     public bool freeze = false; //플레이어 조작 중지
     public GameManager gm;
