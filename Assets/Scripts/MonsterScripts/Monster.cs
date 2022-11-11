@@ -476,7 +476,7 @@ public class Monster : MonoBehaviour
         gm.timer.gameObject.SetActive(false);
         for (int i = 0; i < gm.setTile.TileList.Count; i++)
         {
-            gm.setTile.TileList[i].tileValue = 0;
+            gm.setTile.TileList[i].tileValue = (int)SetTile.E_TileValue.Fever_Disable_Tile;
         }
     }
 
