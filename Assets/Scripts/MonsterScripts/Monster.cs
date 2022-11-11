@@ -398,7 +398,7 @@ public class Monster : MonoBehaviour
 
     public IEnumerator FallingAnimDelay()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(1.5f);
         for (int i = 0; i < gm.setTile.TileList.Count; i++)
         {
             Destroy(gm.setTile.TileList[i].gameObject);

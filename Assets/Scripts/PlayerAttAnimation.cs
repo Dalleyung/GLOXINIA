@@ -124,7 +124,7 @@ public class PlayerAttAnimation : MonoBehaviour
     {
         SetSpriteList();
         attImage.color = Color.clear;
-        animSpeed = 0.15f;
+        animSpeed = 0.1f;
         imgrt = attImage.rectTransform;
     }
     // Update is called once per frame
