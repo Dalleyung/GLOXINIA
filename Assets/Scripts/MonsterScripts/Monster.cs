@@ -425,6 +425,7 @@ public class Monster : MonoBehaviour
             rage = MIN_RAGE;
             gm.Rage.ragecount = 0;
             gm.Rage.rageclear = 0;
+            gm.soundManager.PlayBGMSound(gm.soundManager.battleBGM);
             gm.skill.RaiseSkillGauge(0);
         }
         else if (israge == true && gm.Rage.ragecount < 3)
@@ -438,6 +439,7 @@ public class Monster : MonoBehaviour
             if (rage >= MAX_RAGE)
             {
                 israge = true;
+                gm.soundManager.PlayBGMSound(gm.soundManager.rageBGM);
                 rageCutScene.gameObject.SetActive(true);
                 gm.timer.gameObject.SetActive(false);
             }
