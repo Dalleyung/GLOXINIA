@@ -14,8 +14,7 @@ public class DamageText : MonoBehaviour
     public float currentTime = 0;
     public int typeValue = 0;
 
-    public float RandDMG;
-    int TotalDMG;
+    
 
     // 화산효과 변수
     //// 위로 향하는 힘 값
@@ -34,7 +33,6 @@ public class DamageText : MonoBehaviour
 
     public void DmgTextAnim()
     {
-        RandDMG = Random.Range(1.00f, 1.07f);
         // 천천히 사라지기
         StartCoroutine(AlphaDown(gameObject.transform.GetComponent<TextMeshProUGUI>()));
 
@@ -46,13 +44,10 @@ public class DamageText : MonoBehaviour
                 gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
 
 
-                TotalDMG = ((int)(9500 * ((float)gm.player_move.m_MoveStackbuff / 15) * RandDMG));
-
-
-                if (TotalDMG >= 9999)
-                    gameObject.transform.GetComponent<TextMeshProUGUI>().text = (9999).ToString();
+                if (gm.player.TotalDMG >= 99999)
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().text = (99999).ToString();
                 else
-                    gameObject.transform.GetComponent<TextMeshProUGUI>().text = TotalDMG.ToString();
+                    gameObject.transform.GetComponent<TextMeshProUGUI>().text = ((int)gm.player.TotalDMG).ToString();
                 break;
             case 2:
                 //분노상태일 때 추가 데미지도 계산하여 넣어줘야 함(현재 변수 없음)
@@ -61,7 +56,7 @@ public class DamageText : MonoBehaviour
                 gameObject.transform.GetComponent<TextMeshProUGUI>().fontSize = 300;
 
                 gameObject.transform.GetComponent<TextMeshProUGUI>().text =
-            (gm.monster.ATK).ToString();
+            ((int)gm.monster.TotalDMG).ToString();
                 break;
         }
         

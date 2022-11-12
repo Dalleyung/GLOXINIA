@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip battleBGM;
     public AudioClip titleBGM;
     public AudioClip feverBGM;
+    public AudioClip rageBGM;
     public AudioClip victoryBGM;
     public AudioClip defeatBGM;
     public AudioClip cowAttack;

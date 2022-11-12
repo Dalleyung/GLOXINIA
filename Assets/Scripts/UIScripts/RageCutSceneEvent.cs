@@ -44,6 +44,7 @@ public class RageCutSceneEvent : MonoBehaviour
         {
             case 0:
                 gm.soundManager.PlayEffectSound(gm.soundManager.feverStart);
+                
                 break;
             case 1:
                 gm.timer.limitTime = gm.timer.maxRageTime;

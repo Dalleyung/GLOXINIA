@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public BezierCurve bezierCurve;
     public CameraShake cameraShake;
     public PlayerAttAnimation playerAttAnimation;
+    
     public GameObject stage;
 
     static GameManager instance;
@@ -80,6 +81,7 @@ public class GameManager : MonoBehaviour
             Skill.skillGauge = 0;
             skill.isSkillGaugeFull = false;
             battleController.feverOn = false;
+            
         }
         
         LoadingSceneManager.NowStage(++LoadingSceneManager.currentStage);

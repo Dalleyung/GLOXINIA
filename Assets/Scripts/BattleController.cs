@@ -72,15 +72,15 @@ public class BattleController : MonoBehaviour
         {
             gm.soundManager.PlayEffectSound(gm.soundManager.feverAttack);
             gm.monster.HitAnimation();
-
+            
             //if (feverOn)
             //{
-            //    Player.HP += 5;
+            //    //피버 타격당 체력회복 계산 공식
+            //    Player.HP += (int)((Player.MaxHP - Player.HP) * 0.07 + 1000);
             //    if (Player.HP >= Player.MaxHP)
             //    {
             //        Player.HP = Player.MaxHP;
             //    }
-
             //    if (!gm.monster.isDie)
             //    {
             //        TileHandler();
@@ -143,11 +143,28 @@ public class BattleController : MonoBehaviour
 
     public void AttackSuccess()
     {
+
         if (!gm.monster.israge)
         {
             Debug.Log("공격 성공");
-            gm.monster.HP -= Player.ATK + gm.player_move.moveStack;
-            gm.player_move.m_MoveStackbuff = gm.player_move.moveStack;
+            
+
+
+            //피버일때랑 아닐때 대미지 공식
+            if(!gm.skill.isSkillGaugeFull)
+            {
+                gm.player.RandDMG = Random.Range(1.00f, 1.07f);
+                gm.player.TotalDMG = ((9500 * (Player.ATK + gm.player_move.moveStack * gm.player.MoveATK) / 15) * gm.player.RandDMG);
+                
+            }
+            else
+            {
+                //피버일때 DMG공식
+                gm.player.RandDMG = Random.Range(0.9f, 1.1f);
+                gm.player.TotalDMG = (5735 * gm.player.RandDMG);
+            }
+
+            gm.monster.HP -= (int)gm.player.TotalDMG;
 
             if (gm.player_move.moveStack > 10 || gm.skill.isSkillGaugeFull)
             {
@@ -184,12 +201,12 @@ public class BattleController : MonoBehaviour
         //만약 문제가 있다면 밑의 코드를 지우고 AttackHandler에 똑같은 코드를 주석 해제하시면 됩니다.
         if (feverOn)
         {
-            Player.HP += 5;
+            //피버 타격당 체력회복 계산 공식
+            Player.HP += (int)((Player.MaxHP - Player.HP) * 0.07 + 1000);
             if (Player.HP >= Player.MaxHP)
             {
                 Player.HP = Player.MaxHP;
             }
-
             if (!gm.monster.isDie)
             {
                 TileHandler();

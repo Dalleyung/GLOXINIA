@@ -13,13 +13,13 @@ public class Skill : MonoBehaviour
     /// </summary>
     public bool isSkillGaugeFull;
     /// <summary>
-    /// 스킬게이지 현재값(int) (필요시 float로 변경될수있음)
+    /// 스킬게이지 현재값(
     /// </summary>
     public static float skillGauge= 0;
     /// <summary>
     /// 스킬게이지의 최대값
     /// </summary>
-    const float maxSkillGauge = 100;
+    const float maxSkillGauge = 60;
     public Scrollbar skillGaugeBar;
     //이거때문에 실시간으로 게이지가 변경이 안되어서 주석
     //private void Awake()
@@ -30,12 +30,26 @@ public class Skill : MonoBehaviour
 
     public float plusSkillGauge;
 
+    /// <summary>
+    /// 피버타임 이펙트 원본
+    /// </summary>
+    public GameObject skillEffect;
+
+    /// <summary>
+    /// 피버타임 이펙트의 복사본을 가질 변수
+    /// </summary>
+    public GameObject fe1;
+    public GameObject fe2;
+
     public GameObject cutScene;
 
     void Start()
     {
         gm = GameManager.GetInstance();
+        skillEffect = Resources.Load<GameObject>("Prefabs/FeverEffect");
         isSkillGaugeFull = false;
+        fe1 = null;
+        fe2 = null;
         //skillGauge = 0;
         if (skillGaugeBar != null)
         {

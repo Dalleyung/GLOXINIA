@@ -45,6 +45,11 @@ public class Timer : MonoBehaviour
                 gm.battleController.feverOn = false;
                 Skill.skillGauge = 0;
                 gm.skill.isSkillGaugeFull = false;
+                if (gm.skill.fe1 != null)
+                {
+                    Destroy(gm.skill.fe1);
+                    Destroy(gm.skill.fe2);
+                }
             }
 
             //if (gm.monster.israge == true)
