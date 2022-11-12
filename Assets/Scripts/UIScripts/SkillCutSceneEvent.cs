@@ -28,7 +28,6 @@ public class SkillCutSceneEvent : MonoBehaviour
     private void Start()
     {
         gm = GameManager.GetInstance();
-        
     }
 
     public void ActiveEvent(int p_num)
@@ -43,6 +42,10 @@ public class SkillCutSceneEvent : MonoBehaviour
                 gameObject.SetActive(false);
                 gm.timer.gameObject.SetActive(true);
                 gm.battleController.TileHandler();
+                gm.skill.fe1 = Instantiate(gm.skill.skillEffect);
+                gm.skill.fe1.transform.position = new Vector3(0, 21, -5);
+                gm.skill.fe2 = Instantiate(gm.skill.skillEffect);
+                gm.skill.fe2.transform.position = new Vector3(0, -21.5f, -5);
                 break;
             case 2:
                 StartCoroutine(CoroutineCutScene());

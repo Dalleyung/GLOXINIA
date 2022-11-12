@@ -501,6 +501,12 @@ public class Monster : MonoBehaviour
 
     public void DieAnimation()
     {
+        if (gm.skill.fe1 != null)
+        {
+            Destroy(gm.skill.fe1);
+            Destroy(gm.skill.fe2);
+        }
+
         if (gm.monster.isDie)
         {
             AttackDelay();
@@ -567,6 +573,12 @@ public class Monster : MonoBehaviour
     [System.Obsolete]
     public void BossDieEffectEvent(int p_num)
     {
+        if (gm.skill.fe1 != null)
+        {
+            Destroy(gm.skill.fe1);
+            Destroy(gm.skill.fe2);
+        }
+
         if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
         {
             switch (p_num)
