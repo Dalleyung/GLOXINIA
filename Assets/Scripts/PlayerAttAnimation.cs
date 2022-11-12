@@ -25,6 +25,8 @@ public class PlayerAttAnimation : MonoBehaviour
     public IEnumerator AttAnimation(int num)
     {
         int curruntNum = 0;
+        Image atti =  Instantiate(attImage,transform);
+        imgrt = atti.rectTransform;
         attImage.color = new Color(1, 1, 1, 1);
         
         switch (num)
@@ -35,12 +37,12 @@ public class PlayerAttAnimation : MonoBehaviour
                 //attImage.rectTransform.sizeDelta = new Vector2(700, 400);
                 while (true)
                 {
-                    attImage.sprite = hattSpritelist[curruntNum];
+                    atti.sprite = hattSpritelist[curruntNum];
                     curruntNum++;
                     if (curruntNum == 7)
                     {
                         attImage.sprite = null;
-                        attImage.color = Color.clear;
+                        Destroy(atti);
                         yield break;
                     }
                     yield return new WaitForSeconds(animSpeed);
@@ -51,12 +53,12 @@ public class PlayerAttAnimation : MonoBehaviour
                 //attImage.rectTransform.sizeDelta = new Vector2(700, 400);
                 while (true)
                 {
-                    attImage.sprite = mattSpritelist[curruntNum];
+                    atti.sprite = mattSpritelist[curruntNum];
                     curruntNum++;
                     if (curruntNum == 8)
                     {
                         attImage.sprite = null;
-                        attImage.color = Color.clear;
+                        Destroy(atti);
                         yield break;
                     }
                     yield return new WaitForSeconds(animSpeed);
@@ -67,12 +69,12 @@ public class PlayerAttAnimation : MonoBehaviour
                 //attImage.rectTransform.sizeDelta = new Vector2(700, 600);
                 while (true)
                 {
-                    attImage.sprite = lattSpritelist[curruntNum];
+                    atti.sprite = lattSpritelist[curruntNum];
                     curruntNum++;
                     if (curruntNum == 8)
                     {
                         attImage.sprite = null;
-                        attImage.color = Color.clear;
+                        Destroy(atti);
                         yield break;
                     }
                     yield return new WaitForSeconds(animSpeed);
@@ -123,9 +125,7 @@ public class PlayerAttAnimation : MonoBehaviour
     void Start()
     {
         SetSpriteList();
-        attImage.color = Color.clear;
         animSpeed = 0.1f;
-        imgrt = attImage.rectTransform;
     }
     // Update is called once per frame
     void Update()
