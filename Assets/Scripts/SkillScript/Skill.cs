@@ -19,7 +19,7 @@ public class Skill : MonoBehaviour
     /// <summary>
     /// 스킬게이지의 최대값
     /// </summary>
-    const float maxSkillGauge = 100;
+    const float maxSkillGauge = 60;
     public Scrollbar skillGaugeBar;
     //이거때문에 실시간으로 게이지가 변경이 안되어서 주석
     //private void Awake()

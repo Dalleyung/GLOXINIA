@@ -48,6 +48,11 @@ public class Monster : MonoBehaviour
 
     public int spawnSwordCnt = 0;
 
+
+    public float RandDMG;
+    public float TotalDMG;
+    public int RefFig = 15000;
+
     enum MonsterType
     {
         Boss = 0,
@@ -90,6 +95,29 @@ public class Monster : MonoBehaviour
         }
     }
 
+    //플레이어 공격할때 동시처리 함수
+    public int AttackPlayer()
+    {
+        if(gm.monster.israge)
+        {
+            RandDMG = Random.Range(1.3f, 1.5f);
+            //몬스터 분노 퍼즐 실패 데미지 공식
+            TotalDMG = 9567 * (4 - gm.Rage.rageclear) * RandDMG;
+        }
+        else
+        {
+            RandDMG = Random.Range(0.96f, 1.04f);
+            //몬스터 공격 공식
+            TotalDMG = (RefFig * RandDMG) - gm.player.TotalDMG;
+        }
+
+        //음수값이 들어가면 dmg 0으로 처리
+        if (TotalDMG < 0)
+            TotalDMG = 0;
+
+        return (int)TotalDMG;
+    }
+
     public float power;
     public void BossNormalAttackEvent(int p_num)
     {
@@ -115,7 +143,7 @@ public class Monster : MonoBehaviour
                 copyObj4.GetComponent<Rigidbody2D>().AddForce(Vector2.down * power, ForceMode2D.Impulse);
                 Destroy(copyObj4, 0.2f);
 
-                Player.HP -= gm.monster.ATK;
+                Player.HP -= AttackPlayer();;
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -180,7 +208,7 @@ public class Monster : MonoBehaviour
             
             if (rage < MAX_RAGE && gm.timer.timeover == true)
             {
-                Player.HP -= gm.monster.ATK;
+                Player.HP -= AttackPlayer();;
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -193,7 +221,7 @@ public class Monster : MonoBehaviour
                 {
                     if (Skill.skillGauge != 0)
                     {
-                        Player.HP -= gm.monster.ATK;
+                        Player.HP -= AttackPlayer();;
                         gm.cameraShake.shakePower = 2;
                         gm.cameraShake.Shake(true);
                         gm.damageTextSpawn.MakeMonsterDmgText();
@@ -211,7 +239,7 @@ public class Monster : MonoBehaviour
                 {
                     if (Skill.skillGauge != 0)
                     {
-                        Player.HP -= gm.monster.ATK;
+                        Player.HP -= AttackPlayer();;
                         gm.cameraShake.shakePower = 2;
                         gm.cameraShake.Shake(true);
                         gm.damageTextSpawn.MakeMonsterDmgText();
@@ -225,7 +253,7 @@ public class Monster : MonoBehaviour
             }
             else if (rage < MAX_RAGE || gm.timer.timeover == true)
             {
-                Player.HP -= gm.monster.ATK;
+                Player.HP -= AttackPlayer();;
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -279,7 +307,8 @@ public class Monster : MonoBehaviour
         {
             if (gm.Rage.ragecount >= 3)
             {
-                Player.HP -= gm.monster.ATK * 0.2f;
+                //몬스터 분노 퍼즐 실패 데미지
+                Player.HP -= AttackPlayer();
                 gm.cameraShake.shakePower = 2;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();

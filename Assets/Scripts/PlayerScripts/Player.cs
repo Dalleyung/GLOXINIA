@@ -12,13 +12,17 @@ public class Player : MonoBehaviour
     public Player_Move player_move;
     public Timer timer;
     // static으로 변경해서 씬전환을 하더라도 플레이어 스탯이 초기화가 안되도록 바꿈
-    public static float MaxHP = 100;
-    public static float MaxATK = 5;
-    public static float HP = 100;
-    public static float ATK = 5;
+    public static float MaxHP = 100000;
+    public static float MaxATK = 8;
+    public static float HP = 100000;
+    public static float ATK = 8;
     public bool isDie;
     public Scrollbar playerHPBar;
     public GameObject HPDanger;
+
+    public float RandDMG;
+    public float TotalDMG;
+    public float MoveATK = 0.47f;
 
     public bool P_Fail;
 
