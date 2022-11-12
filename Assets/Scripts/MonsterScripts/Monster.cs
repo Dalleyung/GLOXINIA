@@ -225,11 +225,14 @@ public class Monster : MonoBehaviour
                         gm.cameraShake.shakePower = 2;
                         gm.cameraShake.Shake(true);
                         gm.damageTextSpawn.MakeMonsterDmgText();
+                        HandleRageStack();
                         CowAttackEffectOn();
-                        rage = MIN_RAGE;
-                        israge = false;
-                        gm.Rage.ragecount = 0;
-                        gm.Rage.rageclear = 0;
+                        //HandleRageStack()과 동일한 효과인데 따로 코드를 써서
+                        //rageBGM에서 battleBGM으로 바뀌지 않는 현상이 생겨서 주석 처리하고 HandleRageStack()을 추가했습니다. 밑에도 동일
+                        //rage = MIN_RAGE;
+                        //israge = false;
+                        //gm.Rage.ragecount = 0;
+                        //gm.Rage.rageclear = 0;
                     }
                 }
             }
@@ -243,11 +246,12 @@ public class Monster : MonoBehaviour
                         gm.cameraShake.shakePower = 2;
                         gm.cameraShake.Shake(true);
                         gm.damageTextSpawn.MakeMonsterDmgText();
+                        HandleRageStack();
                         CowAttackEffectOn();
-                        rage = MIN_RAGE;
-                        israge = false;
-                        gm.Rage.ragecount = 0;
-                        gm.Rage.rageclear = 0;
+                        //rage = MIN_RAGE;
+                        //israge = false;
+                        //gm.Rage.ragecount = 0;
+                        //gm.Rage.rageclear = 0;
                     }
                 }
             }
@@ -456,7 +460,6 @@ public class Monster : MonoBehaviour
             gm.Rage.rageclear = 0;
             gm.soundManager.PlayBGMSound(gm.soundManager.battleBGM);
             gm.skill.RaiseSkillGauge(0);
-            gm.soundManager.PlayBGMSound(gm.soundManager.battleBGM);
         }
         else if (israge == true && gm.Rage.ragecount < 3)
         {
@@ -472,7 +475,6 @@ public class Monster : MonoBehaviour
                 gm.soundManager.PlayBGMSound(gm.soundManager.rageBGM);
                 rageCutScene.gameObject.SetActive(true);
                 gm.timer.gameObject.SetActive(false);
-                gm.soundManager.PlayBGMSound(gm.soundManager.rageBGM);
             }
         }
     }
