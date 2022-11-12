@@ -1189,7 +1189,7 @@ MonoBehaviour:
   alpha: 1
   currentTime: 0
   sprites:
-  - {fileID: 21300000, guid: 4e4a7750f3f8d0e44a5a642f1d65b746, type: 3}
+  - {fileID: 21300000, guid: 90194ff75075e0747b155e6887bc572b, type: 3}
   - {fileID: 21300000, guid: ba6cb248d611a4448b1ada4eeec265a7, type: 3}
 --- !u!1001 &360807268
 PrefabInstance:
@@ -5110,6 +5110,7 @@ MonoBehaviour:
   fadeout: {fileID: 8300000, guid: a6de92cb7e6c1da46917d52a297762d8, type: 3}
   credit: {fileID: 8300000, guid: 177e55bc44cb1a2488818a32c6b9ee4d, type: 3}
   tileMove: {fileID: 8300000, guid: b521acbb1eed731479ca3c4e61d489cc, type: 3}
+  rageBGM: {fileID: 8300000, guid: 3fc3a4bb1011cd640841ce301a276237, type: 3}
   stuck: {fileID: 8300000, guid: f33b305bca93a924d9213ebfdd0f2cd5, type: 3}
   parrying: {fileID: 8300000, guid: f7a076db63f9cb241bf4d99f81dcb417, type: 3}
   createSword: {fileID: 8300000, guid: 126e3ec0f97334e42bea8983cd28d049, type: 3}

@@ -35,11 +35,13 @@ public class SoundManager : MonoBehaviour
     public AudioClip fadeout;
     public AudioClip credit;
     public AudioClip tileMove;
+    public AudioClip rageBGM;
     // 추가될 예정
     public AudioClip stuck;
     public AudioClip parrying;
     public AudioClip createSword;
     public AudioClip shotSword;
+
 
     private void Start()
     {

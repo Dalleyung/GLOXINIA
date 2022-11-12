@@ -426,6 +426,7 @@ public class Monster : MonoBehaviour
             gm.Rage.ragecount = 0;
             gm.Rage.rageclear = 0;
             gm.skill.RaiseSkillGauge(0);
+            gm.soundManager.PlayBGMSound(gm.soundManager.battleBGM);
         }
         else if (israge == true && gm.Rage.ragecount < 3)
         {
@@ -440,6 +441,7 @@ public class Monster : MonoBehaviour
                 israge = true;
                 rageCutScene.gameObject.SetActive(true);
                 gm.timer.gameObject.SetActive(false);
+                gm.soundManager.PlayBGMSound(gm.soundManager.rageBGM);
             }
         }
     }

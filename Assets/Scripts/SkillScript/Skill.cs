@@ -87,6 +87,7 @@ public class Skill : MonoBehaviour
             if (!gm.monster.isDie && !gm.monster.israge && gm.Rage.ragecount == 0)
             {
                 gm.soundManager.PlayBGMSound(gm.soundManager.feverBGM);
+                gm.monster.AttackDelay();
                 gm.timer.gameObject.SetActive(false);
                 cutScene.gameObject.SetActive(true);
                 gm.battleController.feverOn = true;

@@ -78,16 +78,29 @@ public class RageCutSceneEvent : MonoBehaviour
 
     public void MoveCutScene()
     {
-        gameChar.transform.position = Vector3.Lerp(originPos, new Vector3(2, originPos.y, 0), easeInOutCirc(0));
+        if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.COW)
+        {
+            gameChar.transform.position = Vector3.Lerp(originPos, new Vector3(2, originPos.y, 0), easeInOutCirc(0));
+        }
+        else if(LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
+        {
+            gameChar.transform.position = Vector3.Lerp(originPos, new Vector3(-2, originPos.y, 0), easeInOutCirc(0));
+        }
         gameText.transform.position = Vector3.Lerp(originTextPos, new Vector3(0, 10, 0), easeInOutCirc(0));
     }
 
     public void MoveCutSceneEnd()
     {
-
         if (easeInOutCirc(1) >= 0)
         {
-            gameChar.transform.position = Vector3.Lerp(new Vector3(0, originPos.y, 0), new Vector3(-900, originPos.y, 0), easeInOutCirc(1));
+            if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.COW)
+            {
+                gameChar.transform.position = Vector3.Lerp(new Vector3(2, originPos.y, 0), new Vector3(-900, originPos.y, 0), easeInOutCirc(1));
+            }
+            else if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
+            {
+                gameChar.transform.position = Vector3.Lerp(new Vector3(-2, originPos.y, 0), new Vector3(-900, originPos.y, 0), easeInOutCirc(1));
+            }
             gameText.transform.position = Vector3.Lerp(new Vector3(1, 10, 0), new Vector3(200, 60, 0), easeInOutCirc(1));
         }
     }

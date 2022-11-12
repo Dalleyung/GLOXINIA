@@ -43,6 +43,7 @@ public class SkillCutSceneEvent : MonoBehaviour
                 gameObject.SetActive(false);
                 gm.timer.gameObject.SetActive(true);
                 gm.battleController.TileHandler();
+                gm.player_move.freeze = false;
                 break;
             case 2:
                 StartCoroutine(CoroutineCutScene());

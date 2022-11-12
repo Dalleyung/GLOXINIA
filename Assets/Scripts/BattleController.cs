@@ -68,23 +68,24 @@ public class BattleController : MonoBehaviour
                 TileHandler();
             }
         }
-        else if(gm.skill.isSkillGaugeFull)
+        else if(feverOn)
         {
             gm.soundManager.PlayEffectSound(gm.soundManager.feverAttack);
             gm.monster.HitAnimation();
-            
-            if (feverOn)
-            {
-                Player.HP += 5;
-                if (Player.HP >= Player.MaxHP)
-                {
-                    Player.HP = Player.MaxHP;
-                }
-                if (!gm.monster.isDie)
-                {
-                    TileHandler();
-                }
-            }
+
+            //if (feverOn)
+            //{
+            //    Player.HP += 5;
+            //    if (Player.HP >= Player.MaxHP)
+            //    {
+            //        Player.HP = Player.MaxHP;
+            //    }
+
+            //    if (!gm.monster.isDie)
+            //    {
+            //        TileHandler();
+            //    }
+            //}
         }
     }
 
@@ -175,6 +176,24 @@ public class BattleController : MonoBehaviour
         {
             gm.Rage.rageclear++;
             gm.Rage.ragecount++;
+        }
+
+        //피버타임에 들어가는 순간(컷씬 연출 시점)에도 체력을 회복하기도 하고,
+        //컷씬 연출 시 뒤 타일에 AttackDelay가 안먹혀서(TileHandler가 작동해버림) 피버타일 프리셋이 노출되기도 해서
+        //AttackHandler에서 AttackSuccess(RaiseSkillGauge 전으로)위치를 옮김
+        //만약 문제가 있다면 밑의 코드를 지우고 AttackHandler에 똑같은 코드를 주석 해제하시면 됩니다.
+        if (feverOn)
+        {
+            Player.HP += 5;
+            if (Player.HP >= Player.MaxHP)
+            {
+                Player.HP = Player.MaxHP;
+            }
+
+            if (!gm.monster.isDie)
+            {
+                TileHandler();
+            }
         }
 
         if (!gm.skill.isSkillGaugeFull)
