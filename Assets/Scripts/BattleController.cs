@@ -257,7 +257,8 @@ public class BattleController : MonoBehaviour
         backBtn.gameObject.SetActive(false);
         gm.resultBtn.gameObject.SetActive(true);
         gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-            "Stage\nFail";
+            "DEFEAT";
+        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.red;
         gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
         gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
         gm.monster.AttackDelay();
