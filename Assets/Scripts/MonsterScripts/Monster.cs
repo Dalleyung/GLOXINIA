@@ -561,7 +561,7 @@ public class Monster : MonoBehaviour
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-                "Stage\nClear";
+                "VICTORY";
             gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
         }
@@ -571,7 +571,7 @@ public class Monster : MonoBehaviour
             gm.resultBtn.gameObject.SetActive(true);
             gm.resultBtn.transform.GetChild(2).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-                "Stage\nClear";
+                "VICTORY";
         }
         gm.soundManager.PlayBGMSound(gm.soundManager.victoryBGM);
         gm.monster.AttackDelay();
@@ -583,7 +583,7 @@ public class Monster : MonoBehaviour
         gm.battleController.backBtn.gameObject.SetActive(false);
         gm.resultBtn.gameObject.SetActive(true);
         gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-            "Stage\nFail";
+            "DEFEAT";
         gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
         gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
         gm.monster.AttackDelay();
