@@ -14,6 +14,7 @@ public class Monster : MonoBehaviour
     public float MaxHP;
     public bool isDie;  // 몬스터 Die 추가 (종훈)
     public Scrollbar monsterHPBar;
+    public Scrollbar monsterHPBar2;
 
     /// <summary>
     /// 분노스택 (유제상)
@@ -68,6 +69,8 @@ public class Monster : MonoBehaviour
         {
             monsterHPBar.size = HP / MaxHP;
         }
+        if (monsterHPBar2 != null)
+            monsterHPBar2.size = 1;
         ATK = 10;
         rage = MIN_RAGE;
         israge = false;
@@ -79,10 +82,17 @@ public class Monster : MonoBehaviour
         if (monsterHPBar != null && HP >= -1)
         {
             monsterHPBar.size = HP / MaxHP;
-            monsterHPBar.transform.GetChild(3).GetComponent<Image>().color
+            monsterHPBar.transform.GetChild(4).GetComponent<Image>().color
                 = Color.Lerp(Color.white, new Color32(255, 64, 64, 255), monsterHPBar.size);
         }
+        if (monsterHPBar2 != null && HP >= -1)
+        {
+            if (monsterHPBar2.size >= monsterHPBar.size)
+                monsterHPBar2.size -= 0.001f;
+        }
     }
+
+
     public void ChangeImage()
     {
         if (player == null)

@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public static float ATK = 8;
     public bool isDie;
     public Scrollbar playerHPBar;
+    public Scrollbar playerHPBar2;
     public GameObject HPDanger;
 
     public float RandDMG;
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour
         {
             playerHPBar.size = HP/MaxHP;
         }
+        if (playerHPBar2 != null)
+            playerHPBar2.size = 1;
     }
 
     // Update is called once per frame
@@ -63,6 +66,11 @@ public class Player : MonoBehaviour
         if (playerHPBar != null && HP >= -1)
         {
             playerHPBar.size = HP / MaxHP;
+        }
+        if(playerHPBar2 != null && HP >= -1)
+        {
+            if (playerHPBar2.size >= playerHPBar.size)
+                playerHPBar2.size -= 0.001f;
         }
     }
 
