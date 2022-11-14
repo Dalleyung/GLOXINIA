@@ -167,6 +167,12 @@ public class Monster : MonoBehaviour
                 // 체력 검사
                 HPCheck();
 
+                if (Player.HP <= 0)
+                {
+                    Player.HP = 0;
+                    gm.player.isDie = true;
+                    gm.gameOver.StartGameOverAnim();
+                }
                 break;
             case 2:
                 HandleRageStack();
@@ -250,7 +256,7 @@ public class Monster : MonoBehaviour
             }
             else if (rage < MAX_RAGE || gm.timer.timeover == true)
             {
-                Player.HP -= AttackPlayer();;
+                Player.HP -= AttackPlayer();
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -258,12 +264,6 @@ public class Monster : MonoBehaviour
                 CowAttackEffectOn();
             }
 
-            if (Player.HP <= 0)
-            {
-                Player.HP = 0;
-                gm.player.isDie = true;
-                gm.gameOver.StartGameOverAnim();
-            }
             switch (LoadingSceneManager.currentStage)
             {
                 case (int)LoadingSceneManager.STAGE.COW:
@@ -274,11 +274,12 @@ public class Monster : MonoBehaviour
                     break;
             }
 
-            // 타일 깨짐화 (사실상 이제 필요없음)
-            //for (int i = 0; i < gm.setTile.TileList.Count; i++)
-            //{
-            //    gm.setTile.TileList[i].tileValue = 6;
-            //}
+            if (Player.HP <= 0)
+            {
+                Player.HP = 0;
+                gm.player.isDie = true;
+                gm.gameOver.StartGameOverAnim();
+            }
         }
 
         gm.monster.swordList.Clear();
@@ -554,17 +555,23 @@ public class Monster : MonoBehaviour
         {
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
+            gm.resultEffect.gameObject.SetActive(true);
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                 "VICTORY";
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.yellow;
             gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
         }
         else
         {
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
-            gm.resultBtn.transform.GetChild(2).gameObject.SetActive(false);
+            gm.resultEffect.gameObject.SetActive(true);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(3).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                 "VICTORY";
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.yellow;
@@ -574,17 +581,6 @@ public class Monster : MonoBehaviour
         anim.speed = 0;
     }
 
-    public void Defeat()
-    {
-        gm.battleController.backBtn.gameObject.SetActive(false);
-        gm.resultBtn.gameObject.SetActive(true);
-        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-            "DEFEAT";
-        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.red;
-        gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
-        gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
-        gm.monster.AttackDelay();
-    }
 
     public void CowAttackEffectOn()
     {
