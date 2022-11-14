@@ -21,10 +21,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Legacy/BossScene.unity
     guid: 0732dd2a8101c3840add6bf2b01fb676
   - enabled: 0
-    path: Assets/Scenes/Legacy/ExplorationScene.unity
+    path: Assets/Scenes/ExplorationScene.unity
     guid: e30a1dc7abc206f4e9358ae1f0a5a7df
   - enabled: 0
-    path: Assets/Scenes/Legacy/EventScene.unity
+    path: Assets/Scenes/EventScene.unity
     guid: 4ec322258c884bd4d9c3c2f9580e329d
   - enabled: 0
     path: 
