@@ -1692,7 +1692,7 @@ MonoBehaviour:
   monsterRageList: []
   prefabRage: {fileID: 0}
   rageUI: {fileID: 0}
-  rageCase: {fileID: 0}
+  rageBackground: {fileID: 0}
   ragecount: 0
   rageclear: 0
 --- !u!114 &4373262670479416978
@@ -1710,8 +1710,8 @@ MonoBehaviour:
   gm: {fileID: 0}
   player: {fileID: 0}
   ATK: 10
-  HP: 150
-  MaxHP: 150
+  HP: 200000
+  MaxHP: 200000
   isDie: 0
   monsterHPBar: {fileID: 0}
   rage: 0
@@ -1729,6 +1729,9 @@ MonoBehaviour:
   obj: {fileID: 8068699388010668880, guid: 09f11b1f5fe944046b04bb10b0fab187, type: 3}
   rageCutScene: {fileID: 0}
   spawnSwordCnt: 0
+  RandDMG: 0
+  TotalDMG: 0
+  RefFig: 15000
   type: 0
   power: 150
 --- !u!1 &8138586500228335953
