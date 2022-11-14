@@ -71,13 +71,13 @@ public class Timer : MonoBehaviour
             timerbar.size = limitTime / maxTime;
         }
 
-        Color A = Color.Lerp(Color.red, new Color(1f, 0.5f, 0f, 1f), timerbar.size);
-        Color B = Color.Lerp(new Color(1f, 0.5f, 0f, 1f), new Color(1f, 1f, 0.6f, 1f), timerbar.size);
-        Color C = Color.Lerp(new Color(1f, 1f, 0.6f, 1f), Color.green, timerbar.size);
-        Color D = Color.Lerp(A, B, timerbar.size);
-        Color E = Color.Lerp(B, C, timerbar.size);
-        Color F = Color.Lerp(D, E, timerbar.size);
+        //Color A = Color.Lerp(Color.red, new Color(1f, 0.5f, 0f, 1f), timerbar.size);
+        //Color B = Color.Lerp(new Color(1f, 0.5f, 0f, 1f), new Color(1f, 1f, 0.6f, 1f), timerbar.size);
+        //Color C = Color.Lerp(new Color(1f, 1f, 0.6f, 1f), Color.green, timerbar.size);
+        //Color D = Color.Lerp(A, B, timerbar.size);
+        //Color E = Color.Lerp(B, C, timerbar.size);
+        //Color F = Color.Lerp(D, E, timerbar.size);
 
-        timerbar.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = F;
+        timerbar.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = Color.yellow;
     }
 }

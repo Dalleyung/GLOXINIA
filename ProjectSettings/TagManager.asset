@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Tile
   - Circle
-  - Effects
+  - OverUICam
   layers:
   - Default
   - TransparentFX
@@ -16,7 +16,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - OverUI
   - 
   - Tile
   - 
@@ -43,7 +43,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Option
-    uniqueID: 46081731
     locked: 0
