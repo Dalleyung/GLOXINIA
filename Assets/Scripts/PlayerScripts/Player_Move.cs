@@ -155,17 +155,6 @@ public class Player_Move : MonoBehaviour
                 return;
             }
         }
-        gm.soundManager.Tile_audioSource.pitch += RasePitch;
-        temppos = tile.transform.position;
-        transform.position = temppos;
-        // 이동 사운드 재생
-        gm.soundManager.PlayTileSound(gm.soundManager.tileMove);
-    }
-
-    // 지나간 타일 Fill 만들기
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Tile tile = collision.GetComponent<Tile>();
 
         if (isStart)
         {
@@ -190,6 +179,12 @@ public class Player_Move : MonoBehaviour
                 SelectTile();
             }
         }
+
+        gm.soundManager.Tile_audioSource.pitch += RasePitch;
+        temppos = tile.transform.position;
+        transform.position = temppos;
+        // 이동 사운드 재생
+        gm.soundManager.PlayTileSound(gm.soundManager.tileMove);
     }
 
     public void SelectTile()
