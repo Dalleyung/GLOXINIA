@@ -1871,6 +1871,9 @@ MonoBehaviour:
   parrying: {fileID: 0}
   createSword: {fileID: 0}
   shotSword: {fileID: 0}
+  rageTileChange: {fileID: 0}
+  cowRageAtt: {fileID: 0}
+  demonRageAtt: {fileID: 0}
 --- !u!82 &1822583311
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2075,6 +2078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43def2f23bdc0344c93baa3b838655d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  setStage: 0
   camera: {fileID: 0}
   player_move: {fileID: 0}
   monster: {fileID: 0}

@@ -44,9 +44,11 @@ public class SkillCutSceneEvent : MonoBehaviour
                 gm.battleController.TileHandler();
                 gm.player_move.freeze = false;
                 gm.skill.fe1 = Instantiate(gm.skill.skillEffect);
-                gm.skill.fe1.transform.position = new Vector3(0, 21, -5);
+                gm.skill.fe1.transform.position = new Vector3(-10, 0, -5);
+                gm.skill.fe1.layer = 8;
                 gm.skill.fe2 = Instantiate(gm.skill.skillEffect);
-                gm.skill.fe2.transform.position = new Vector3(0, -21.5f, -5);
+                gm.skill.fe2.transform.position = new Vector3(10, 0, -5);
+                gm.skill.fe2.layer = 8;
                 break;
             case 2:
                 StartCoroutine(CoroutineCutScene());
