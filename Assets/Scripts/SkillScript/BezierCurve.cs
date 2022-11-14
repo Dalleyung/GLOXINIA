@@ -57,7 +57,7 @@ public class BezierCurve : MonoBehaviour
 //유니티 에디터
 //씬에서 베지어 곡선을 그릴 점들을 직접 조절할 수 있고 DrawLine으로 이동경로를 그려주어 미리 볼 수 있다.
 //주석 제거 시 Galaga씬의 Hierachy에 BezierCurve를 눌러 확인할 수 있습니다.
-[CanEditMultipleObjects]
+/*[CanEditMultipleObjects]
 [CustomEditor(typeof(BezierCurve))]
 public class BezierCurve_Editor : Editor
 {
@@ -134,5 +134,5 @@ public class BezierCurve_Editor : Editor
             Handles.DrawLine(Before, After);
         }
     }
-}
+}*/
 
