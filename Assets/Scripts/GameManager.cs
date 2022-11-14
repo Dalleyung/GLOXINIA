@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     {
         Init();
         camera = Camera.main;
+        Input.multiTouchEnabled = false;
     }
 
     void Update()
