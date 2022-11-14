@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     public float MoveATK = 0.47f;
 
     public bool P_Fail;
+    float time;
 
     // Start is called before the first frame update
     void Start()
@@ -69,8 +71,11 @@ public class Player : MonoBehaviour
         }
         if(playerHPBar2 != null && HP >= -1)
         {
-            if (playerHPBar2.size >= playerHPBar.size)
-                playerHPBar2.size -= 0.001f;
+            time += Time.deltaTime* 0.0007f;
+                playerHPBar2.size  = Mathf.Lerp(playerHPBar2.size, playerHPBar.size, time);
+
+                if(time >= 1)
+                    time = 0;
         }
     }
 

@@ -15,16 +15,16 @@ EditorBuildSettings:
     path: Assets/Scenes/LoadingScene.unity
     guid: 22780c3aa6e837249878d309616a5bb8
   - enabled: 0
-    path: Assets/Scenes/RestScene.unity
+    path: Assets/Scenes/Legacy/RestScene.unity
     guid: f79b8bfefe58f0740a149bd3b7d5b1d8
   - enabled: 0
-    path: Assets/Scenes/BossScene.unity
+    path: Assets/Scenes/Legacy/BossScene.unity
     guid: 0732dd2a8101c3840add6bf2b01fb676
   - enabled: 0
-    path: Assets/Scenes/ExplorationScene.unity
+    path: Assets/Scenes/Legacy/ExplorationScene.unity
     guid: e30a1dc7abc206f4e9358ae1f0a5a7df
   - enabled: 0
-    path: Assets/Scenes/EventScene.unity
+    path: Assets/Scenes/Legacy/EventScene.unity
     guid: 4ec322258c884bd4d9c3c2f9580e329d
   - enabled: 0
     path: 

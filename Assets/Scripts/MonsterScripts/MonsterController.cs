@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MonsterController : MonoBehaviour
 {
     private MonsterController monster;
+    public Sprite []Sprite;
+    public TextMeshProUGUI text;
+    public GameObject Icon;
+
 
     void Start()
     {
@@ -26,6 +32,12 @@ public class MonsterController : MonoBehaviour
                 GameManager.GetInstance().monster = 
                     monster.gameObject.transform.GetChild((int)LoadingSceneManager.STAGE.COW)
                     .GetComponent<MonsterA>();
+
+
+                Icon.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
+                Icon.GetComponent<Image>().sprite = Sprite[0];
+                text.text = "Minotaurs";
+
                 break;
             case (int)LoadingSceneManager.STAGE.DEMON:
                 monster.gameObject.transform.GetChild((int)LoadingSceneManager.STAGE.DEMON)
@@ -33,6 +45,12 @@ public class MonsterController : MonoBehaviour
                 GameManager.GetInstance().monster =
                     monster.gameObject.transform.GetChild((int)LoadingSceneManager.STAGE.DEMON)
                     .GetComponent<MonsterB>();
+
+                Icon.GetComponent<RectTransform>().sizeDelta = new Vector2(70, 100);
+                Icon.GetComponent<Image>().sprite = Sprite[1];
+                text.text = "Demon Knight";
+
+
                 break;
         }
     }
