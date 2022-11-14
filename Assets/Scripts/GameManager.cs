@@ -110,7 +110,10 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
+        Player.HP = Player.MaxHP;
+        Skill.skillGauge = 0;
         LoadingSceneManager.NowStage(LoadingSceneManager.currentStage);
+
     }
     static void Init()
     {
