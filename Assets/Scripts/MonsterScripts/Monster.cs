@@ -264,12 +264,6 @@ public class Monster : MonoBehaviour
                 CowAttackEffectOn();
             }
 
-            if (Player.HP <= 0)
-            {
-                Player.HP = 0;
-                gm.player.isDie = true;
-                gm.gameOver.StartGameOverAnim();
-            }
             switch (LoadingSceneManager.currentStage)
             {
                 case (int)LoadingSceneManager.STAGE.COW:
@@ -280,11 +274,12 @@ public class Monster : MonoBehaviour
                     break;
             }
 
-            // 타일 깨짐화 (사실상 이제 필요없음)
-            //for (int i = 0; i < gm.setTile.TileList.Count; i++)
-            //{
-            //    gm.setTile.TileList[i].tileValue = 6;
-            //}
+            if (Player.HP <= 0)
+            {
+                Player.HP = 0;
+                gm.player.isDie = true;
+                gm.gameOver.StartGameOverAnim();
+            }
         }
 
         gm.monster.swordList.Clear();
