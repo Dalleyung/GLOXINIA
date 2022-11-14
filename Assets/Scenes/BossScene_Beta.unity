@@ -5850,9 +5850,12 @@ MonoBehaviour:
   credit: {fileID: 8300000, guid: 177e55bc44cb1a2488818a32c6b9ee4d, type: 3}
   tileMove: {fileID: 8300000, guid: b521acbb1eed731479ca3c4e61d489cc, type: 3}
   stuck: {fileID: 8300000, guid: f33b305bca93a924d9213ebfdd0f2cd5, type: 3}
-  parrying: {fileID: 8300000, guid: f7a076db63f9cb241bf4d99f81dcb417, type: 3}
+  parrying: {fileID: 8300000, guid: 264aaed01d3ea8141a9c0f9205d267c3, type: 3}
   createSword: {fileID: 8300000, guid: 126e3ec0f97334e42bea8983cd28d049, type: 3}
   shotSword: {fileID: 8300000, guid: f33b305bca93a924d9213ebfdd0f2cd5, type: 3}
+  rageTileChange: {fileID: 8300000, guid: fb7e7b201bd5c864a9dfaa05c3945c68, type: 3}
+  cowRageAtt: {fileID: 8300000, guid: 703c9b5e4a6e67c469f517543c77dc6b, type: 3}
+  demonRageAtt: {fileID: 8300000, guid: 166eb51613c6ba64795cab411e8e11e4, type: 3}
 --- !u!82 &1334043110
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9508,6 +9511,11 @@ PrefabInstance:
       propertyPath: rageCase
       value: 
       objectReference: {fileID: 1395727492}
+    - target: {fileID: 7660645530556260845, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
+        type: 3}
+      propertyPath: rageBackground
+      value: 
+      objectReference: {fileID: 1094630072}
     - target: {fileID: 8138586500223913891, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
         type: 3}
       propertyPath: m_RootOrder
