@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     public float ATK = 8;
     public bool isDie;
     public Scrollbar playerHPBar;
+    public Scrollbar playerHPBar2;
     public GameObject HPDanger;
 
     public float RandDMG;
@@ -29,6 +31,7 @@ public class Player : MonoBehaviour
     public float MoveATK = 0.47f;
 
     public bool P_Fail;
+    float time;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +46,8 @@ public class Player : MonoBehaviour
         {
             playerHPBar.size = HP/MaxHP;
         }
+        if (playerHPBar2 != null)
+            playerHPBar2.size = 1;
     }
 
     // Update is called once per frame
@@ -68,6 +73,14 @@ public class Player : MonoBehaviour
         if (playerHPBar != null && HP >= -1)
         {
             playerHPBar.size = HP / MaxHP;
+        }
+        if(playerHPBar2 != null && HP >= -1)
+        {
+            time += Time.deltaTime* 0.0007f;
+                playerHPBar2.size  = Mathf.Lerp(playerHPBar2.size, playerHPBar.size, time);
+
+                if(time >= 1)
+                    time = 0;
         }
     }
 

@@ -156,6 +156,12 @@ public class Player_Move : MonoBehaviour
             }
         }
 
+        gm.soundManager.Tile_audioSource.pitch += RasePitch;
+        temppos = tile.transform.position;
+        transform.position = temppos;
+        // 이동 사운드 재생
+        gm.soundManager.PlayTileSound(gm.soundManager.tileMove);
+
         if (isStart)
         {
             if (tile.tileValue == (int)SetTile.E_TileValue.Bomb_Tile)
@@ -176,16 +182,10 @@ public class Player_Move : MonoBehaviour
             {
                 tile.tileValue = (int)SetTile.E_TileValue.Disable_Start_Tile;
                 moveStack++;
-                Debug.Log("셀렉트!");
                 SelectTile(tile);
             }
         }
 
-        gm.soundManager.Tile_audioSource.pitch += RasePitch;
-        temppos = tile.transform.position;
-        transform.position = temppos;
-        // 이동 사운드 재생
-        gm.soundManager.PlayTileSound(gm.soundManager.tileMove);
     }
 
     public void SelectTile(Tile tile)
@@ -205,8 +205,6 @@ public class Player_Move : MonoBehaviour
                 return;
             }
             Debug.Log("통과~");
-
-            isStart = true;
             moveStack = 0;
 
             tile.tileValue = (int)SetTile.E_TileValue.Disable_Start_Tile;
