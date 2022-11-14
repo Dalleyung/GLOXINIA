@@ -43,8 +43,16 @@ public class RageCutSceneEvent : MonoBehaviour
         switch (p_num)
         {
             case 0:
-                gm.soundManager.PlayEffectSound(gm.soundManager.feverStart);
-                
+                //gm.soundManager.PlayEffectSound(gm.soundManager.feverStart);
+                switch (LoadingSceneManager.currentStage)
+                {
+                    case (int)LoadingSceneManager.STAGE.COW:
+                        gm.soundManager.PlayEffectSound(gm.soundManager.cowRageAtt);
+                        break;
+                    case (int)LoadingSceneManager.STAGE.DEMON:
+                        gm.soundManager.PlayEffectSound(gm.soundManager.demonRageAtt);
+                        break;
+                }
                 break;
             case 1:
                 gm.timer.limitTime = gm.timer.maxRageTime;

@@ -101,8 +101,16 @@ public class Monster : MonoBehaviour
         if(gm.monster.israge)
         {
             RandDMG = Random.Range(1.3f, 1.5f);
-            //몬스터 분노 퍼즐 실패 데미지 공식
-            TotalDMG = 9567 * (4 - gm.Rage.rageclear) * RandDMG;
+            if (LoadingSceneManager.currentStage == 0)//현재 씬이 소일때
+            {
+                //몬스터 분노 퍼즐 실패 데미지 공식
+                TotalDMG = 9567 * (4 - gm.Rage.rageclear) * RandDMG;
+            }
+            else
+            {
+                //보스일때 5번 공격하게됨으로 .2를 곱해줌
+                TotalDMG = (9567 * (4 - gm.Rage.rageclear) * RandDMG) * 0.2f;
+            }
         }
         else
         {
