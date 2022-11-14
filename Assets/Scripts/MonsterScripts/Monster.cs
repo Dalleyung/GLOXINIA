@@ -194,6 +194,7 @@ public class Monster : MonoBehaviour
             gm.battleController.shieldOn = false;
             gm.soundManager.PlayEffectSound(gm.soundManager.parrying);
 
+            // 예외 처리였던 것..
             if (gm.skill.isSkillGaugeFull)
             {
                 gm.soundManager.PlayBGMSound(gm.soundManager.feverBGM);
@@ -208,7 +209,7 @@ public class Monster : MonoBehaviour
             
             if (rage < MAX_RAGE && gm.timer.timeover == true)
             {
-                Player.HP -= AttackPlayer();;
+                Player.HP -= AttackPlayer();
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -281,11 +282,11 @@ public class Monster : MonoBehaviour
                     break;
             }
 
-            // 타일 깨짐화
-            for (int i = 0; i < gm.setTile.TileList.Count; i++)
-            {
-                gm.setTile.TileList[i].tileValue = 6;
-            }
+            // 타일 깨짐화 (사실상 이제 필요없음)
+            //for (int i = 0; i < gm.setTile.TileList.Count; i++)
+            //{
+            //    gm.setTile.TileList[i].tileValue = 6;
+            //}
         }
 
         gm.monster.swordList.Clear();
