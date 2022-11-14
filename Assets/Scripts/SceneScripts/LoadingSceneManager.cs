@@ -74,6 +74,8 @@ public class LoadingSceneManager : MonoBehaviour
         }
     }
 
+    
+
     IEnumerator LoadScene()
     {
         yield return null;

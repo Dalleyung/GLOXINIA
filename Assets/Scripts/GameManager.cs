@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public NameSpawn nameSpawn;
     public Credit credit;
     public GameObject resultBtn;
+    public GameObject resultEffect;
     public MonsterRage Rage;
     public GameOver gameOver;
     public MonsterController monsterController;
@@ -106,7 +107,10 @@ public class GameManager : MonoBehaviour
         LoadingSceneManager.currentStage = (int)LoadingSceneManager.STAGE.DEMON;
         LoadingSceneManager.NowStage((int)LoadingSceneManager.STAGE.DEMON);
     }
-
+    public void Restart()
+    {
+        LoadingSceneManager.NowStage(LoadingSceneManager.currentStage);
+    }
     static void Init()
     {
         if (instance == null)

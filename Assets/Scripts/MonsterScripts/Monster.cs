@@ -562,17 +562,23 @@ public class Monster : MonoBehaviour
         {
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
+            gm.resultEffect.gameObject.SetActive(true);
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                 "VICTORY";
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.yellow;
             gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
         }
         else
         {
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
-            gm.resultBtn.transform.GetChild(2).gameObject.SetActive(false);
+            gm.resultEffect.gameObject.SetActive(true);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
+            gm.resultBtn.transform.GetChild(3).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                 "VICTORY";
             gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.yellow;
@@ -582,17 +588,6 @@ public class Monster : MonoBehaviour
         anim.speed = 0;
     }
 
-    public void Defeat()
-    {
-        gm.battleController.backBtn.gameObject.SetActive(false);
-        gm.resultBtn.gameObject.SetActive(true);
-        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-            "DEFEAT";
-        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.red;
-        gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
-        gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
-        gm.monster.AttackDelay();
-    }
 
     public void CowAttackEffectOn()
     {
