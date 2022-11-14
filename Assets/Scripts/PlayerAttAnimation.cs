@@ -37,14 +37,14 @@ public class PlayerAttAnimation : MonoBehaviour
                 //attImage.rectTransform.sizeDelta = new Vector2(700, 400);
                 while (true)
                 {
-                    atti.sprite = hattSpritelist[curruntNum];
-                    curruntNum++;
-                    if (curruntNum == 7)
+                    if (curruntNum == 10)
                     {
                         attImage.sprite = null;
                         Destroy(atti);
                         yield break;
                     }
+                    atti.sprite = hattSpritelist[curruntNum];
+                    curruntNum++;
                     yield return new WaitForSeconds(animSpeed);
                 }
             case 1:
@@ -53,14 +53,14 @@ public class PlayerAttAnimation : MonoBehaviour
                 //attImage.rectTransform.sizeDelta = new Vector2(700, 400);
                 while (true)
                 {
-                    atti.sprite = mattSpritelist[curruntNum];
-                    curruntNum++;
-                    if (curruntNum == 8)
+                    if (curruntNum == 9)
                     {
                         attImage.sprite = null;
                         Destroy(atti);
                         yield break;
                     }
+                    atti.sprite = mattSpritelist[curruntNum];
+                    curruntNum++;
                     yield return new WaitForSeconds(animSpeed);
                 }
             case 2:
@@ -69,15 +69,15 @@ public class PlayerAttAnimation : MonoBehaviour
                 //attImage.rectTransform.sizeDelta = new Vector2(700, 600);
                 while (true)
                 {
-                    atti.sprite = lattSpritelist[curruntNum];
-                    curruntNum++;
-                    if (curruntNum == 8)
+                    if (curruntNum == 12)
                     {
                         attImage.sprite = null;
                         Destroy(atti);
                         yield break;
                     }
-                    yield return new WaitForSeconds(animSpeed);
+                    atti.sprite = lattSpritelist[curruntNum];
+                    curruntNum++;
+                    yield return new WaitForSeconds(animSpeed - 0.03f);
                 }
         }
         yield break;
@@ -97,17 +97,21 @@ public class PlayerAttAnimation : MonoBehaviour
 
     void SetSpriteList()
     {
-        for (int i = 1; i <= 7; i++)
+        for (int i = 1; i <= 10; i++)
         {
             hattSpritelist.Add(Resources.Load<Sprite>("Sprite/Attack/HighAttack/" + $"{i}"));
         }
 
         for (int j = 0; j < 2; j++)
         {
-            for (int i = 1; i <= 8; i++)
+            for (int i = 1; i <= 12; i++)
             {
                 if (j == 0)
                 {
+                    if (i > 9)
+                    {
+                        break;
+                    }
                     mattSpritelist.Add(Resources.Load<Sprite>("Sprite/Attack/MediumAttack/" + $"{i}"));
                 }
                 else
