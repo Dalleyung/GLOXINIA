@@ -79,7 +79,7 @@ public class Monster : MonoBehaviour
         if (monsterHPBar != null && HP >= -1)
         {
             monsterHPBar.size = HP / MaxHP;
-            monsterHPBar.transform.GetChild(2).GetComponent<Image>().color
+            monsterHPBar.transform.GetChild(3).GetComponent<Image>().color
                 = Color.Lerp(Color.white, new Color32(255, 64, 64, 255), monsterHPBar.size);
         }
     }

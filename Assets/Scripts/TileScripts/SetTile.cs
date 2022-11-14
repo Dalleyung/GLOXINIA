@@ -47,11 +47,11 @@ public class SetTile : MonoBehaviour
             for (int y = 0; y < col; y++)
             {
                 vector3 = prefabTile.transform.position;
-                vector3.x += 4.4f * x;
-                vector3.y -= 4.3f * y;
+                vector3.x += 4.83f * x;
+                vector3.y -= 4.85f * y;
 
                 //타일 세부 위치수정
-                vector3 += new Vector3(-0.6f, 0.3f, 0);
+                vector3 += new Vector3(-0.6f, -1.05f, 0);
 
                 TileList.Add(Instantiate(prefabTile.GetComponent<Tile>()));
 
@@ -59,7 +59,7 @@ public class SetTile : MonoBehaviour
                 TileList[count].transform.parent = GameObject.Find("Tiles").transform;
                 TileList[count].name = prefabTile.name + $"({count})";
                 TileList[count].transform.position = vector3;
-                TileList[count].transform.localScale = new Vector3(4, 4, 4);
+                TileList[count].transform.localScale = new Vector3(5, 5, 5);
                 count++;
             }
         }
