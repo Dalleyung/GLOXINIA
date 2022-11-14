@@ -224,6 +224,12 @@ public class Monster : MonoBehaviour
             if (rage < MAX_RAGE && gm.timer.timeover == true)
             {
                 Player.HP -= AttackPlayer();
+                if (Player.HP <= 0)
+                {
+                    Player.HP = 0;
+                    gm.player.isDie = true;
+                    gm.gameOver.StartGameOverAnim();
+                }
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -235,6 +241,12 @@ public class Monster : MonoBehaviour
                 if (gm.Rage.ragecount >= 3)
                 {
                     Player.HP -= AttackPlayer();
+                    if (Player.HP <= 0)
+                    {
+                        Player.HP = 0;
+                        gm.player.isDie = true;
+                        gm.gameOver.StartGameOverAnim();
+                    }
                     gm.cameraShake.shakePower = 2;
                     gm.cameraShake.Shake(true);
                     gm.damageTextSpawn.MakeMonsterDmgText();
@@ -247,6 +259,12 @@ public class Monster : MonoBehaviour
                 if (gm.Rage.ragecount >= 3)
                 {
                     Player.HP -= AttackPlayer();
+                    if (Player.HP <= 0)
+                    {
+                        Player.HP = 0;
+                        gm.player.isDie = true;
+                        gm.gameOver.StartGameOverAnim();
+                    }
                     gm.cameraShake.shakePower = 2;
                     gm.cameraShake.Shake(true);
                     gm.damageTextSpawn.MakeMonsterDmgText();
@@ -257,6 +275,12 @@ public class Monster : MonoBehaviour
             else if (rage < MAX_RAGE || gm.timer.timeover == true)
             {
                 Player.HP -= AttackPlayer();
+                if (Player.HP <= 0)
+                {
+                    Player.HP = 0;
+                    gm.player.isDie = true;
+                    gm.gameOver.StartGameOverAnim();
+                }
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -272,13 +296,6 @@ public class Monster : MonoBehaviour
                 case (int)LoadingSceneManager.STAGE.DEMON:
                     gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
                     break;
-            }
-
-            if (Player.HP <= 0)
-            {
-                Player.HP = 0;
-                gm.player.isDie = true;
-                gm.gameOver.StartGameOverAnim();
             }
         }
 
@@ -463,7 +480,7 @@ public class Monster : MonoBehaviour
         {
             //israge가 false일 때는 rage를 감소시키고 0이 되는 동시에 israge가 true가 되게 함
             rage++;
-            if (rage >= MAX_RAGE)
+            if (rage >= MAX_RAGE && !gm.player.isDie)
             {
                 israge = true;
                 gm.soundManager.PlayBGMSound(gm.soundManager.rageBGM);
@@ -530,7 +547,6 @@ public class Monster : MonoBehaviour
 
     public void DieAnimationEvent()
     {
-
         if (gm.monster.isDie)
         {
             AttackDelay();

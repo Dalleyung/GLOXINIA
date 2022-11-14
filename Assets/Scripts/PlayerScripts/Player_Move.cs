@@ -176,7 +176,8 @@ public class Player_Move : MonoBehaviour
             {
                 tile.tileValue = (int)SetTile.E_TileValue.Disable_Start_Tile;
                 moveStack++;
-                SelectTile();
+                Debug.Log("셀렉트!");
+                SelectTile(tile);
             }
         }
 
@@ -187,6 +188,40 @@ public class Player_Move : MonoBehaviour
         gm.soundManager.PlayTileSound(gm.soundManager.tileMove);
     }
 
+    public void SelectTile(Tile tile)
+    {
+
+        if (freeze)
+        {
+            return;
+        }
+        if (moveStack == -1)
+        {
+            gm.soundManager.Tile_audioSource.pitch = 1f;
+            // 장애물이면 리턴
+            if (tile.tileValue != (int)SetTile.E_TileValue.Start_Tile)
+            {
+                Debug.Log("리턴됨");
+                return;
+            }
+            Debug.Log("통과~");
+
+            isStart = true;
+            moveStack = 0;
+
+            tile.tileValue = (int)SetTile.E_TileValue.Disable_Start_Tile;
+        }
+        else if (tile.tileValue == (int)SetTile.E_TileValue.Disable_Start_Tile)
+        {
+            //분노스택 줄이기
+            //gm.monster.HandleRageStack();
+            // 초기화
+            Debug.Log("어택 버튼 누름");
+            gm.battleController.AttackHandler();
+        }
+    }
+
+    // 오버라이드
     public void SelectTile()
     {
 
