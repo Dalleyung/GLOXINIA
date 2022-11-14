@@ -31,8 +31,8 @@ public class GameOver : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
-            currentTime += Time.deltaTime * 2;
+            yield return null;
+            currentTime += Time.deltaTime;
             fadeBG.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), currentTime);
             if (currentTime >= 1)
             {
@@ -48,8 +48,8 @@ public class GameOver : MonoBehaviour
         gm.soundManager.PlayBGMSound(gm.soundManager.defeatBGM);
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
-            currentTime -= Time.deltaTime * 2;
+            yield return null;
+            currentTime -= Time.deltaTime;
             fadeBG.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), currentTime);
             if (currentTime <= 0)
             {
@@ -66,8 +66,8 @@ public class GameOver : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.05f);
-            currentTime += Time.deltaTime * 2;
+            yield return null;
+            currentTime += Time.deltaTime;
             light.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), currentTime);
             if (currentTime >= 1)
             {

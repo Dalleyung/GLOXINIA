@@ -9508,6 +9508,11 @@ PrefabInstance:
       propertyPath: rageCase
       value: 
       objectReference: {fileID: 1395727492}
+    - target: {fileID: 7660645530556260845, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
+        type: 3}
+      propertyPath: rageBackground
+      value: 
+      objectReference: {fileID: 1094630072}
     - target: {fileID: 8138586500223913891, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
         type: 3}
       propertyPath: m_RootOrder
