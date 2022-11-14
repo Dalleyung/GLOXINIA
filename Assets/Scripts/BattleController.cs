@@ -211,12 +211,16 @@ public class BattleController : MonoBehaviour
             {
                 TileHandler();
             }
+
+            // 체력 검사
+            gm.monster.HPCheck();
         }
 
         if (!gm.skill.isSkillGaugeFull)
         {
             gm.skill.RaiseSkillGauge((float)gm.player_move.moveStack);
         }
+
     }
 
     public void TileHandler()

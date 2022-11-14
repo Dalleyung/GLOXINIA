@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     //public Reset resetButton;
     //public Inventory inventory;
     //public TextMeshProUGUI bombText;
+
+    // 스테이지 조절용
+    public int setStage;
+
     public Camera camera;
     public Player_Move player_move;
     public Monster monster;
@@ -65,8 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
-        LoadingSceneManager.currentStage = (int)LoadingSceneManager.STAGE.MAIN;
-        LoadingSceneManager.NowStage(LoadingSceneManager.currentStage);
+        LoadingSceneManager.NowStage((int)LoadingSceneManager.STAGE.MAIN);
     }
 
     public void GoNextStage()

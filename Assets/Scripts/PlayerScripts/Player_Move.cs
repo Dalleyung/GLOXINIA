@@ -34,6 +34,12 @@ public class Player_Move : MonoBehaviour
         gm = GameManager.GetInstance();
 
         gm.soundManager.PlayBGMSound(gm.soundManager.battleBGM);
+
+        // 스테이지 조절용
+        if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.MAIN)
+        {
+            LoadingSceneManager.currentStage = gm.setStage;
+        }
     }
 
     public void Move(float p_x, float p_y)   // 확인할 좌표 넣기

@@ -140,7 +140,6 @@ public class LoadingSceneManager : MonoBehaviour
             curTime += Time.deltaTime * speed;
             if (curTime >= 1f)
             {
-                Debug.Log(count);
                 loadingText2.text = loadingTextList[count++];
                 if (count >= loadingTextList.Count)
                 {

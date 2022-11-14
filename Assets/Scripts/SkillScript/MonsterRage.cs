@@ -10,7 +10,7 @@ public class MonsterRage : MonoBehaviour
     public List<GameObject> monsterRageList;
     public GameObject prefabRage;
     public GameObject rageUI;
-    public GameObject rageCase;
+    public GameObject rageBackground;
 
     //분노패턴 반복횟수
     public int ragecount;

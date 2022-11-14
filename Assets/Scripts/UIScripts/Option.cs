@@ -46,8 +46,7 @@ public class Option : MonoBehaviour
     public void YesBtn()
     {
         Time.timeScale = 1;
-        LoadingSceneManager.currentStage = (int)LoadingSceneManager.STAGE.MAIN;
-        LoadingSceneManager.NowStage(LoadingSceneManager.currentStage);
+        LoadingSceneManager.NowStage((int)LoadingSceneManager.STAGE.MAIN);
     }
 
     public void NoBtn()

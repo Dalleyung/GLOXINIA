@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     float comparetime;
     public float limitTime;
     public float maxTime = 10f;
-    public float maxRageTime = 4f;
+    public float maxRageTime = 2f;
     public bool timeover = false;
     public Scrollbar timerbar;
 

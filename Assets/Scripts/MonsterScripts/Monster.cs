@@ -534,13 +534,8 @@ public class Monster : MonoBehaviour
 
     }
 
-    public void DieAnimation()
+    public void DieAnimationEvent()
     {
-        if (gm.skill.fe1 != null)
-        {
-            Destroy(gm.skill.fe1);
-            Destroy(gm.skill.fe2);
-        }
 
         if (gm.monster.isDie)
         {
@@ -550,6 +545,12 @@ public class Monster : MonoBehaviour
             for (int i = 0; i < gm.setTile.TileList.Count; i++)
             {
                 gm.setTile.TileList[i].tileValue = 6;
+            }
+            // 죽었을 때만 피버 사라지게 하기
+            if (gm.skill.fe1 != null)
+            {
+                Destroy(gm.skill.fe1);
+                Destroy(gm.skill.fe2);
             }
         }
     }
