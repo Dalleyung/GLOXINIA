@@ -89,7 +89,7 @@ public class Skill : MonoBehaviour
         }
         
         //스킬게이지 전부 채워졌을때 처리
-        if (skillGauge >= maxSkillGauge && !gm.player.isDie && Player.HP >= 0)
+        if (skillGauge >= maxSkillGauge && !gm.player.isDie && gm.player.HP >= 0)
         {
             skillGauge = maxSkillGauge;
 

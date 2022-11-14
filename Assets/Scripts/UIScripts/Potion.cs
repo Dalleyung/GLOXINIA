@@ -27,7 +27,7 @@ public class Potion : MonoBehaviour
     {
         if(coolTime.isEnded)
         {
-            Player.HP += hpPotion;
+            gm.player.HP += hpPotion;
         }
     }
 
@@ -37,19 +37,19 @@ public class Potion : MonoBehaviour
         if (coolTime.isEnded)
         {
             Debug.Log("공증!");
-            Player.ATK += atkPotion;
+            gm.player.ATK += atkPotion;
         }
     }
 
     void UseHpBuff()
     {
         //버프 중첩수에 따라 체력을 늘려야함
-        Player.MaxHP += maxHpBuff;
+        gm.player.MaxHP += maxHpBuff;
     }
 
     void UseAtkBuff()
     {
         //버프 중첩수에 따라 공격력을 늘려야함
-        Player.MaxATK += maxAtkBuff;
+        gm.player.MaxATK += maxAtkBuff;
     }
 }

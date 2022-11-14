@@ -12,10 +12,14 @@ public class Player : MonoBehaviour
     public Player_Move player_move;
     public Timer timer;
     // static으로 변경해서 씬전환을 하더라도 플레이어 스탯이 초기화가 안되도록 바꿈
-    public static float MaxHP = 100000;
-    public static float MaxATK = 8;
-    public static float HP = 100000;
-    public static float ATK = 8;
+    public static float S_HP = 100000;
+    public static float S_MaxHP = 100000;
+    public static float S_MaxATK = 8;
+    public static float S_ATK = 8;
+    public float MaxHP = 100000;
+    public float MaxATK = 8;
+    public float HP;
+    public float ATK = 8;
     public bool isDie;
     public Scrollbar playerHPBar;
     public GameObject HPDanger;
@@ -29,6 +33,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        HP = S_HP;
         gm = GameManager.GetInstance();
         monster = gm.monster;
         player_move = gm.player_move;

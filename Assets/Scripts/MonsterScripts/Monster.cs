@@ -151,7 +151,7 @@ public class Monster : MonoBehaviour
                 copyObj4.GetComponent<Rigidbody2D>().AddForce(Vector2.down * power, ForceMode2D.Impulse);
                 Destroy(copyObj4, 0.2f);
 
-                Player.HP -= AttackPlayer();;
+                gm.player.HP -= AttackPlayer();;
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -167,9 +167,9 @@ public class Monster : MonoBehaviour
                 // 체력 검사
                 HPCheck();
 
-                if (Player.HP <= 0)
+                if (gm.player.HP <= 0)
                 {
-                    Player.HP = 0;
+                    gm.player.HP = 0;
                     gm.player.isDie = true;
                     gm.gameOver.StartGameOverAnim();
                 }
@@ -223,10 +223,10 @@ public class Monster : MonoBehaviour
             
             if (rage < MAX_RAGE && gm.timer.timeover == true)
             {
-                Player.HP -= AttackPlayer();
-                if (Player.HP <= 0)
+                gm.player.HP -= AttackPlayer();
+                if (gm.player.HP <= 0)
                 {
-                    Player.HP = 0;
+                    gm.player.HP = 0;
                     gm.player.isDie = true;
                     gm.gameOver.StartGameOverAnim();
                 }
@@ -240,10 +240,10 @@ public class Monster : MonoBehaviour
             {
                 if (gm.Rage.ragecount >= 3)
                 {
-                    Player.HP -= AttackPlayer();
-                    if (Player.HP <= 0)
+                    gm.player.HP -= AttackPlayer();
+                    if (gm.player.HP <= 0)
                     {
-                        Player.HP = 0;
+                        gm.player.HP = 0;
                         gm.player.isDie = true;
                         gm.gameOver.StartGameOverAnim();
                     }
@@ -258,10 +258,10 @@ public class Monster : MonoBehaviour
             {
                 if (gm.Rage.ragecount >= 3)
                 {
-                    Player.HP -= AttackPlayer();
-                    if (Player.HP <= 0)
+                    gm.player.HP -= AttackPlayer();
+                    if (gm.player.HP <= 0)
                     {
-                        Player.HP = 0;
+                        gm.player.HP = 0;
                         gm.player.isDie = true;
                         gm.gameOver.StartGameOverAnim();
                     }
@@ -274,10 +274,10 @@ public class Monster : MonoBehaviour
             }
             else if (rage < MAX_RAGE || gm.timer.timeover == true)
             {
-                Player.HP -= AttackPlayer();
-                if (Player.HP <= 0)
+                gm.player.HP -= AttackPlayer();
+                if (gm.player.HP <= 0)
                 {
-                    Player.HP = 0;
+                    gm.player.HP = 0;
                     gm.player.isDie = true;
                     gm.gameOver.StartGameOverAnim();
                 }
@@ -323,7 +323,7 @@ public class Monster : MonoBehaviour
             if (gm.Rage.ragecount >= 3)
             {
                 //몬스터 분노 퍼즐 실패 데미지
-                Player.HP -= AttackPlayer();
+                gm.player.HP -= AttackPlayer();
                 gm.cameraShake.shakePower = 2;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -338,7 +338,7 @@ public class Monster : MonoBehaviour
 
     public void HPCheck()
     {
-        if (Player.HP / Player.MaxHP > 0.3f)
+        if (gm.player.HP / gm.player.MaxHP > 0.3f)
         {
             gm.player.HPDanger.SetActive(false);
             Debug.Log("경고 미표시");
@@ -379,9 +379,9 @@ public class Monster : MonoBehaviour
                     rage = MIN_RAGE;
                     israge = false;
                 }
-                if (Player.HP <= 0)
+                if (gm.player.HP <= 0)
                 {
-                    Player.HP = 0;
+                    gm.player.HP = 0;
                     gm.player.isDie = true;
                     gm.gameOver.StartGameOverAnim();
                 }

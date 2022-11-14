@@ -76,6 +76,7 @@ public class GameManager : MonoBehaviour
 
     public void GoNextStage()
     {
+        Player.S_HP = player.HP;
         if (!battleController.feverOn)
         {
             Skill.skillGauge *= 0.7f;
@@ -94,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
-        Player.HP = Player.MaxHP;
+        Player.S_HP = Player.S_MaxHP;
         Skill.skillGauge = 0;
         //스테이지 변수 관련 생성되면 넣어줘야함
         LoadingSceneManager.NowStage(++LoadingSceneManager.currentStage);
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void BossStart()
     {
-        Player.HP = Player.MaxHP;
+        Player.S_HP = Player.S_MaxHP;
         Skill.skillGauge = 0;
         //스테이지 변수 관련 생성되면 넣어줘야함
         LoadingSceneManager.currentStage = (int)LoadingSceneManager.STAGE.DEMON;
@@ -110,7 +111,7 @@ public class GameManager : MonoBehaviour
     }
     public void Restart()
     {
-        Player.HP = Player.MaxHP;
+        Player.S_HP = Player.S_MaxHP;
         Skill.skillGauge = 0;
         LoadingSceneManager.NowStage(LoadingSceneManager.currentStage);
 

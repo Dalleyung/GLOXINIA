@@ -154,7 +154,7 @@ public class BattleController : MonoBehaviour
             if(!gm.skill.isSkillGaugeFull)
             {
                 gm.player.RandDMG = Random.Range(1.00f, 1.07f);
-                gm.player.TotalDMG = ((9500 * (Player.ATK + gm.player_move.moveStack * gm.player.MoveATK) / 15) * gm.player.RandDMG);
+                gm.player.TotalDMG = ((9500 * (gm.player.ATK + gm.player_move.moveStack * gm.player.MoveATK) / 15) * gm.player.RandDMG);
                 
             }
             else
@@ -202,10 +202,10 @@ public class BattleController : MonoBehaviour
         if (feverOn)
         {
             //피버 타격당 체력회복 계산 공식
-            Player.HP += (int)((Player.MaxHP - Player.HP) * 0.07 + 1000);
-            if (Player.HP >= Player.MaxHP)
+            gm.player.HP += (int)((gm.player.MaxHP - gm.player.HP) * 0.07 + 1000);
+            if (gm.player.HP >= gm.player.MaxHP)
             {
-                Player.HP = Player.MaxHP;
+                gm.player.HP = gm.player.MaxHP;
             }
             if (!gm.monster.isDie)
             {

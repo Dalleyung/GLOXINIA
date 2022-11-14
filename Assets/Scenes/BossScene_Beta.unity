@@ -3051,6 +3051,10 @@ MonoBehaviour:
   monster: {fileID: 0}
   player_move: {fileID: 0}
   timer: {fileID: 0}
+  MaxHP: 100000
+  MaxATK: 8
+  HP: 0
+  ATK: 8
   isDie: 0
   playerHPBar: {fileID: 1234147822}
   HPDanger: {fileID: 771467343}
