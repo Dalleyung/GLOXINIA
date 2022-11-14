@@ -167,6 +167,12 @@ public class Monster : MonoBehaviour
                 // 체력 검사
                 HPCheck();
 
+                if (Player.HP <= 0)
+                {
+                    Player.HP = 0;
+                    gm.player.isDie = true;
+                    gm.gameOver.StartGameOverAnim();
+                }
                 break;
             case 2:
                 HandleRageStack();
@@ -250,7 +256,7 @@ public class Monster : MonoBehaviour
             }
             else if (rage < MAX_RAGE || gm.timer.timeover == true)
             {
-                Player.HP -= AttackPlayer();;
+                Player.HP -= AttackPlayer();
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
