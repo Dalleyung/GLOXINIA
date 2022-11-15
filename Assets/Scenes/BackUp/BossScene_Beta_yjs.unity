@@ -178,7 +178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &55066937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,7 +1582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &319601066
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1833,6 +1833,9 @@ MonoBehaviour:
   Sprite:
   - {fileID: 21300000, guid: 97ede426c59ebcd47a9bcfdf2faee836, type: 3}
   - {fileID: 21300000, guid: 961a5a619ea5f544797105aab4e4bff7, type: 3}
+  NameSprite:
+  - {fileID: 21300000, guid: 554a1cfa756188147957fba429c994a8, type: 3}
+  - {fileID: 21300000, guid: 849312147dc20ff47b4c1abe03998aa5, type: 3}
   text: {fileID: 0}
   monsterName: {fileID: 1674587909}
   Icon: {fileID: 1694669242}
@@ -3215,7 +3218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &695736171
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3609,7 +3612,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &771467343
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &886564406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4945,7 +4948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1094630073
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6248,7 +6251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43def2f23bdc0344c93baa3b838655d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setStage: 1
+  setStage: 0
   camera: {fileID: 0}
   player_move: {fileID: 2108678527}
   monster: {fileID: 2111937681}
@@ -8672,6 +8675,7 @@ GameObject:
   - component: {fileID: 1674587908}
   - component: {fileID: 1674587910}
   - component: {fileID: 1674587909}
+  - component: {fileID: 1674587911}
   m_Layer: 5
   m_Name: MonsterNameText
   m_TagString: Untagged
@@ -8737,6 +8741,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1674587907}
   m_CullTransparentMesh: 1
+--- !u!95 &1674587911
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674587907}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8b12b988c81f424fb5c277f379249b3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1690176157
 GameObject:
   m_ObjectHideFlags: 0
@@ -9659,7 +9683,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1869426485
 RectTransform:
   m_ObjectHideFlags: 0
