@@ -119,11 +119,12 @@ public class RageCutSceneEvent : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.001f);
-            currentTime += Time.deltaTime * (1 - currentTime);
+            yield return null;
+            currentTime += (Time.deltaTime * (1 - currentTime)) * 2;
             MoveCutScene();
             if (currentTime >= 0.9f)
             {
+                Debug.Log("Ä¿¼Ò¤Ç¤Ç");
                 currentTime = 0;
                 //originPos2 = new Vector3(0, originPos.y, 0);
                 StartCoroutine(CoroutineCutSceneEnd());
@@ -137,7 +138,7 @@ public class RageCutSceneEvent : MonoBehaviour
         //yield return new WaitForSeconds(1.0f);
         while (true)
         {
-            yield return new WaitForSeconds(0.001f);
+            yield return null;
             currentTime += Time.deltaTime * 3;
             MoveCutSceneEnd();
             if (currentTime >= 1.0f)

@@ -402,7 +402,6 @@ public class Monster : MonoBehaviour
                     gm.gameOver.StartGameOverAnim();
                 }
 
-                gm.monster.swordList.Clear();
                 ////플레이어 피격 애니메이션이벤트 생기면 수정해야할 코드
                 ///
                 if (gm.skill.isSkillGaugeFull)

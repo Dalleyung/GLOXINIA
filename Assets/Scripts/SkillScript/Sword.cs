@@ -150,6 +150,10 @@ public class Sword : MonoBehaviour
             {
                 gm.player_move.FallingTileAnim();
             }
+            if (gm.monster.swordList[4].gameObject == gameObject)
+            {
+                gm.monster.swordList.Clear();
+            }
         }
     }
 }

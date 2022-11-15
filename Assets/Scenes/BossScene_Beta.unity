@@ -2825,7 +2825,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 732048778}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.714
+  m_Size: 0.74
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3430,8 +3430,8 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.714, y: 1}
-  m_AnchoredPosition: {x: -5.0000305, y: 0}
+  m_AnchorMax: {x: 0.74, y: 1}
+  m_AnchoredPosition: {x: -5.000061, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &732048779
@@ -6642,7 +6642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43def2f23bdc0344c93baa3b838655d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setStage: 1
+  setStage: 0
   camera: {fileID: 0}
   player_move: {fileID: 2108678527}
   monster: {fileID: 2111937681}
@@ -6702,9 +6702,9 @@ MonoBehaviour:
   parrying: {fileID: 8300000, guid: 264aaed01d3ea8141a9c0f9205d267c3, type: 3}
   createSword: {fileID: 8300000, guid: 126e3ec0f97334e42bea8983cd28d049, type: 3}
   shotSword: {fileID: 8300000, guid: f33b305bca93a924d9213ebfdd0f2cd5, type: 3}
-  rageTileChange: {fileID: 0}
-  cowRageAtt: {fileID: 0}
-  demonRageAtt: {fileID: 0}
+  rageTileChange: {fileID: 8300000, guid: e453e9fca85f97649b16e1a5025b38bb, type: 3}
+  cowRageAtt: {fileID: 8300000, guid: a7a5926fa5cbd9e4bb96006ca3c8b8b2, type: 3}
+  demonRageAtt: {fileID: 8300000, guid: 166eb51613c6ba64795cab411e8e11e4, type: 3}
 --- !u!82 &1334043110
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9861,15 +9861,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 105
-  m_Sprite: {fileID: 21300000, guid: 4e4a7750f3f8d0e44a5a642f1d65b746, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 90194ff75075e0747b155e6887bc572b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 50, y: 50}
+  m_Size: {x: 24.802656, y: 35.079998}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1864754215
