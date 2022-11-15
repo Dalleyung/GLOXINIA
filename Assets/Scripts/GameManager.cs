@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -35,8 +36,8 @@ public class GameManager : MonoBehaviour
     public BezierCurve bezierCurve;
     public CameraShake cameraShake;
     public PlayerAttAnimation playerAttAnimation;
-    
     public GameObject stage;
+    public GameObject[] monsterHpHandle;
 
     static GameManager instance;
     public static GameManager GetInstance() { Init(); return instance; }
@@ -71,7 +72,8 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
-        LoadingSceneManager.NowStage((int)LoadingSceneManager.STAGE.MAIN);
+        LoadingSceneManager.currentStage = (int)LoadingSceneManager.STAGE.MAIN;
+        SceneManager.LoadScene("MainScene");
     }
 
     public void GoNextStage()
@@ -114,7 +116,6 @@ public class GameManager : MonoBehaviour
         Player.S_HP = Player.S_MaxHP;
         Skill.skillGauge = 0;
         LoadingSceneManager.NowStage(LoadingSceneManager.currentStage);
-
     }
     static void Init()
     {

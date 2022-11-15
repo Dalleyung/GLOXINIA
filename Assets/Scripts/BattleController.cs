@@ -189,6 +189,11 @@ public class BattleController : MonoBehaviour
             {
                 gm.monster.HP = 0;
                 gm.monster.isDie = true;
+                for (int i = 0; i < 2; i++)
+                {
+                    gm.monsterHpHandle[i].SetActive(false);
+                }
+                
             }
         }
         else

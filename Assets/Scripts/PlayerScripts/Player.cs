@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
             playerHPBar.size = HP/MaxHP;
         }
         if (playerHPBar2 != null)
-            playerHPBar2.size = 1;
+            playerHPBar2.size = HP / MaxHP;
     }
 
     // Update is called once per frame

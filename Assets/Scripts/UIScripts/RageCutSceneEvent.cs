@@ -94,7 +94,7 @@ public class RageCutSceneEvent : MonoBehaviour
         }
         else if(LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
         {
-            gameChar.transform.position = Vector3.Lerp(originPos, new Vector3(-2, originPos.y, 0), easeInOutCirc(0));
+            gameChar.transform.position = Vector3.Lerp(originPos, new Vector3(-2, originPos.y - 2, 0), easeInOutCirc(0));
         }
         gameText.transform.position = Vector3.Lerp(originTextPos, new Vector3(0, 10, 0), easeInOutCirc(0));
     }
@@ -109,7 +109,7 @@ public class RageCutSceneEvent : MonoBehaviour
             }
             else if (LoadingSceneManager.currentStage == (int)LoadingSceneManager.STAGE.DEMON)
             {
-                gameChar.transform.position = Vector3.Lerp(new Vector3(-2, originPos.y, 0), new Vector3(-900, originPos.y, 0), easeInOutCirc(1));
+                gameChar.transform.position = Vector3.Lerp(new Vector3(-2, originPos.y - 2, 0), new Vector3(-900, originPos.y - 2, 0), easeInOutCirc(1));
             }
             gameText.transform.position = Vector3.Lerp(new Vector3(1, 10, 0), new Vector3(200, 60, 0), easeInOutCirc(1));
         }
@@ -124,7 +124,6 @@ public class RageCutSceneEvent : MonoBehaviour
             MoveCutScene();
             if (currentTime >= 0.9f)
             {
-                Debug.Log("Ä¿¼Ò¤Ç¤Ç");
                 currentTime = 0;
                 //originPos2 = new Vector3(0, originPos.y, 0);
                 StartCoroutine(CoroutineCutSceneEnd());

@@ -327,7 +327,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1647220782}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.928
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -752,7 +752,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: -582743569
   m_SortingOrder: 0
@@ -1737,7 +1737,7 @@ MonoBehaviour:
   currentTime: 0
   sprites:
   - {fileID: 21300000, guid: 90194ff75075e0747b155e6887bc572b, type: 3}
-  - {fileID: 21300000, guid: ba6cb248d611a4448b1ada4eeec265a7, type: 3}
+  - {fileID: 21300000, guid: 3d14513aa118d2a429b83085c27621ac, type: 3}
 --- !u!95 &350974260
 Animator:
   serializedVersion: 4
@@ -4351,7 +4351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &886564406
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6664,6 +6664,9 @@ MonoBehaviour:
   cameraShake: {fileID: 1617959798}
   playerAttAnimation: {fileID: 1606718001}
   stage: {fileID: 1971553655}
+  monsterHpHandle:
+  - {fileID: 732048777}
+  - {fileID: 1470382201}
 --- !u!114 &1334043109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8945,7 +8948,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.928, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10896,8 +10899,18 @@ PrefabInstance:
       objectReference: {fileID: 1094630072}
     - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
         type: 3}
+      propertyPath: HP
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
+        type: 3}
       propertyPath: ATK
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
+        type: 3}
+      propertyPath: MaxHP
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
         type: 3}
@@ -10985,6 +10998,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 365095989}
     m_Modifications:
+    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
+        type: 3}
+      propertyPath: HP
+      value: 150000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
+        type: 3}
+      propertyPath: MaxHP
+      value: 150000
+      objectReference: {fileID: 0}
     - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
         type: 3}
       propertyPath: power
