@@ -262,11 +262,7 @@ public class BattleController : MonoBehaviour
     {
         backBtn.gameObject.SetActive(false);
         gm.resultBtn.gameObject.SetActive(true);
-        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-            "DEFEAT";
-        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.red;
-        gm.resultBtn.transform.GetChild(2).transform.GetChild(1).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-            "RESTART";
+        gm.resultBtn.transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(false);
         gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
         gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
         gm.resultBtn.transform.GetChild(3).gameObject.SetActive(false);
