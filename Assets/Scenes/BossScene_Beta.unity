@@ -6642,7 +6642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43def2f23bdc0344c93baa3b838655d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setStage: 1
+  setStage: 0
   camera: {fileID: 0}
   player_move: {fileID: 2108678527}
   monster: {fileID: 2111937681}
@@ -6702,8 +6702,8 @@ MonoBehaviour:
   parrying: {fileID: 8300000, guid: 264aaed01d3ea8141a9c0f9205d267c3, type: 3}
   createSword: {fileID: 8300000, guid: 126e3ec0f97334e42bea8983cd28d049, type: 3}
   shotSword: {fileID: 8300000, guid: f33b305bca93a924d9213ebfdd0f2cd5, type: 3}
-  rageTileChange: {fileID: 8300000, guid: fb7e7b201bd5c864a9dfaa05c3945c68, type: 3}
-  cowRageAtt: {fileID: 8300000, guid: 703c9b5e4a6e67c469f517543c77dc6b, type: 3}
+  rageTileChange: {fileID: 8300000, guid: e453e9fca85f97649b16e1a5025b38bb, type: 3}
+  cowRageAtt: {fileID: 8300000, guid: a7a5926fa5cbd9e4bb96006ca3c8b8b2, type: 3}
   demonRageAtt: {fileID: 8300000, guid: 166eb51613c6ba64795cab411e8e11e4, type: 3}
 --- !u!82 &1334043110
 AudioSource:
