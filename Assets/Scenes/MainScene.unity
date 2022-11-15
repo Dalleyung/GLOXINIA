@@ -1710,11 +1710,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 961477379}
-  - {fileID: 611653971}
   - {fileID: 2117551250}
-  - {fileID: 641546188}
   - {fileID: 1677317094}
   - {fileID: 119911332}
+  - {fileID: 611653971}
+  - {fileID: 641546188}
   - {fileID: 1035983702}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -2032,6 +2032,7 @@ MonoBehaviour:
   nameSpawn: {fileID: 1822583314}
   credit: {fileID: 1677317097}
   resultBtn: {fileID: 0}
+  resultEffect: {fileID: 0}
   Rage: {fileID: 0}
   gameOver: {fileID: 0}
   monsterController: {fileID: 0}

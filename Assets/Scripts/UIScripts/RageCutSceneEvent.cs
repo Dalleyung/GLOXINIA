@@ -72,6 +72,7 @@ public class RageCutSceneEvent : MonoBehaviour
                         {
                             gm.monster.swordList.Add(Instantiate(Resources.Load("Prefabs/" + "Cross") as GameObject));
                             gm.monster.swordList[i].transform.position = gm.bezierCurve.vecFirstList[i];
+                            gm.monster.swordList[i].transform.GetChild(0).GetComponent<Animator>().speed = 1;
                         }
                         gm.monster.swordList[gm.monster.spawnSwordCnt++].gameObject.SetActive(true);
                         gm.soundManager.PlayEffectSound(gm.soundManager.createSword);

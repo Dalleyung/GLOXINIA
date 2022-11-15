@@ -146,6 +146,10 @@ public class Sword : MonoBehaviour
         else
         {
             gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
+            if (gm.monster.swordList[0].gameObject == gameObject)
+            {
+                gm.player_move.FallingTileAnim();
+            }
         }
     }
 }

@@ -2389,10 +2389,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1606718002}
   - {fileID: 319601066}
-  - {fileID: 886564406}
   - {fileID: 771467347}
+  - {fileID: 1606718002}
+  - {fileID: 886564406}
   - {fileID: 1310315716}
   - {fileID: 1505723835}
   - {fileID: 1556086797}
@@ -5565,6 +5565,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 2108678530}
     m_Modifications:
+    - target: {fileID: 122992336684391720, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 202444117901084068, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 53
+      objectReference: {fileID: 0}
     - target: {fileID: 381856242683469988, guid: 3c488cf1d4859864c928e5e7193a466f,
         type: 3}
       propertyPath: m_Bounds.m_Center.y
@@ -5574,6 +5584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Bounds.m_Extent.y
       value: 1.5930483
+      objectReference: {fileID: 0}
+    - target: {fileID: 455929931184722599, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 2220799018402272722, guid: 3c488cf1d4859864c928e5e7193a466f,
         type: 3}
@@ -5590,6 +5605,11 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 2.6443293
       objectReference: {fileID: 0}
+    - target: {fileID: 3074021178489308364, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 57
+      objectReference: {fileID: 0}
     - target: {fileID: 3151703338481020653, guid: 3c488cf1d4859864c928e5e7193a466f,
         type: 3}
       propertyPath: m_Bounds.m_Extent.x
@@ -5600,10 +5620,30 @@ PrefabInstance:
       propertyPath: m_Bounds.m_Extent.y
       value: 2.3939042
       objectReference: {fileID: 0}
+    - target: {fileID: 3605273412129048783, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 58
+      objectReference: {fileID: 0}
+    - target: {fileID: 3606732122292037507, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 3766011711711280405, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 54
+      objectReference: {fileID: 0}
     - target: {fileID: 4414727760126159315, guid: 3c488cf1d4859864c928e5e7193a466f,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 52
+      objectReference: {fileID: 0}
+    - target: {fileID: 5801568762840455829, guid: 3c488cf1d4859864c928e5e7193a466f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 7033669904763823650, guid: 3c488cf1d4859864c928e5e7193a466f,
         type: 3}
@@ -5743,7 +5783,7 @@ PrefabInstance:
     - target: {fileID: 8554858810034149281, guid: 3c488cf1d4859864c928e5e7193a466f,
         type: 3}
       propertyPath: m_SortingOrder
-      value: 2
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 8983493851393329289, guid: 3c488cf1d4859864c928e5e7193a466f,
         type: 3}
@@ -6602,7 +6642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43def2f23bdc0344c93baa3b838655d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setStage: 0
+  setStage: 1
   camera: {fileID: 0}
   player_move: {fileID: 2108678527}
   monster: {fileID: 2111937681}
@@ -7326,7 +7366,7 @@ MonoBehaviour:
   player: {fileID: 0}
   limitTime: 10
   maxTime: 10
-  maxRageTime: 2
+  maxRageTime: 3
   timeover: 0
   timerbar: {fileID: 1397424030}
 --- !u!114 &1397424030
@@ -8979,8 +9019,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 560970275}
   - {fileID: 1470382202}
+  - {fileID: 560970275}
   m_Father: {fileID: 695736171}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9698,7 +9738,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1848698524}
   - component: {fileID: 1848698526}
-  - component: {fileID: 1848698525}
   m_Layer: 0
   m_Name: OverUICamera
   m_TagString: Untagged
@@ -9721,14 +9760,6 @@ Transform:
   m_Father: {fileID: 1617959797}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!81 &1848698525
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1848698523}
-  m_Enabled: 1
 --- !u!20 &1848698526
 Camera:
   m_ObjectHideFlags: 0
@@ -10865,6 +10896,11 @@ PrefabInstance:
       objectReference: {fileID: 1094630072}
     - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
         type: 3}
+      propertyPath: ATK
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
+        type: 3}
       propertyPath: monsterHPBar
       value: 
       objectReference: {fileID: 639970916}
@@ -10949,6 +10985,11 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 365095989}
     m_Modifications:
+    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
+        type: 3}
+      propertyPath: power
+      value: 130
+      objectReference: {fileID: 0}
     - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
         type: 3}
       propertyPath: monsterHPBar

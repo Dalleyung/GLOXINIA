@@ -150,6 +150,7 @@ public class Monster : MonoBehaviour
             case 0:
                 Debug.Log("1");
                 bigSword = Instantiate(Resources.Load("Prefabs/" + "BigSword") as GameObject);
+                bigSword.transform.position = new Vector3(0, 13, 0);
                 bigSword.SetActive(true);
                 break;
             case 1:
@@ -167,7 +168,7 @@ public class Monster : MonoBehaviour
                 copyObj4.GetComponent<Rigidbody2D>().AddForce(Vector2.down * power, ForceMode2D.Impulse);
                 Destroy(copyObj4, 0.2f);
 
-                gm.player.HP -= AttackPlayer();;
+                gm.player.HP -= AttackPlayer();
                 gm.cameraShake.shakePower = 1;
                 gm.cameraShake.Shake(true);
                 gm.damageTextSpawn.MakeMonsterDmgText();
@@ -204,7 +205,7 @@ public class Monster : MonoBehaviour
                 break;
             case 3:
                 GameObject cpyEffect = Instantiate(Resources.Load("Prefabs/" + "Normal_Attack_VFX") as GameObject);
-                cpyEffect.transform.position = new Vector3(0, 14f, 0);
+                cpyEffect.transform.position = bigSword.transform.position;
                 Destroy(cpyEffect, 1f);
                 break;
         }
@@ -372,9 +373,8 @@ public class Monster : MonoBehaviour
         switch (p_num)
         {
             case 0:
-                gm.monster.swordList[gm.monster.spawnSwordCnt].gameObject.SetActive(true);
+                swordList[spawnSwordCnt++].gameObject.SetActive(true);
                 gm.soundManager.PlayEffectSound(gm.soundManager.createSword);
-                spawnSwordCnt = 0;
                 break;
             case 1:
                 for (int i = 0; i < gm.setTile.TileList.Count; i++)
@@ -441,7 +441,7 @@ public class Monster : MonoBehaviour
 
     public IEnumerator FallingAnimDelay()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         for (int i = 0; i < gm.setTile.TileList.Count; i++)
         {
             Destroy(gm.setTile.TileList[i].gameObject);

@@ -34,7 +34,8 @@ public class UiAnim : MonoBehaviour
         {
             gm.setTile.TileList[i].gameObject.SetActive(true);
         }
-        
+
+        gm.monster.HPCheck();
     }
 
     private void StagePointEvent(int p_num)

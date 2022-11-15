@@ -155,7 +155,9 @@ public class BattleController : MonoBehaviour
             {
                 gm.player.RandDMG = Random.Range(1.00f, 1.07f);
                 gm.player.TotalDMG = ((9500 * (gm.player.ATK + gm.player_move.moveStack * gm.player.MoveATK) / 15) * gm.player.RandDMG);
-                
+
+                gm.cameraShake.shakePower = 1;
+                gm.cameraShake.Shake(true);
             }
             else
             {
