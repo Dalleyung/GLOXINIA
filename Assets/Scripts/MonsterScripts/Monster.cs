@@ -587,9 +587,7 @@ public class Monster : MonoBehaviour
             gm.battleController.backBtn.gameObject.SetActive(false);
             gm.resultBtn.gameObject.SetActive(true);
             gm.resultEffect.gameObject.SetActive(true);
-            gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-                "VICTORY";
-            gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.yellow;
+            gm.resultBtn.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(1).transform.GetChild(0).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
@@ -603,9 +601,7 @@ public class Monster : MonoBehaviour
             gm.resultBtn.transform.GetChild(2).transform.GetChild(0).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(2).transform.GetChild(1).gameObject.SetActive(false);
             gm.resultBtn.transform.GetChild(3).gameObject.SetActive(false);
-            gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-                "VICTORY";
-            gm.resultBtn.transform.GetChild(0).transform.GetChild(0).GetComponent<TextMeshProUGUI>().color = Color.yellow;
+            gm.resultBtn.transform.GetChild(0).transform.GetChild(1).gameObject.SetActive(false);
         }
         gm.soundManager.PlayBGMSound(gm.soundManager.victoryBGM);
         gm.monster.AttackDelay();

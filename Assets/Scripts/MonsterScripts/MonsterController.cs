@@ -8,7 +8,9 @@ public class MonsterController : MonoBehaviour
 {
     private MonsterController monster;
     public Sprite []Sprite;
+    public Sprite []NameSprite;
     public TextMeshProUGUI text;
+    public Image monsterName;
     public GameObject Icon;
 
 
@@ -36,7 +38,9 @@ public class MonsterController : MonoBehaviour
 
                 Icon.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
                 Icon.GetComponent<Image>().sprite = Sprite[0];
-                text.text = "Minotaurs";
+                monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Cow");
+                monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 100);
+                //text.text = "Minotaurs";
 
                 break;
             case (int)LoadingSceneManager.STAGE.DEMON:
@@ -48,7 +52,9 @@ public class MonsterController : MonoBehaviour
 
                 Icon.GetComponent<RectTransform>().sizeDelta = new Vector2(70, 100);
                 Icon.GetComponent<Image>().sprite = Sprite[1];
-                text.text = "Demon Knight";
+                monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Demon");
+                monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(210, 100);
+                //text.text = "Demon Knight";
 
 
                 break;
