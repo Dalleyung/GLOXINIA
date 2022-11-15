@@ -38,7 +38,7 @@ public class MonsterController : MonoBehaviour
 
                 Icon.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 100);
                 Icon.GetComponent<Image>().sprite = Sprite[0];
-                monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Cow");
+                monsterName.sprite = NameSprite[0];
                 monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 100);
                 //text.text = "Minotaurs";
 
@@ -52,7 +52,7 @@ public class MonsterController : MonoBehaviour
 
                 Icon.GetComponent<RectTransform>().sizeDelta = new Vector2(70, 100);
                 Icon.GetComponent<Image>().sprite = Sprite[1];
-                monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Demon");
+                monsterName.sprite = NameSprite[1];
                 monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(210, 100);
                 //text.text = "Demon Knight";
 
