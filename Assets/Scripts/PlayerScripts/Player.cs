@@ -31,7 +31,9 @@ public class Player : MonoBehaviour
     public float MoveATK = 0.47f;
 
     public bool P_Fail;
+
     float time;
+    float beforesize;
 
     // Start is called before the first frame update
     void Start()
@@ -81,6 +83,19 @@ public class Player : MonoBehaviour
 
                 if(time >= 1)
                     time = 0;
+        }
+
+        if (playerHPBar2 != null && HP >= -1)
+        {
+            if (playerHPBar2.size > playerHPBar.size)
+                time += Time.deltaTime;
+            else
+                beforesize = playerHPBar2.size;
+
+            playerHPBar2.size = Mathf.Lerp(beforesize, playerHPBar.size, time);
+
+            if (time >= 1)
+                time = 0;
         }
     }
 
