@@ -2796,7 +2796,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: 41}
+  m_AnchoredPosition: {x: 34, y: 41}
   m_SizeDelta: {x: 250, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &579798141
@@ -5990,7 +5990,6 @@ MonoBehaviour:
   parrying: {fileID: 8300000, guid: 264aaed01d3ea8141a9c0f9205d267c3, type: 3}
   createSword: {fileID: 8300000, guid: 126e3ec0f97334e42bea8983cd28d049, type: 3}
   shotSword: {fileID: 8300000, guid: f33b305bca93a924d9213ebfdd0f2cd5, type: 3}
-  rageTileChange: {fileID: 8300000, guid: e453e9fca85f97649b16e1a5025b38bb, type: 3}
   cowRageAtt: {fileID: 8300000, guid: a7a5926fa5cbd9e4bb96006ca3c8b8b2, type: 3}
   demonRageAtt: {fileID: 8300000, guid: 166eb51613c6ba64795cab411e8e11e4, type: 3}
 --- !u!82 &1334043110
@@ -10183,29 +10182,9 @@ PrefabInstance:
       objectReference: {fileID: 1325859587}
     - target: {fileID: 7206680974842553256, guid: a2990d4172701bf429ad7525d419dd35,
         type: 3}
-      propertyPath: rageCase
-      value: 
-      objectReference: {fileID: 1395727492}
-    - target: {fileID: 7206680974842553256, guid: a2990d4172701bf429ad7525d419dd35,
-        type: 3}
       propertyPath: rageBackground
       value: 
       objectReference: {fileID: 1094630072}
-    - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
-        type: 3}
-      propertyPath: HP
-      value: 100000
-      objectReference: {fileID: 0}
-    - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
-        type: 3}
-      propertyPath: ATK
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
-        type: 3}
-      propertyPath: MaxHP
-      value: 100000
-      objectReference: {fileID: 0}
     - target: {fileID: 7206680974842553259, guid: a2990d4172701bf429ad7525d419dd35,
         type: 3}
       propertyPath: monsterHPBar
@@ -10294,21 +10273,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
         type: 3}
-      propertyPath: HP
-      value: 150000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
-        type: 3}
-      propertyPath: MaxHP
-      value: 150000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
-        type: 3}
-      propertyPath: power
-      value: 130
-      objectReference: {fileID: 0}
-    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
-        type: 3}
       propertyPath: monsterHPBar
       value: 
       objectReference: {fileID: 639970916}
@@ -10327,11 +10291,6 @@ PrefabInstance:
       propertyPath: rageUI
       value: 
       objectReference: {fileID: 1325859587}
-    - target: {fileID: 7660645530556260845, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
-        type: 3}
-      propertyPath: rageCase
-      value: 
-      objectReference: {fileID: 1395727492}
     - target: {fileID: 7660645530556260845, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
         type: 3}
       propertyPath: rageBackground
@@ -10396,11 +10355,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Demon_Boss_Animation
-      objectReference: {fileID: 0}
-    - target: {fileID: 8138586500223913914, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

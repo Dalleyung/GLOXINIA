@@ -44,6 +44,7 @@ public class MonsterController : MonoBehaviour
                 monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Cow");
                 monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 100);
 
+
                 monsterName.transform.localPosition = name;
                 //text.text = "Minotaurs";
 
@@ -60,7 +61,8 @@ public class MonsterController : MonoBehaviour
                 monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Demon");
                 monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(210, 100);
 
-                monsterName.transform.localPosition = name + new Vector3(-24, 0, 0);
+                monsterName.transform.localScale = new Vector3(.9f, .9f, .9f);
+                monsterName.transform.localPosition = name + new Vector3(-31, 0, 0);
                 //text.text = "Demon Knight";
 
 
