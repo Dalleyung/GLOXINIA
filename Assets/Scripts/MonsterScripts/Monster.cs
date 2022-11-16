@@ -119,7 +119,7 @@ public class Monster : MonoBehaviour
     //플레이어 공격할때 동시처리 함수
     public int AttackPlayer()
     {
-        if(gm.monster.israge)
+        if (gm.monster.israge)
         {
             RandDMG = Random.Range(1.3f, 1.5f);
             if (LoadingSceneManager.currentStage == 0)//현재 씬이 소일때
@@ -242,7 +242,7 @@ public class Monster : MonoBehaviour
         {
             AllTileFallingAnim();
             Debug.Log("공격 맞음");
-            
+
             if (rage < MAX_RAGE && gm.timer.timeover == true)
             {
                 gm.player.HP -= AttackPlayer();
@@ -331,28 +331,16 @@ public class Monster : MonoBehaviour
 
     public void BossRageAttack()
     {
-        if (gm.battleController.shieldOn)
+        if (gm.Rage.ragecount >= 3)
         {
-            for (int i = 0; i < gm.setTile.TileList.Count; i++)
-            {
-                gm.setTile.TileList[i].TileShield();
-            }
-            gm.cameraShake.shakePower = 0.2f;
+            Debug.Log("분노공격성공");
+            //몬스터 분노 퍼즐 실패 데미지
+            gm.player.HP -= AttackPlayer();
+            gm.cameraShake.shakePower = 2;
             gm.cameraShake.Shake(true);
-        }
-        else
-        {
-            if (gm.Rage.ragecount >= 3)
-            {
-                Debug.Log("분노공격성공");
-                //몬스터 분노 퍼즐 실패 데미지
-                gm.player.HP -= AttackPlayer();
-                gm.cameraShake.shakePower = 2;
-                gm.cameraShake.Shake(true);
-                gm.damageTextSpawn.MakeMonsterDmgText();
-                gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
-                
-            }
+            gm.damageTextSpawn.MakeMonsterDmgText();
+            gm.soundManager.PlayEffectSound(gm.soundManager.demonAttack);
+
         }
 
         // 체력 검사
@@ -375,7 +363,7 @@ public class Monster : MonoBehaviour
 
     public void BossRageAttackEvent(int p_num)
     {
-        
+
         switch (p_num)
         {
             case 0:
@@ -394,7 +382,7 @@ public class Monster : MonoBehaviour
                 {
                     HandleRageStack();
                 }
-                
+
                 gm.battleController.shieldOn = false;
                 if (Skill.skillGauge != 0)
                 {
@@ -470,7 +458,7 @@ public class Monster : MonoBehaviour
 
         //분노 상태 돌입 시 컷신 연출동안 플레이어 freeze에 타일을 빈타일로 만들기 위함
         // 분노 후 피버로 들어갈 시에 위와 같은 이유로 피버도 추가
-        if(israge || gm.battleController.feverOn)
+        if (israge || gm.battleController.feverOn)
         {
             //컷씬 연출이 끝나고 freeze 해제 및 TileHandler호출로 타일 재배치
             AttackDelay();

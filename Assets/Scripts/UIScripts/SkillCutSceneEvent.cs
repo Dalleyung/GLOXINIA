@@ -38,7 +38,7 @@ public class SkillCutSceneEvent : MonoBehaviour
                 gm.soundManager.PlayEffectSound(gm.soundManager.feverStart);
                 break;
             case 1:
-                gm.timer.limitTime = gm.timer.maxTime;
+                gm.timer.limitTime = gm.timer.maxFeverTime;
                 gameObject.SetActive(false);
                 gm.timer.gameObject.SetActive(true);
                 gm.battleController.TileHandler();
