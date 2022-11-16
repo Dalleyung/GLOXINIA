@@ -13,10 +13,13 @@ public class MonsterController : MonoBehaviour
     public Image monsterName;
     public GameObject Icon;
 
+    Vector3 name;
+
 
     void Start()
     {
         monster = GetComponent<MonsterController>();
+        name = monsterName.transform.localPosition;
     }
 
     void Update()
@@ -40,6 +43,8 @@ public class MonsterController : MonoBehaviour
                 Icon.GetComponent<Image>().sprite = Sprite[0];
                 monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Cow");
                 monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(250, 100);
+
+                monsterName.transform.localPosition = name;
                 //text.text = "Minotaurs";
 
                 break;
@@ -54,6 +59,8 @@ public class MonsterController : MonoBehaviour
                 Icon.GetComponent<Image>().sprite = Sprite[1];
                 monsterName.sprite = Resources.Load<Sprite>("Sprite/TextImage/Demon");
                 monsterName.GetComponent<RectTransform>().sizeDelta = new Vector2(210, 100);
+
+                monsterName.transform.localPosition = name + new Vector3(-24, 0, 0);
                 //text.text = "Demon Knight";
 
 
