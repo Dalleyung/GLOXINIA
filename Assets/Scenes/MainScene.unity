@@ -1404,6 +1404,7 @@ MonoBehaviour:
   - "\uC548\uC6B0\uC131"
   - "\uD64D\uC6A9\uC9C4"
   - "\uD5C8\uC815\uBB34"
+  - "\uD64D\uC2B9\uC5B8"
   - "\uB514\uC790\uC778"
   - "\uAE40\uC9C0\uD61C"
   - "\uC548\uCC3D\uC6B0"
@@ -2040,6 +2041,7 @@ MonoBehaviour:
   cameraShake: {fileID: 0}
   playerAttAnimation: {fileID: 0}
   stage: {fileID: 0}
+  monsterHpHandle: []
 --- !u!114 &1822583314
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -55,7 +55,8 @@ public class Monster : MonoBehaviour
     public int RefFig = 15000;
 
     //HPbar º¯¼ö
-    float time;
+    public float time;
+    float beforesize;
 
     enum MonsterType
     {
@@ -90,8 +91,12 @@ public class Monster : MonoBehaviour
         }
         if (monsterHPBar2 != null && HP >= -1)
         {
-            time += Time.deltaTime * 0.0007f;
-            monsterHPBar2.size = Mathf.Lerp(monsterHPBar2.size, monsterHPBar.size, time);
+            if (monsterHPBar2.size > monsterHPBar.size)
+                time += Time.deltaTime;
+            else
+                beforesize = monsterHPBar2.size;
+
+            monsterHPBar2.size = Mathf.Lerp(beforesize, monsterHPBar.size, time);
 
             if (time >= 1)
                 time = 0;

@@ -38,7 +38,7 @@ public class NameSpawn : MonoBehaviour
             cpyText.transform.localPosition = new Vector2(0, -340);
             cpyText.transform.localScale = Vector3.one;
             cpyText.gameObject.SetActive(true);
-            if(count == 0 || count == 5 || count == 10 || count == 16)
+            if(count == 0 || count == 6 || count == 11 || count == 17)
             {
                 cpyText.fontSize = 42;
                 cpyText.fontStyle = FontStyles.Bold;
@@ -65,7 +65,7 @@ public class NameSpawn : MonoBehaviour
         {
             if(count < gm.credit.nameList.Count)
             {
-                if(count == 5 || count == 10 || count == 16)
+                if(count == 6 || count == 11 || count == 17)
                 {
                     yield return new WaitForSeconds(2.5f);
                 }
