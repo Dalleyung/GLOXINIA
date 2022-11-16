@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class LoadingSceneManager : MonoBehaviour
 {
-    public enum STAGE { MAIN = -1, COW, DEMON, MAX }
+    public enum STAGE { MAIN = -1, COW, DEMON, TUTORIAL, MAX }
 
     public static string nextScene;
     [SerializeField] Slider progressBar;
@@ -70,6 +70,10 @@ public class LoadingSceneManager : MonoBehaviour
             case (int)STAGE.DEMON:
                 currentStage = num;
                 LoadScene("BossScene_Beta");
+                break;
+            case (int)STAGE.TUTORIAL:
+                currentStage = num;
+                LoadScene("TutorialScene");
                 break;
         }
     }

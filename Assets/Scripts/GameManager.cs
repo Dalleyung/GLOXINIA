@@ -112,6 +112,12 @@ public class GameManager : MonoBehaviour
         LoadingSceneManager.currentStage = (int)LoadingSceneManager.STAGE.DEMON;
         LoadingSceneManager.NowStage((int)LoadingSceneManager.STAGE.DEMON);
     }
+
+    public void TutorialStart()
+    {
+        LoadingSceneManager.currentStage = (int)LoadingSceneManager.STAGE.TUTORIAL;
+        LoadingSceneManager.NowStage((int)LoadingSceneManager.STAGE.TUTORIAL);
+    }
     public void Restart()
     {
         Player.S_HP = Player.S_MaxHP;

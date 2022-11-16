@@ -1005,7 +1005,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1822583313}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: BossStart
+        m_MethodName: TutorialStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1812,7 +1812,6 @@ MonoBehaviour:
   parrying: {fileID: 0}
   createSword: {fileID: 0}
   shotSword: {fileID: 0}
-  rageTileChange: {fileID: 0}
   cowRageAtt: {fileID: 0}
   demonRageAtt: {fileID: 0}
 --- !u!82 &1822583311
@@ -2040,6 +2039,7 @@ MonoBehaviour:
   bezierCurve: {fileID: 0}
   cameraShake: {fileID: 0}
   playerAttAnimation: {fileID: 0}
+  tutorialController: {fileID: 0}
   stage: {fileID: 0}
   monsterHpHandle: []
 --- !u!114 &1822583314

@@ -28,7 +28,10 @@ public class FadeOut : MonoBehaviour
                 fadeBG.gameObject.SetActive(false);
                 if (LoadingSceneManager.currentStage != (int)LoadingSceneManager.STAGE.MAIN)
                 {
-                    gm.stage.gameObject.SetActive(true);
+                    if (LoadingSceneManager.currentStage != (int)LoadingSceneManager.STAGE.TUTORIAL)
+                    {
+                        gm.stage.gameObject.SetActive(true);
+                    }
                 }
                 curFadeTime = 0;
                 yield break;
