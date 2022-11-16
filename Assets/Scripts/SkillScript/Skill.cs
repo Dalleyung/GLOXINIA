@@ -100,6 +100,7 @@ public class Skill : MonoBehaviour
 
             if (!gm.monster.isDie && !gm.monster.israge && gm.Rage.ragecount == 0)
             {
+                gm.player_move.gameObject.transform.position = new Vector3(1000, 0, 0);
                 gm.soundManager.PlayBGMSound(gm.soundManager.feverBGM);
                 gm.monster.AttackDelay();
                 gm.timer.gameObject.SetActive(false);
