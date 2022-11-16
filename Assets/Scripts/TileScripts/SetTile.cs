@@ -95,7 +95,6 @@ public class SetTile : MonoBehaviour
         }
         else if (gm.monster.israge)
         {
-            gm.soundManager.PlayEffectSound(gm.soundManager.rageTileChange);
             Debug.Log("분노타일교체사운드");
             gm.Rage.RagePreset();
         }

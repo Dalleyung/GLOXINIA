@@ -32,7 +32,7 @@ public class GameOver : MonoBehaviour
         while (true)
         {
             yield return null;
-            currentTime += Time.deltaTime;
+            currentTime += Time.deltaTime * 0.5f;
             fadeBG.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), currentTime);
             if (currentTime >= 1)
             {
@@ -49,7 +49,7 @@ public class GameOver : MonoBehaviour
         while (true)
         {
             yield return null;
-            currentTime -= Time.deltaTime;
+            currentTime -= Time.deltaTime * 0.5f;
             fadeBG.color = Color.Lerp(new Color(0, 0, 0, 0), new Color(0, 0, 0, 1), currentTime);
             if (currentTime <= 0)
             {
@@ -67,7 +67,7 @@ public class GameOver : MonoBehaviour
         while (true)
         {
             yield return null;
-            currentTime += Time.deltaTime;
+            currentTime += Time.deltaTime * 0.5f;
             light.color = Color.Lerp(new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), currentTime);
             if (currentTime >= 1)
             {

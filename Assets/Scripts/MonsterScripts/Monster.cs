@@ -344,6 +344,7 @@ public class Monster : MonoBehaviour
         {
             if (gm.Rage.ragecount >= 3)
             {
+                Debug.Log("분노공격성공");
                 //몬스터 분노 퍼즐 실패 데미지
                 gm.player.HP -= AttackPlayer();
                 gm.cameraShake.shakePower = 2;

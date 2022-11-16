@@ -1710,10 +1710,11 @@ MonoBehaviour:
   gm: {fileID: 0}
   player: {fileID: 0}
   ATK: 10
-  HP: 200000
-  MaxHP: 200000
+  HP: 150000
+  MaxHP: 150000
   isDie: 0
   monsterHPBar: {fileID: 0}
+  monsterHPBar2: {fileID: 0}
   rage: 0
   israge: 0
   anim: {fileID: 0}
@@ -1732,8 +1733,9 @@ MonoBehaviour:
   RandDMG: 0
   TotalDMG: 0
   RefFig: 15000
+  time: 0
   type: 0
-  power: 150
+  power: 130
 --- !u!1 &8138586500228335953
 GameObject:
   m_ObjectHideFlags: 0
