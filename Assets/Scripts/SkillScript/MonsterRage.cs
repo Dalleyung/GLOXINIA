@@ -57,12 +57,12 @@ public class MonsterRage : MonoBehaviour
                 for (int x = 0; x < 6; x++)
                 {
                     string[] values = source.Split(' ');  // 쉼표로 구분한다. 저장시에 공백으로 구분하여 저장하였다.
-                    setTile.m_stagepreset[ 0, x] = int.Parse(values[0]);
-                    setTile.m_stagepreset[ 1, x] = int.Parse(values[1]);
-                    setTile.m_stagepreset[ 2, x] = int.Parse(values[2]);
-                    setTile.m_stagepreset[ 3, x] = int.Parse(values[3]);
-                    setTile.m_stagepreset[ 4, x] = int.Parse(values[4]);
-                    setTile.m_stagepreset[ 5,x] = int.Parse(values[5]);
+                    setTile.m_ragestagepreset[ 0, x] = int.Parse(values[0]);
+                    setTile.m_ragestagepreset[ 1, x] = int.Parse(values[1]);
+                    setTile.m_ragestagepreset[ 2, x] = int.Parse(values[2]);
+                    setTile.m_ragestagepreset[ 3, x] = int.Parse(values[3]);
+                    setTile.m_ragestagepreset[ 4, x] = int.Parse(values[4]);
+                    setTile.m_ragestagepreset[ 5,x] = int.Parse(values[5]);
                     source = sr.ReadLine();
                 }
                 source = null;
@@ -75,15 +75,15 @@ public class MonsterRage : MonoBehaviour
         {
             for (int j = 1; j < 5; j++)
             {
-                if (setTile.m_stagepreset[i, j] == (int)SetTile.E_TileValue.Tile)
+                if (setTile.m_ragestagepreset[i, j] == (int)SetTile.E_TileValue.Tile)
                 {
                     setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Tile;
                 }
-                else if (setTile.m_stagepreset[i, j] == (int)SetTile.E_TileValue.Disable_Tile)
+                else if (setTile.m_ragestagepreset[i, j] == (int)SetTile.E_TileValue.Disable_Tile)
                 {
                     setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Fever_Disable_Tile;
                 }
-                else if (setTile.m_stagepreset[i, j] == (int)SetTile.E_TileValue.Start_Tile)
+                else if (setTile.m_ragestagepreset[i, j] == (int)SetTile.E_TileValue.Start_Tile)
                 {
                     setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Start_Tile;
                 }

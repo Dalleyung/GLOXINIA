@@ -105,15 +105,15 @@ public class BattleController : MonoBehaviour
             {
                 for (int j = 1; j < 5; j++)
                 {
-                    if (gm.setTile.m_stagepreset[i, j] == (int)SetTile.E_TileValue.Tile)
+                    if (gm.setTile.m_ragestagepreset[i, j] == (int)SetTile.E_TileValue.Tile)
                     {
                         gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Tile;
                     }
-                    else if (gm.setTile.m_stagepreset[i, j] == (int)SetTile.E_TileValue.Disable_Tile)
+                    else if (gm.setTile.m_ragestagepreset[i, j] == (int)SetTile.E_TileValue.Disable_Tile)
                     {
                         gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Fever_Disable_Tile;
                     }
-                    else if (gm.setTile.m_stagepreset[i, j] == (int)SetTile.E_TileValue.Start_Tile)
+                    else if (gm.setTile.m_ragestagepreset[i, j] == (int)SetTile.E_TileValue.Start_Tile)
                     {
                         gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Start_Tile;
                     }

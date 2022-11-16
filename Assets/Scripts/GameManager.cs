@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public BezierCurve bezierCurve;
     public CameraShake cameraShake;
     public PlayerAttAnimation playerAttAnimation;
+    public TutorialController tutorialController;
     public GameObject stage;
     public GameObject[] monsterHpHandle;
 

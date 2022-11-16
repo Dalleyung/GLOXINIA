@@ -18,7 +18,8 @@ public class SetTile : MonoBehaviour
     public int col = 4; //열
 
     //가져온 프리셋을 저장할 변수
-    public int[,] m_stagepreset = new int[6, 6];
+    public int[,] m_ragestagepreset = new int[6, 6];
+    public int[,] m_skillstagepreset = new int[6, 6];
     public int nowpreset = 0;
 
     private GameManager gm;
