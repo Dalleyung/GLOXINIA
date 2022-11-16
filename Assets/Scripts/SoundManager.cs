@@ -42,7 +42,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip createSword;
     public AudioClip shotSword;
 
-    public AudioClip rageTileChange;
     public AudioClip cowRageAtt;
     public AudioClip demonRageAtt;
 
