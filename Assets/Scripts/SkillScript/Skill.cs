@@ -95,7 +95,13 @@ public class Skill : MonoBehaviour
 
             if (gm.monster.israge == false)
             {
-                isSkillGaugeFull = true;
+                //피버 게이지 100 도달과 몬스터가 죽는 시점에 피버 게이지 100 도달 시 full이 true가 되면
+                //attackhandler에서 조건의 맞는 코드가 없어서 멈춰버림 -> 몬스터가 죽으면 full이 true가 되지 않게 함
+                //(다음 스테이지 넘어갈 시 피버게이지는 줄어들기 때문에 상관없음)
+                if (!gm.monster.isDie)
+                {
+                    isSkillGaugeFull = true;
+                }
             }
 
             if (!gm.monster.isDie && !gm.monster.israge && gm.Rage.ragecount == 0)
