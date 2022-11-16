@@ -23,7 +23,7 @@ public class BattleController : MonoBehaviour
 
     void Update()
     {
-        
+
     }
 
     public void TimeOverHandler()
@@ -41,7 +41,7 @@ public class BattleController : MonoBehaviour
     public void AttackHandler()
     {
         Debug.Log("어택 핸들러 호출");
-        
+
         AttackSuccess();
 
         //gm.gameObject.GetComponent<AudioSource>().pitch = 1;
@@ -53,9 +53,9 @@ public class BattleController : MonoBehaviour
 
             //gm.monster.AttackAnimation();
         }
-        else if(gm.monster.israge)
+        else if (gm.monster.israge)
         {
-            if(gm.Rage.ragecount >= 4)
+            if (gm.Rage.ragecount >= 4)
             {
                 if (gm.Rage.rageclear >= 4)
                 {
@@ -68,11 +68,11 @@ public class BattleController : MonoBehaviour
                 TileHandler();
             }
         }
-        else if(feverOn)
+        else if (feverOn)
         {
             gm.soundManager.PlayEffectSound(gm.soundManager.feverAttack);
             gm.monster.HitAnimation();
-            
+
             //if (feverOn)
             //{
             //    //피버 타격당 체력회복 계산 공식
@@ -98,7 +98,7 @@ public class BattleController : MonoBehaviour
             gm.player_move.gameObject.transform.position = new Vector3(1000, 0, 0);
         }
 
-        if ((gm.skill.isSkillGaugeFull || gm.monster.israge) && !gm.player_move.freeze)
+        if (gm.monster.israge && !gm.player_move.freeze)
         {
             int count = 0;
             for (int i = 1; i < (gm.setTile.TileList.Count / 4) + 1; i++)
@@ -114,6 +114,29 @@ public class BattleController : MonoBehaviour
                         gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Fever_Disable_Tile;
                     }
                     else if (gm.setTile.m_ragestagepreset[i, j] == (int)SetTile.E_TileValue.Start_Tile)
+                    {
+                        gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Start_Tile;
+                    }
+                    count++;
+                }
+            }
+        }
+        else if (gm.skill.isSkillGaugeFull && !gm.player_move.freeze)
+        {
+            int count = 0;
+            for (int i = 1; i < (gm.setTile.TileList.Count / 4) + 1; i++)
+            {
+                for (int j = 1; j < 5; j++)
+                {
+                    if (gm.setTile.m_skillstagepreset[i, j] == (int)SetTile.E_TileValue.Tile)
+                    {
+                        gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Tile;
+                    }
+                    else if (gm.setTile.m_skillstagepreset[i, j] == (int)SetTile.E_TileValue.Disable_Tile)
+                    {
+                        gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Fever_Disable_Tile;
+                    }
+                    else if (gm.setTile.m_skillstagepreset[i, j] == (int)SetTile.E_TileValue.Start_Tile)
                     {
                         gm.setTile.TileList[count].GetComponent<Tile>().tileValue = (int)SetTile.E_TileValue.Start_Tile;
                     }
@@ -147,11 +170,11 @@ public class BattleController : MonoBehaviour
         if (!gm.monster.israge)
         {
             Debug.Log("공격 성공");
-            
+
 
 
             //피버일때랑 아닐때 대미지 공식
-            if(!gm.skill.isSkillGaugeFull)
+            if (!gm.skill.isSkillGaugeFull)
             {
                 gm.player.RandDMG = Random.Range(1.00f, 1.07f);
                 gm.player.TotalDMG = ((9500 * (gm.player.ATK + gm.player_move.moveStack * gm.player.MoveATK) / 15) * gm.player.RandDMG);
@@ -193,7 +216,7 @@ public class BattleController : MonoBehaviour
                 {
                     gm.monsterHpHandle[i].SetActive(false);
                 }
-                
+
             }
         }
         else
@@ -236,7 +259,7 @@ public class BattleController : MonoBehaviour
         if (gm.monster.israge)
         {
             gm.timer.limitTime = gm.timer.maxRageTime;
-            if(gm.timer.timeover == true)
+            if (gm.timer.timeover == true)
             {
                 gm.timer.timeover = false;
             }

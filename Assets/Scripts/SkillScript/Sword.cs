@@ -141,7 +141,16 @@ public class Sword : MonoBehaviour
 
         if (gm.battleController.shieldOn)
         {
-            gm.soundManager.PlayEffectSound(gm.soundManager.parrying);
+            if (gm.monster.swordList[0].gameObject == gameObject)
+            {
+                for (int i = 0; i < gm.setTile.TileList.Count; i++)
+                {
+                    gm.setTile.TileList[i].TileShield();
+                }
+                gm.cameraShake.shakePower = 0.2f;
+                gm.cameraShake.Shake(true);
+                gm.soundManager.PlayEffectSound(gm.soundManager.parrying);
+            }
         }
         else
         {
@@ -150,10 +159,11 @@ public class Sword : MonoBehaviour
             {
                 gm.player_move.FallingTileAnim();
             }
-            if (gm.monster.swordList[4].gameObject == gameObject)
-            {
-                gm.monster.swordList.Clear();
-            }
+        }
+
+        if (gm.monster.swordList[4].gameObject == gameObject)
+        {
+            gm.monster.swordList.Clear();
         }
     }
 }
