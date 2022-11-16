@@ -9,7 +9,7 @@ public class MonsterController : MonoBehaviour
     private MonsterController monster;
     public Sprite []Sprite;
     public Sprite []NameSprite;
-    public TextMeshProUGUI text;
+    //public TextMeshProUGUI text;
     public Image monsterName;
     public GameObject Icon;
 
