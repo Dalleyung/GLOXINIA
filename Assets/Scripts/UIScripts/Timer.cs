@@ -12,8 +12,9 @@ public class Timer : MonoBehaviour
     DateTime nowtime;
     float comparetime;
     public float limitTime;
-    public float maxTime = 10f;
-    public float maxRageTime = 2f;
+    public float maxTime = 6f;
+    public float maxRageTime = 2.5f;
+    public float maxFeverTime = 10f;
     public bool timeover = false;
     public Scrollbar timerbar;
 
@@ -65,6 +66,10 @@ public class Timer : MonoBehaviour
         if (gm.monster.israge)
         {
             timerbar.size = limitTime / maxRageTime;
+        }
+        else if (gm.battleController.feverOn)
+        {
+            timerbar.size = limitTime / maxFeverTime;
         }
         else if (!gm.monster.israge)
         {

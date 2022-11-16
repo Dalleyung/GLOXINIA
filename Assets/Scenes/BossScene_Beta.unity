@@ -6495,9 +6495,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gm: {fileID: 0}
   player: {fileID: 0}
-  limitTime: 10
-  maxTime: 10
-  maxRageTime: 3
+  limitTime: 6
+  maxTime: 6
+  maxRageTime: 2.5
   timeover: 0
   timerbar: {fileID: 1397424030}
 --- !u!114 &1397424030
