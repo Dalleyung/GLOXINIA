@@ -64,7 +64,7 @@ public class Skill : MonoBehaviour
         {
             skillGaugeBar.size = skillGauge / maxSkillGauge;
 
-            Color A = Color.yellow;
+            //Color A = Color.yellow;
             //Color A = Color.Lerp(Color.cyan, Color.blue, skillGaugeBar.size);
             //Color B = Color.Lerp(Color.blue, new Color(0f, 0f, 0.54f, 1f), skillGaugeBar.size);
             //Color C = Color.Lerp(new Color(0f, 0f, 0.54f, 1f), Color.magenta, skillGaugeBar.size);
@@ -72,7 +72,7 @@ public class Skill : MonoBehaviour
             //Color E = Color.Lerp(B, C, skillGaugeBar.size);
             //Color F = Color.Lerp(D, E, skillGaugeBar.size);
 
-            skillGaugeBar.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = A;
+            //skillGaugeBar.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().color = A;
         }
     }
 

@@ -6498,6 +6498,7 @@ MonoBehaviour:
   limitTime: 6
   maxTime: 6
   maxRageTime: 2.5
+  maxFeverTime: 10
   timeover: 0
   timerbar: {fileID: 1397424030}
 --- !u!114 &1397424030
@@ -6925,7 +6926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5019608, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8214,7 +8215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5019608, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10272,6 +10273,16 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 365095989}
     m_Modifications:
+    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
+        type: 3}
+      propertyPath: HP
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
+        type: 3}
+      propertyPath: MaxHP
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 4373262670479416978, guid: 7c540b5a6bcdf3a48bf4303d9094e892,
         type: 3}
       propertyPath: monsterHPBar
